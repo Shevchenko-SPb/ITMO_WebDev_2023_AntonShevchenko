@@ -7,56 +7,144 @@
     <title>Wellcome</title>
   </head>
   <body>
-    <header>Header <span>Linear</span></header>
+    <header align="center">Header</header>
     <main>
-      <aside>Sidebar</aside>
+      <h1>First level heading</h1>
+      <h2>Second level heading</h2>
+      <h3>Third level heading</h3>
+      <h4>Fourth level heading</h4>
+      <h5>Level 5 heading</h5>
+      <h6>Level 6 heading</h6>
+      <p><b>Жирный </b><i>курсивный </i><s>зачеркнутый </s>   текст</p>
+      <div>
+        <ul>
+          Маркированный список:
+          <li>First</li>
+          <li>Second</li>
+          <li>Fhird</li>
+        </ul>
+        <ol>
+          Нумированный список:
+          <li>First</li>
+          <li>Second</li>
+          <li>Third</li>
+        </ol>
+        <dl>
+          Список определений:
+          <li>First</li>
+          <li>Second</li>
+          <li>Third</li>
+        </dl>
+      </div>
+        <form>
+          <p><b>Ваше имя?</b></p>
+          <input type="text" size="40">
+          <p><b>Ваше фамилия?</b></p>
+          <input type="text" size="40">
+          <div>
+            <p> </p>
+            <input name="e_mail" placeholder="E-mail" size="40">
+          </div>
+          <div>
+            <p><b>Какие языки вы знаете?</b></p>
+            <p><input type="checkbox" name="a"> Русский </p>
+            <p><input type="checkbox" name="b"> English </p>
+            <p><input type="checkbox" name="c"> Deutsch </p>
+            <p><input type="checkbox" name="d"> El español </p>
+            <p><input type="checkbox" name="e"> 汉语 hànyǔ</p>
+          </div>
+          <div>
+            <p><b>Дата рождения?</b></p>
+            <p><input type="date"></p>
+            <p><b>У Вас есть водительское удостоверение?</b></p>
+            <p><input name="dzen" type="radio" value="nedzen"> Да</p>
+            <p><input name="dzen" type="radio" value="dzen"> Нет</p>
+            <p><input type="submit" value="Зарегистрироваться"></p>
+          </div>
+          <div>
+            <button onclick="alert('Я же говорил не нажимать!')"><b>Не нажимай на кнопку!</b></button>
+          </div>
+        </form>
+      </div>
+
       <section>
-        <arcticle>
-          <ol>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ol>
-          <h1>Header text 1</h1>
-          <p>Text paragraph</p>
-          <h2>Header text 2</h2>
-          Arcticle
-          <p align="center" style="color: chartreuse">center</p>
-          <p style="color: blue" align="right">Blue</p>
-          <i>Курсив</i>
-          <a href="https://google.com" target="_blank">Google</a>
-          <img
-            src="data:image/jpeg;base64,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"
-          />
-        </arcticle>
-        <table>
+        <table border = "2">
+          <p></p>
+          Таблица:
           <tr>
             <td>11</td>
             <td>12</td>
             <td>13</td>
+            <td>14</td>
           </tr>
           <tr>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>32</td>
+            <td>33</td>
+            <td>34</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>42</td>
+            <td>43</td>
+            <td>44</td>
+          </tr>
+        </table>
+        <p><b>Таблица объеденённая:</b></p>
+        <table border = "2">
+          <tr>
+            <td colspan="2">1112</td>
+            <td>13</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>32</td>
+            <td colspan="2" rowspan="2">3334 4344</td>
+          </tr>
+          <tr>
+            <td>41</td>
+            <td>42</td>
           </tr>
         </table>
       </section>
       <section>
-        <form onsubmit="return false;">
-          <div>
-            <label for="first_name">first_name</label>
-            <input type="text" id="first_name" />
-          </div>
-          <div>
-            <label for="second_name">second_name</label>
-            <input type="text" id="second_name" pattern="A-Za-z" />
-          </div>
-          <div id="result">Result</div>
-          <div><button>Send</button></div>
+        <p><b>Ваш любимый цвет?</b></p>
+        <select>
+          <option>Синий</option>
+          <option>Красный</option>
+          <option>Зелёный</option>
+          <option>Желтый</option>
+          <option>Черный</option>
+        </select>
+        <p><input type="submit" value="Отправить"></p>
         </form>
+        <div>
+          <img src="/Pics/1.jpeg">
+        </div>
+        <div>
+          <img src="/Pics/2.svg" height="300px" width="300px">
+        </div>
+        <div>
+          <svg width="300" height="200">
+            <rect width="300" height="300" fill="black"/>
+            <circle cx="150" cy="100" r="100" fill="red"/>
+          </svg>
+        </div>
       </section>
     </main>
-    <footer>Footer</footer>
+    <footer align="center">Footer</footer>
   </body>
 </html>
