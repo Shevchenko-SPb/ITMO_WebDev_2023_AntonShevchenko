@@ -36,24 +36,40 @@
         position: absolute;
         width: 40%;
         height: 100%;
-        top: 10%;
-        left: 60%;
+        top: 6%;
+        left: 54%;
       }
       .header {
         font-family: Fraunces;
+        font-size: 35px;
+        margin-bottom: 2rem;
       }
       p {
         font-family: Montserrat;
+        margin-bottom: 2rem;
       }
       .new_price {
         font-family: Fraunces;
         color: hsl(158, 36%, 37%);
+        font-size: 30px;
       }
       .old_price {
         font-family: Fraunces;
+        color: #1a1a1a;
+        font-size: 15px;
       }
-      .add {
+      .buttom {
         background: hsl(158, 36%, 37%);
+        color: white;
+        width: 250px;
+        height: 40px;
+        border-radius: 5px;
+        top: 400px;
+        text-align: center;
+        vertical-align: center;
+      }
+      .icon_cart {
+        width: 10px;
       }
     </style>
   </head>
@@ -69,9 +85,15 @@
           A floral, solar and voluptuous interpretation composed by Olivier
           Polge, Perfumer-Creator for the House of CHANEL.
         </p>
-        <p class="new_price">$149.99</p>
-        <p class="old_price"><s> $169.99 </s></p>
-        <p><button class="add">Add to Cart</button></p>
+        <p class="new_price">
+          $149.99 <span class="old_price"><s> $169.99 </s></span>
+        </p>
+        <p>
+          <button class="buttom">
+            <img class="icon_cart" src="images/icon-cart.svg" />
+            Add to Cart
+          </button>
+        </p>
       </div>
     </div>
   </body>
