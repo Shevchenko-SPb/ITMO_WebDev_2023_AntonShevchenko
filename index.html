@@ -1,150 +1,69 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wellcome</title>
+    <title>Practices</title>
+    <link rel="stylesheet" type="text/css" href="public/reset.css" />
+    <style>
+      html {
+        font-size: 20px;
+        background: floralwhite;
+      }
+      .card {
+        width: 144px;
+        margin: 0 auto;
+        text-align: center;
+        border: 1px solid #222;
+        background: #888888;
+      }
+      .card img {
+        margin-bottom: 0.5rem;
+      }
+      .card > h1 {
+        font-size: 2rem;
+        line-height: 0.85;
+        letter-spacing: 1px;
+        font-weight: bold;
+        margin-bottom: 0.85rem;
+      }
+      .card > .price {
+        color: crimson;
+        font-size: 0.75rem;
+        font-weight: bold;
+      }
+      p:not:(:last-child) {
+        margin-bottom: 1rem;
+      }
+      button {
+        border: none;
+        width: 100%;
+        background: #1a1a1a;
+        color: #f9f9f9;
+        padding: 0.5rem 0;
+      }
+      button:hover {
+        background: #535bf2;
+      }
+    </style>
   </head>
   <body>
-    <header align="center">Header</header>
     <main>
-      <h1>First level heading</h1>
-      <h2>Second level heading</h2>
-      <h3>Third level heading</h3>
-      <h4>Fourth level heading</h4>
-      <h5>Level 5 heading</h5>
-      <h6>Level 6 heading</h6>
-      <p><b>Жирный </b><i>курсивный </i><s>зачеркнутый </s>   текст</p>
-      <div>
-        <ul>
-          Маркированный список:
-          <li>First</li>
-          <li>Second</li>
-          <li>Fhird</li>
-        </ul>
-        <ol>
-          Нумированный список:
-          <li>First</li>
-          <li>Second</li>
-          <li>Third</li>
-        </ol>
-        <dl>
-          Список определений:
-          <li>First</li>
-          <li>Second</li>
-          <li>Third</li>
-        </dl>
+      <div class="card">
+        <img src="/Pics/3.jpg" alt="Denim Jeans" style="width: 100%" />
+        <h1>Tailored Jeans</h1>
+        <p class="price">$19.99</p>
+        <p>Some text about the jeans..</p>
+        <p><button>Add to Cart</button></p>
       </div>
-        <form>
-          <p><b>Ваше имя?</b></p>
-          <input type="text" size="40">
-          <p><b>Ваше фамилия?</b></p>
-          <input type="text" size="40">
-          <div>
-            <p> </p>
-            <input name="e_mail" placeholder="E-mail" size="40">
-          </div>
-          <div>
-            <p><b>Какие языки вы знаете?</b></p>
-            <p><input type="checkbox" name="a"> Русский </p>
-            <p><input type="checkbox" name="b"> English </p>
-            <p><input type="checkbox" name="c"> Deutsch </p>
-            <p><input type="checkbox" name="d"> El español </p>
-            <p><input type="checkbox" name="e"> 汉语 hànyǔ</p>
-          </div>
-          <div>
-            <p><b>Дата рождения?</b></p>
-            <p><input type="date"></p>
-            <p><b>У Вас есть водительское удостоверение?</b></p>
-            <p><input name="dzen" type="radio" value="nedzen"> Да</p>
-            <p><input name="dzen" type="radio" value="dzen"> Нет</p>
-            <p><input type="submit" value="Зарегистрироваться"></p>
-          </div>
-          <div>
-            <button onclick="alert('Я же говорил не нажимать!')"><b>Не нажимай на кнопку!</b></button>
-          </div>
-        </form>
-      </div>
-
-      <section>
-        <table border = "2">
-          <p></p>
-          Таблица:
-          <tr>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-            <td>14</td>
-          </tr>
-          <tr>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>32</td>
-            <td>33</td>
-            <td>34</td>
-          </tr>
-          <tr>
-            <td>41</td>
-            <td>42</td>
-            <td>43</td>
-            <td>44</td>
-          </tr>
-        </table>
-        <p><b>Таблица объеденённая:</b></p>
-        <table border = "2">
-          <tr>
-            <td colspan="2">1112</td>
-            <td>13</td>
-            <td>14</td>
-          </tr>
-          <tr>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-          </tr>
-          <tr>
-            <td>31</td>
-            <td>32</td>
-            <td colspan="2" rowspan="2">3334 4344</td>
-          </tr>
-          <tr>
-            <td>41</td>
-            <td>42</td>
-          </tr>
-        </table>
-      </section>
-      <section>
-        <p><b>Ваш любимый цвет?</b></p>
-        <select>
-          <option>Синий</option>
-          <option>Красный</option>
-          <option>Зелёный</option>
-          <option>Желтый</option>
-          <option>Черный</option>
-        </select>
-        <p><input type="submit" value="Отправить"></p>
-        </form>
-        <div>
-          <img src="/Pics/1.jpeg">
-        </div>
-        <div>
-          <img src="/Pics/2.svg" height="300px" width="300px">
-        </div>
-        <div>
-          <svg width="300" height="200">
-            <rect width="300" height="300" fill="black"/>
-            <circle cx="150" cy="100" r="100" fill="red"/>
-          </svg>
-        </div>
-      </section>
     </main>
-    <footer align="center">Footer</footer>
+    <div style="width: 200px; height: 100px; background: #1a1a1a"></div>
+    <div
+      style="
+        width: 200px;
+        height: 100px;
+        background: red;
+        position: absolute;
+        top: 300px;
+      "
+    ></div>
   </body>
 </html>
