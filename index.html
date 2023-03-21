@@ -2,173 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-
-    <title>Frontend Mentor | Product preview card component</title>
-    <link rel="stylesheet" type="text/css" href="public/reset.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap");
-      @media screen and (min-width: 525px) {
-        .card {
-          display: block;
-        }
-        .card-mobile {
-          display: none;
-        }
-      }
-
-      @media screen and (max-width: 525px) {
-        .card {
-          display: none;
-        }
-        .card-mobile {
-          display: block;
-        }
-      }
-      html {
-        background: hsl(30, 38%, 92%);
-      }
-      .card {
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        top: 200px;
-        width: 600px;
-        height: 450px;
-        border-radius: 10px;
-        background: hsl(0, 0%, 100%);
-      }
-      .images img {
-        height: 50%;
-        width: 50%;
-      }
-      .product {
-        position: absolute;
-        width: 39%;
-        height: 100%;
-        top: 6%;
-        left: 55%;
-      }
-      .header {
-        font-family: Fraunces;
-        font-size: 35px;
-        margin-bottom: 20px;
-      }
-      p {
-        font-family: Montserrat;
-        margin-bottom: 25px;
-        margin-top: 5px;
-        font-size: 11px;
-        letter-spacing: 5px;
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .text {
-        font-family: Montserrat;
-        margin-bottom: 25px;
-        margin-top: 5px;
-        font-size: 16px;
-        line-height: 25px;
-        letter-spacing: 0px;
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .new_price {
-        font-family: Fraunces;
-        color: hsl(158, 36%, 37%);
-        font-size: 33px;
-        letter-spacing: 1px;
-        margin-bottom: 25px;
-      }
-      .old_price {
-        font-family: Fraunces;
-        color: #1a1a1a;
-        vertical-align: 6px;
-        margin-left: 10px;
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: rgba(0, 0, 0, 0.4);
-      }
-      .buttom {
-        background: hsl(158, 36%, 37%);
-        color: white;
-        width: 240px;
-        height: 50px;
-        border-radius: 7px;
-        text-align: center;
-        font-size: 15px;
-        font-weight: bold;
-        border: none;
-      }
-      button:hover {
-        background: hsl(160, 50%, 20%);
-      }
-      button:active {
-        box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-      }
-      .icon_cart {
-        width: 15px;
-        height: 15px;
-      }
-      .card-mobile {
-        position: relative;
-        margin: auto;
-        overflow: hidden;
-        top: 20px;
-        width: 340px;
-        height: 630px;
-        border-radius: 10px;
-        background: hsl(0, 0%, 100%);
-      }
-      .images-mobile img {
-        width: 350px;
-      }
-      .product-mobile {
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        top: 265px;
-        left: 22px;
-      }
-      .header-mobile {
-        font-family: Fraunces;
-        font-size: 30px;
-        margin-bottom: 20px;
-      }
-      .perfume-mobile {
-        font-family: Montserrat;
-        margin-bottom: 18px;
-        margin-top: 3px;
-        font-size: 13px;
-        letter-spacing: 5px;
-        font-weight: bold;
-        color: rgba(0, 0, 0, 0.5);
-      }
-      .buttom-mobile {
-        background: hsl(158, 36%, 37%);
-        color: white;
-        width: 300px;
-        height: 50px;
-        border-radius: 7px;
-        text-align: center;
-        font-size: 15px;
-        font-weight: bold;
-        border: none;
-      }
-    </style>
+    <title>Title</title>
   </head>
-  <body>
-    <header style="background-color: #f001">header</header>
-    <nav style="background-color: #ff01">nav</nav>
-    <section style="background-color: #f0f1">section</section>
-    <aside style="background-color: #0ff1">aside</aside>
-    <footer style="background-color: #f001">footer</footer>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+  </style>
+  <body class="flex h-screen flex row justify-center items-center bg-red-100">
+    <div class="w-56 h-80 bg-gray-500 rounded-xl">
+      <div class="flex flex-col">
+        <div class="flex flex-row justify-between">
+          <div content="url"></div>
+          <div>free</div>
+        </div>
+        <div class="flex flex-col">2323</div>
+        <div class="flex flex-row">3434</div>
+      </div>
+    </div>
   </body>
 </html>
