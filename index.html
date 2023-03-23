@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Card Google Earth</title>
+  </head>
+  <style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    body {
+      color: white;
+      font-family: Alegreya Sans;
+    }
+  </style>
+  <body class="flex h-screen flex-row justify-center items-center bg-slate-800">
+    <div
+      class="flex flex-col h-[300px] w-[300px] bg-amber-300 justify-between bg-contain bg-[url(images/Homework-4-bg-card.png)]"
+    >
+      <header class="flex flex-row justify-between items-center ml-4 mt-3 mr-8">
+        <div class="h-14 w-14">
+          <img src="images/icons8-ос-mac-94.png" />
+        </div>
+        <div class="font-light text-[11px]">28 Dec 2019</div>
+      </header>
+      <div class="flex flex-col ml-4 object-center mb-5">
+        <div class="text-[9px] mb-2">Gold Winner</div>
+        <div class="font-bold text-[22px]">
+          <div>Apple Design Award</div>
+          <div>2018-19</div>
+        </div>
+      </div>
+      <div class="flex ml-4 mb-8 text-[9px]">United States</div>
+    </div>
+  </body>
+</html>
