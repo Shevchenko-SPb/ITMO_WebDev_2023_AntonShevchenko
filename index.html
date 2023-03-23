@@ -5,9 +5,13 @@
     <title>Card Google Earth</title>
   </head>
   <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap");
     @tailwind base;
     @tailwind components;
     @tailwind utilities;
+    header {
+      font-family: "Fraunces", serif;
+    }
   </style>
   <body
     class="flex h-screen flex-row justify-center items-center bg-fixed bg-contain"
@@ -36,9 +40,11 @@
         >
           Location
         </div>
-        <div class="flex flex-row ml-3 text-2xl font-mono tracking-tighter font-bold">
+        <header
+          class="flex flex-row ml-3 text-2xl tracking-tighter font-Fraunces font-bold"
+        >
           Google Earth
-        </div>
+        </header>
         <div class="flex flex-row ml-3 mt-3.5">
           <div class="flex-col">
             <div class="flex-row text-[9px] tracking-tighter">Raiting</div>
