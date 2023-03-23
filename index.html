@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Card Google Earth</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap");
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    header {
+      font-family: "Fraunces", serif;
+    }
+  </style>
+  <body
+    class="flex h-screen flex-row justify-center items-center bg-fixed bg-contain"
+    style="
+      background-image: url(/images/1659560917_27-kartinkin-net-p-pastelnie-patterni-krasivo-29.png);
+    "
+  >
+    <div
+      class="w-52 h-52 rounded-3xl drop-shadow-2xl"
+      style="background-image: url(/images/Background-card-flex.png)"
+    >
+      <div class="flex flex-col">
+        <div class="flex flex-row rounded-3xl bg-neutral-50 justify-between">
+          <div
+            class="h-7 w-7 ml-3 mt-3"
+            style="content: url(/images/icons8-google-earth.svg)"
+          ></div>
+          <div
+            class="w-10 h-3 leading-3 bg-emerald-600 content-center bg-green-600 align-top text-white rounded-xl object-center mr-4 mt-4 text-center text-[8px]"
+          >
+            Free
+          </div>
+        </div>
+        <div
+          class="flex flex-row font-sans ml-3 mt-5 text-xs font-semibold tracking-tighter"
+        >
+          Location
+        </div>
+        <header
+          class="flex flex-row ml-3 text-2xl tracking-tighter font-Fraunces font-bold"
+        >
+          Google Earth
+        </header>
+        <div class="flex flex-row ml-3 mt-3.5">
+          <div class="flex-col">
+            <div class="flex-row text-[9px] tracking-tighter">Raiting</div>
+            <div class="flex-row text-xs font-semibold mt-0.5">4.5</div>
+          </div>
+          <div class="flex-col ml-5">
+            <div class="flex-row text-[9px] tracking-tighter">Size</div>
+            <div class="flex-row text-xs font-semibold mt-0.5">23.5 mb</div>
+          </div>
+          <div class="flex-col ml-5">
+            <div class="flex-row text-[9px] tracking-tighter">Downloads</div>
+            <div class="flex-row text-xs font-semibold mt-0.5">5m</div>
+          </div>
+        </div>
+        <button
+          class="flex flex-row h-7 w-7 ml-3 mt-3.5 rounded-full hover:bg-sky-700 active:drop-shadow-md active:bg-black"
+          style="content: url(/images/download_6h79njk1k7rs.svg)"
+        ></button>
+      </div>
+    </div>
+  </body>
+</html>
