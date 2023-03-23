@@ -3,17 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
 
     <style>
+      @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap");
       @tailwind base;
       @tailwind components;
       @tailwind utilities;
+      body * {
+        font-family: "Epilogue", sans-serif;
+      }
+      @layer components {
+        .btn-register {
+          @apply border-2 border-gray-500 rounded-lg px-3 py-1.5 hover:text-black;
+        }
+      }
     </style>
   </head>
-  <body>
-    Features Company Careers About Login Register Make remote work Get your team
-    in sync, no matter your location. Streamline processes, create team rituals,
-    and watch productivity soar. Learn more
+  <body class="flex-col h-screen bg-blue-100">
+    <div class="flex-col bg-amber-300">
+      <header class="flex flex-row justify-between items-center px-6 py-4">
+        <div class="flex flex-row gap-x-4">
+          <img src="assets/images/logo.svg" />
+          <nav class="flex flex-row gap-x-6">
+            <div class="flex flex-row gap-x-2 items-center">
+              <div>Features</div>
+              <div><img src="assets/images/icon-arrow-down.svg" /></div>
+            </div>
+            <div class="hover:text-black">Company</div>
+            <div>Careers</div>
+            <dive>About</dive>
+          </nav>
+        </div>
+        <div class="flex flex-row gap-x-6 items-center">
+          <div>Login</div>
+          <div class="border-2 border-gray-500 rounded-lg px-3 py-2">
+            Register
+          </div>
+        </div>
+      </header>
+      <main class="flex-row bg-blue-300">
+        <div class="flex flex-row">
+          <div class="flex flex-row">
+            <div class="flex flex-col w-1/2 justify-between-between">
+              <div class="flex flex-row h-full items-center">
+                <div>Make remote work</div>
+                <div>
+                  Get your team in sync, no matter your location. Streamline
+                  processes, create team rituals, and watch productivity soar.
+                </div>
+                <div>Learn more</div>
+              </div>
+              <div class="flex flex-col">
+                <img class="" src="assets/images/image-hero-desktop.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
