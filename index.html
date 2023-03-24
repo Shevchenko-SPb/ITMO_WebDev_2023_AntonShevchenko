@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru_RU">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
-
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@500&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap');
+
       @tailwind base;
       @tailwind components;
       @tailwind utilities;
+
       body * {
-        font-family: "Epilogue", sans-serif;
+        font-family: 'Epilogue', sans-serif;
       }
+
       @layer components {
         .btn-register {
           @apply border-2 border-gray-500 rounded-lg px-3 py-1.5 hover:text-black;
@@ -21,47 +23,46 @@
       }
     </style>
   </head>
-  <body class="flex-col h-screen bg-blue-100">
-    <div class="flex-col bg-amber-300">
-      <header class="flex flex-row justify-between items-center px-6 py-4">
-        <div class="flex flex-row gap-x-4">
-          <img src="assets/images/logo.svg" />
-          <nav class="flex flex-row gap-x-6">
-            <div class="flex flex-row gap-x-2 items-center">
-              <div>Features</div>
-              <div><img src="assets/images/icon-arrow-down.svg" /></div>
+  <body class="flex flex-col h-screen bg-amber-100/50">
+    <header
+      class="flex flex-row justify-between items-center px-6 py-4 font-bold text-neutral-500"
+      style="background-color: #f001"
+    >
+      <div class="flex flex-row gap-x-8">
+        <img src="public/logo.svg" />
+        <nav class="flex flex-row items-center gap-x-6">
+          <div class="flex flex-row gap-x-2 items-center hover:text-black">
+            <div>Features</div>
+            <img src="./public/icon-arrow-down.svg" />
+          </div>
+          <div class="hover:text-black">Company</div>
+          <div class="hover:text-black">Careers</div>
+          <div class="hover:text-black">About</div>
+        </nav>
+      </div>
+      <div class="flex flex-row gap-x-4 items-center">
+        <div class="hover:text-black">Login</div>
+        <div class="btn-register">Register</div>
+      </div>
+    </header>
+    <main class="flex h-full flex-row" style="background-color: #f0f1">
+      <div class="flex flex-col w-1/2 justify-between" style="background-color: #0ff1">
+        <div class='flex flex-row h-full'>
+          <div class='flex flex-col justify-center gap-y-6' style="background-color: #0f01">
+            <div>Make remote work</div>
+            <div>
+              Get your team in sync, no matter your location. Streamline processes, create team
+              rituals, and watch productivity soar.
             </div>
-            <div class="hover:text-black">Company</div>
-            <div>Careers</div>
-            <dive>About</dive>
-          </nav>
-        </div>
-        <div class="flex flex-row gap-x-6 items-center">
-          <div>Login</div>
-          <div class="border-2 border-gray-500 rounded-lg px-3 py-2">
-            Register
+            <div>Learn more</div>
           </div>
         </div>
-      </header>
-      <main class="flex-row bg-blue-300">
-        <div class="flex flex-row">
-          <div class="flex flex-row">
-            <div class="flex flex-col w-1/2 justify-between-between">
-              <div class="flex flex-row h-full items-center">
-                <div>Make remote work</div>
-                <div>
-                  Get your team in sync, no matter your location. Streamline
-                  processes, create team rituals, and watch productivity soar.
-                </div>
-                <div>Learn more</div>
-              </div>
-              <div class="flex flex-col">
-                <img class="" src="assets/images/image-hero-desktop.png" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+        <div class='flex flex-row'>icons</div>
+      </div>
+      </div>
+      <div class="flex flex-col w-1/2 h-full justify-end">
+          <img class='w-full h-full object-contain' src='./public/image-hero-desktop.png' />
+      </div>
+    </main>
   </body>
 </html>
