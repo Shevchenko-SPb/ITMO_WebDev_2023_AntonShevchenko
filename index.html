@@ -3,17 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
     <title>Frontend Mentor | Intro section with dropdown navigation</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap");
 
       @tailwind base;
       @tailwind components;
       @tailwind utilities;
 
       body * {
-        font-family: 'Epilogue', sans-serif;
+        font-family: "Epilogue", sans-serif;
       }
 
       @layer components {
@@ -21,61 +26,64 @@
           @apply border-2 border-gray-500 rounded-xl px-3 py-1.5 hover:text-black
           active:drop-shadow-md active:bg-gray-500;
         }
-          .btn-learnmore {
-              @apply  border-2 border-black rounded-xl px-5 py-2 text-white
+        .btn-learnmore {
+          @apply border-2 border-black rounded-xl px-5 py-2 text-white
               bg-black hover:text-black hover:bg-white active:drop-shadow-md active:bg-gray-500
-              font-semibold;
-          }
+              font-semibold sm:justify-center;
+        }
       }
     </style>
   </head>
-  <body class="flex flex-col h-screen">
-    <header
-      class="flex flex-row justify-between items-center px-6 py-4"
-    >
-      <div class="flex flex-row gap-x-8">
-        <img src="/logo.svg" />
-        <nav class="flex flex-row items-center gap-x-6">
-          <div class="flex flex-row gap-x-2 items-center hover:text-black">
-            <div class="font-bold text-neutral-500">Features</div>
-            <img src="/icon-arrow-down.svg" />
-          </div>
-          <div class="flex flex-row gap-x-2 items-center hover:text-black">
-            <div class="font-bold text-neutral-500">Company</div>
-            <img src="/icon-arrow-up.svg">
-          </div>
-          <div class="hover:text-black font-bold text-neutral-500">Careers</div>
-          <div class="hover:text-black font-bold text-neutral-500">About</div>
-        </nav>
-      </div>
-      <div class="flex flex-row gap-x-4 items-center">
-        <div class="hover:text-black font-bold text-neutral-500">Login</div>
-        <button class="btn-register font-bold text-neutral-500">Register</button>
-      </div>
-    </header>
-    <main class="container mx-auto flex flex-row h-full">
-      <div class="flex flex-col w-1/2 justify-between">
-        <div class='flex flex-row h-full'>
-          <div class='flex flex-col justify-center items-start gap-y-12'>
-            <div class="text-7xl font-bold">Make remote work</div>
-            <div class="text-neutral-600 text-lg">
-              Get your team in sync, no matter your location. Streamline processes, create team
-              rituals, and watch productivity soar.
+    <body class="flex flex-col h-screen">
+      <header
+        class="flex flex-row justify-between items-center px-6 py-4"
+      >
+        <div class="flex flex-row gap-x-8">
+          <img src="/logo.svg" />
+          <nav class="hidden sm:flex flex-row items-center gap-x-6">
+            <div class="flex flex-row gap-x-2 items-center hover:text-black">
+              <div class="font-bold text-neutral-500">Features</div>
+              <img src="/icon-arrow-down.svg" />
             </div>
-              <button class="btn-learnmore">Learn more</button>
+            <div class="flex flex-row gap-x-2 items-center hover:text-black">
+              <div class="font-bold text-neutral-500">Company</div>
+              <img src="/icon-arrow-up.svg">
+            </div>
+            <div class="hover:text-black font-bold text-neutral-500">Careers</div>
+            <div class="hover:text-black font-bold text-neutral-500">About</div>
+          </nav>
+        </div>
+        <div class="hidden sm:flex flex-row gap-x-4 items-center">
+          <div class="hover:text-black font-bold text-neutral-500">Login</div>
+          <button class="btn-register font-bold text-neutral-500">Register</button>
+        </div>
+        <div class="flex sm:hidden">
+          <img src="public/icon-menu.svg">
+        </div>
+      </header>
+      <main class="container mx-auto flex flex-col sm:flex-row">
+        <div class="flex flex-col order-1 sm:order-0 sm:w-1/2 justify-between">
+          <div class='flex flex-row h-full sm:justify-center'>
+            <div class='flex flex-col items-start gap-y-12'>
+              <div class="text-7xl font-bold">Make remote work</div>
+              <div class="text-neutral-600 text-lg">
+                Get your team in sync, no matter your location. Streamline processes, create team
+                rituals, and watch productivity soar.
+              </div>
+                <button class="btn-learnmore">Learn more</button>
+            </div>
+          </div>
+          <div class='flex flex-row flex-wrap items-center gap-x-8 gap-y-4'>
+            <img src="/client-databiz.svg">
+            <img src="/client-audiophile.svg">
+            <img src="/client-meet.svg">
+            <img src="/client-maker.svg">
           </div>
         </div>
-        <div class='flex flex-row flex-wrap items-center gap-x-8 gap-y-4'>
-          <img src="/client-databiz.svg">
-          <img src="/client-audiophile.svg">
-          <img src="/client-meet.svg">
-          <img src="/client-maker.svg">
         </div>
-      </div>
-      </div>
-      <div class="flex flex-col w-1/2 h-full justify-center overflow-hidden items-stretch">
-          <img class='w-full h-full object-contain' src='/image-hero-desktop.png' />
-      </div>
-    </main>
-  </body>
+        <div class="flex flex-col order-0  h-56 sm:order-1 sm:w-1/2 sm:h-full justify-center overflow-hidden items-stretch">
+            <img class='w-full h-full object-cover' src='/image-hero-desktop.png' />
+        </div>
+      </main>
+    </body>
 </html>
