@@ -34,12 +34,12 @@
       }
     </style>
   </head>
-  <body class="flex flex-col h-screen">
-    <header class="flex flex-row justify-between bg-amber-200">
+  <body class="flex flex-col h-screen m-8">
+    <header class="flex flex-row justify-between items-center">
       <div>
         <img src="/logo.svg" />
       </div>
-      <div class="flex flex-row gap-x-6">
+      <div class="flex flex-row text-gray-500 gap-x-6">
         <div>Home</div>
         <div>News</div>
         <div>Popular</div>
@@ -47,16 +47,18 @@
         <div>Categories</div>
       </div>
     </header>
-    <main class="flex flex-col h-screen bg-blue-300">
-      <div class="flex flex-row gap-x-6 bg-amber-600">
-        <div class="flex flex-col">
+    <main class="flex flex-col h-screen gap-y-6">
+      <div class="flex flex-row gap-x-6">
+        <div class="flex flex-col justify-between gap-y-6">
           <div>
             <img src="/image-web-3-desktop.jpg" />
           </div>
           <div class="flex flex-row">
-            <div class="bg-blue-300">The Bright Of WEB 3.0?</div>
-            <div class="flex flex-col bg-gray-500">
-              <div>
+            <div class="basis-1/2 text-5xl font-bold">
+              The Bright Of WEB 3.0?
+            </div>
+            <div class="flex flex-col basis-1/2">
+              <div class="text-gray-500 text-xs">
                 We dive into the next evolution of the web that claims to put
                 the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
@@ -65,51 +67,59 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col">
-          <div>New</div>
-          <div>Hydrogen VS Electric Cars</div>
-          <div>Will hydrogen-fueled cars ever catch up to EVs?</div>
-          <div>The Downsides of AI Artistry</div>
-          <div>
+        <div class="flex flex-col bg-gray-900">
+          <div class="text-white">New</div>
+          <div class="text-white">Hydrogen VS Electric Cars</div>
+          <div class="text-white text-xs">
+            Will hydrogen-fueled cars ever catch up to EVs?
+          </div>
+          <div class="text-white">The Downsides of AI Artistry</div>
+          <div class="text-white text-xs">
             What are the possible adverse effects of on-demand AI image
             generation?
           </div>
-          <div>Is VC Funding Drying Up?</div>
-          <div>
+          <div class="text-white">Is VC Funding Drying Up?</div>
+          <div class="text-white text-xs">
             Private funding by VC firms is down 50% YOY. We take a look at what
             that means.
           </div>
         </div>
       </div>
-      <div class="flex flex-row h-screen bg-amber-300">
-        <div class="flex flex-row">
+      <div class="flex flex-row h-screen justify-between">
+        <div class="flex flex-row gap-x-3">
           <div>
             <img src="/image-retro-pcs.jpg" />
           </div>
           <div>
-            <div>01</div>
-            <div>Reviving Retro PCs</div>
-            <div>What happens when old PCs are given modern upgrades?</div>
+            <div class="text-xl font-bold text-gray-400">01</div>
+            <div class="text-sm font-bold">Reviving Retro PCs</div>
+            <div class="text-gray-500 text-xs">
+              What happens when old PCs are given modern upgrades?
+            </div>
           </div>
         </div>
-        <div class="flex flex-row">
+        <div class="flex flex-row gap-x-3">
           <div>
             <img src="/image-top-laptops.jpg" />
           </div>
           <div>
-            <div>02</div>
-            <div>Top 10 Laptops of 2022</div>
-            <div>Our best picks for various needs and budgets.</div>
+            <div class="text-xl font-bold text-gray-400">02</div>
+            <div class="text-sm font-bold">Top 10 Laptops of 2022</div>
+            <div class="text-gray-500 text-xs">
+              Our best picks for various needs and budgets.
+            </div>
           </div>
         </div>
-        <div class="flex flex-row">
+        <div class="flex flex-row gap-x-3">
           <div>
             <img src="/image-gaming-growth.jpg" />
           </div>
           <div>
-            <div>03</div>
-            <div>The Growth of Gaming</div>
-            <div>How the pandemic has sparked fresh opportunities.</div>
+            <div class="text-xl font-bold text-gray-400">03</div>
+            <div class="text-sm font-bold">The Growth of Gaming</div>
+            <div class="text-gray-500 text-xs">
+              How the pandemic has sparked fresh opportunities.
+            </div>
           </div>
         </div>
       </div>
