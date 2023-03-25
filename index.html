@@ -18,50 +18,63 @@
 
       @layer components {
         .btn-register {
-          @apply border-2 border-gray-500 rounded-lg px-3 py-1.5 hover:text-black;
+          @apply border-2 border-gray-500 rounded-xl px-3 py-1.5 hover:text-black
+          active:drop-shadow-md active:bg-gray-500;
         }
+          .btn-learnmore {
+              @apply  border-2 border-black rounded-xl px-5 py-2 text-white
+              bg-black hover:text-black hover:bg-white active:drop-shadow-md active:bg-gray-500
+              font-semibold;
+          }
       }
     </style>
   </head>
-  <body class="flex flex-col h-screen bg-amber-100/50">
+  <body class="flex flex-col h-screen">
     <header
-      class="flex flex-row justify-between items-center px-6 py-4 font-bold text-neutral-500"
-      style="background-color: #f001"
+      class="flex flex-row justify-between items-center px-6 py-4"
     >
       <div class="flex flex-row gap-x-8">
-        <img src="public/logo.svg" />
+        <img src="/logo.svg" />
         <nav class="flex flex-row items-center gap-x-6">
           <div class="flex flex-row gap-x-2 items-center hover:text-black">
-            <div>Features</div>
-            <img src="./public/icon-arrow-down.svg" />
+            <div class="font-bold text-neutral-500">Features</div>
+            <img src="/icon-arrow-down.svg" />
           </div>
-          <div class="hover:text-black">Company</div>
-          <div class="hover:text-black">Careers</div>
-          <div class="hover:text-black">About</div>
+          <div class="flex flex-row gap-x-2 items-center hover:text-black">
+            <div class="font-bold text-neutral-500">Company</div>
+            <img src="/icon-arrow-up.svg">
+          </div>
+          <div class="hover:text-black font-bold text-neutral-500">Careers</div>
+          <div class="hover:text-black font-bold text-neutral-500">About</div>
         </nav>
       </div>
       <div class="flex flex-row gap-x-4 items-center">
-        <div class="hover:text-black">Login</div>
-        <div class="btn-register">Register</div>
+        <div class="hover:text-black font-bold text-neutral-500">Login</div>
+        <button class="btn-register font-bold text-neutral-500">Register</button>
       </div>
     </header>
-    <main class="flex h-full flex-row" style="background-color: #f0f1">
-      <div class="flex flex-col w-1/2 justify-between" style="background-color: #0ff1">
+    <main class="container mx-auto flex flex-row h-full">
+      <div class="flex flex-col w-1/2 justify-between">
         <div class='flex flex-row h-full'>
-          <div class='flex flex-col justify-center gap-y-6' style="background-color: #0f01">
-            <div>Make remote work</div>
-            <div>
+          <div class='flex flex-col justify-center items-start gap-y-12'>
+            <div class="text-7xl font-bold">Make remote work</div>
+            <div class="text-neutral-600 text-lg">
               Get your team in sync, no matter your location. Streamline processes, create team
               rituals, and watch productivity soar.
             </div>
-            <div>Learn more</div>
+              <button class="btn-learnmore">Learn more</button>
           </div>
         </div>
-        <div class='flex flex-row'>icons</div>
+        <div class='flex flex-row flex-wrap items-center gap-x-8 gap-y-4'>
+          <img src="/client-databiz.svg">
+          <img src="/client-audiophile.svg">
+          <img src="/client-meet.svg">
+          <img src="/client-maker.svg">
+        </div>
       </div>
       </div>
-      <div class="flex flex-col w-1/2 h-full justify-end">
-          <img class='w-full h-full object-contain' src='./public/image-hero-desktop.png' />
+      <div class="flex flex-col w-1/2 h-full justify-center overflow-hidden items-stretch">
+          <img class='w-full h-full object-contain' src='/image-hero-desktop.png' />
       </div>
     </main>
   </body>
