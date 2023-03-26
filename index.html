@@ -22,11 +22,11 @@
       }
 
       @layer components {
-        .btn-register {
-          @apply border-2 border-gray-500 rounded-xl px-3 py-1.5 hover:text-black
-          active:drop-shadow-md active:bg-gray-500;
+        .btn {
+          @apply border-0 hover:text-black
+          active:drop-shadow-md;
         }
-        .btn-learnmore {
+        .btn-readmore {
           @apply border-2 border-black rounded-xl px-5 py-2 text-white
               bg-black hover:text-black hover:bg-white active:drop-shadow-md active:bg-gray-500
               font-semibold sm:justify-center;
@@ -34,17 +34,17 @@
       }
     </style>
   </head>
-  <body class="flex flex-col h-screen m-8">
+  <body class="flex flex-col h-screen m-16">
     <header class="flex flex-row justify-between items-center">
       <div>
         <img src="/logo.svg" />
       </div>
       <div class="flex flex-row text-gray-500 gap-x-6">
-        <div>Home</div>
-        <div>News</div>
-        <div>Popular</div>
-        <div>Trending</div>
-        <div>Categories</div>
+        <button class="btn">Home</button>
+        <button class="btn">News</button>
+        <button class="btn">Popular</button>
+        <button class="btn">Trending</button>
+        <button class="btn">Categories</button>
       </div>
     </header>
     <main class="flex flex-col h-screen gap-y-6">
@@ -63,7 +63,7 @@
                 the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
               </div>
-              <button class="bg-green-400">READ MORE</button>
+              <button class="btn-readmore">READ MORE</button>
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-row justify-between">
+      <div class="flex flex-row justify-between gap-x-8">
         <div class="flex flex-row gap-x-3">
           <div>
             <img src="/image-retro-pcs.jpg" />
