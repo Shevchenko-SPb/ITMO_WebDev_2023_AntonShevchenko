@@ -27,8 +27,8 @@
           active:drop-shadow-md;
         }
         .btn-readmore {
-          @apply px-7 py-2 text-white
-              bg-black text-xs
+          @apply px-8 py-2 text-white
+              bg-red-500 text-xs
               font-semibold;
         }
       }
@@ -46,18 +46,18 @@
         <button class="btn">Trending</button>
         <button class="btn">Categories</button>
       </div>
-      <button class="md:flex hidden">
+      <button class="btn flex md:hidden">
         <img src="/icon-menu.svg" />
       </button>
     </header>
-    <main class="flex flex-col h-screen gap-y-10">
-      <div class="flex flex-row gap-x-4">
+    <main class="flex md:flex-col flex-row h-screen gap-y-10">
+      <div class="flex md:flex-row flex-col gap-x-4">
         <div class="flex flex-col justify-between gap-y-6">
           <div>
             <img src="/image-web-3-desktop.jpg" />
           </div>
-          <div class="flex flex-row">
-            <div class="basis-1/2 text-4xl font-bold">
+          <div class="flex md:flex-row flex-col gap-x-4">
+            <div class="gap-x-4 text-5xl font-bold basis-1/2">
               The Bright Of WEB 3.0?
             </div>
             <div
@@ -73,24 +73,42 @@
           </div>
         </div>
         <div class="flex flex-col bg-gray-900 w-[700px]">
-          <div class="text-white">New</div>
-          <div class="text-white">Hydrogen VS Electric Cars</div>
-          <div class="text-white text-xs">
-            Will hydrogen-fueled cars ever catch up to EVs?
-          </div>
-          <div class="text-white">The Downsides of AI Artistry</div>
-          <div class="text-white text-xs">
-            What are the possible adverse effects of on-demand AI image
-            generation?
-          </div>
-          <div class="text-white">Is VC Funding Drying Up?</div>
-          <div class="text-white text-xs">
-            Private funding by VC firms is down 50% YOY. We take a look at what
-            that means.
+          <div class="flex flex-col mx-4 my-6 h-full">
+            <div class="text-amber-400 text-3xl font-semibold">New</div>
+            <div class="flex flex-col h-full justify-between">
+              <div class="flex flex-col h-1/3 gap-y-1">
+                <div class="flex h-1/2 text-white font-bold items-end">
+                  Hydrogen VS Electric Cars
+                </div>
+                <div class="flex h-1/2 text-gray-400 text-xs">
+                  Will hydrogen-fueled cars ever catch up to EVs?
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-y-1 border-t border-b border-gray-500 h-1/3 justify-evenly"
+              >
+                <div class="flex h-1/2 text-white font-bold items-end">
+                  The Downsides of AI Artistry
+                </div>
+                <div class="flex h-1/2 text-gray-400 text-xs">
+                  What are the possible adverse effects of on-demand AI image
+                  generation?
+                </div>
+              </div>
+              <div class="flex flex-col gap-y-1 h-1/3">
+                <div class="flex h-1/2 text-white font-bold items-end">
+                  Is VC Funding Drying Up?
+                </div>
+                <div class="flex h-1/2 text-gray-400 text-xs">
+                  Private funding by VC firms is down 50% YOY. We take a look at
+                  what that means.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="flex flex-row justify-between gap-x-8">
+      <div class="flex md:flex-row justify-between gap-x-8">
         <div class="flex flex-row gap-x-3">
           <div class="w-36">
             <img src="/image-retro-pcs.jpg" />
