@@ -1,7 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru_RU">
   <head>
-    <title>News homepage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap");
 
@@ -26,8 +34,10 @@
       }
     </style>
   </head>
-  <body class="container flex flex-col px-36 py-20 gap-y-8">
-    <header class="flex flex-row justify-between md:mx-0 items-center">
+  <body
+    class="md:container flex flex-col h-screen md:mx-28 mx-5 md:my-20 my-5 gap-y-8"
+  >
+    <header class="flex flex-row justify-between items-center">
       <div>
         <img src="/logo.svg" />
       </div>
@@ -42,9 +52,9 @@
         <img src="/icon-menu.svg" />
       </button>
     </header>
-    <main class="flex flex-col h-full gap-y-10">
-      <div class="flex md:flex-row flex-col gap-x-4 gap-y-4 justify-between">
-        <div class="flex flex-col gap-y-6">
+    <main class="container flex flex-col h-full w-screen gap-y-10">
+      <div class="flex md:flex-row flex-col gap-x-4">
+        <div class="flex flex-col justify-between gap-y-6">
           <div>
             <img class="hidden md:flex" src="/image-web-3-desktop.jpg" />
             <img class="md:hidden" src="/image-web-3-mobile.jpg" />
@@ -65,7 +75,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col bg-gray-900 md:w-[700px] h-[400px] md:h-auto">
+        <div class="flex flex-col bg-gray-900 md:w-[700px]">
           <div class="flex flex-col mx-4 my-6 h-full">
             <div class="text-amber-400 text-3xl font-semibold">New</div>
             <div class="flex flex-col h-full justify-between">
@@ -101,38 +111,38 @@
           </div>
         </div>
       </div>
-      <div class="flex lg:flex-row flex-col justify-between gap-x-8 gap-y-5">
-        <div class="container flex flex-row gap-x-3">
+      <div class="flex md:flex-row flex-col justify-between gap-x-8">
+        <div class="flex flex-row gap-x-3">
           <div class="w-36">
             <img src="/image-retro-pcs.jpg" />
           </div>
-          <div class="container flex flex-col justify-between">
-            <div class="text-3xl font-bold text-gray-400">01</div>
-            <div class="text-xl font-bold">Reviving Retro PCs</div>
+          <div>
+            <div class="text-xl font-bold text-gray-400">01</div>
+            <div class="text-sm font-bold">Reviving Retro PCs</div>
             <div class="text-gray-500 text-xs">
               What happens when old PCs are given modern upgrades?
             </div>
           </div>
         </div>
-        <div class="container flex flex-row gap-x-3">
+        <div class="flex flex-row gap-x-3">
           <div class="w-36">
             <img src="/image-top-laptops.jpg" />
           </div>
-          <div class="container flex flex-col justify-between">
-            <div class="text-3xl font-bold text-gray-400">02</div>
-            <div class="text-xl font-bold">Top 10 Laptops of 2022</div>
+          <div>
+            <div class="text-xl font-bold text-gray-400">02</div>
+            <div class="text-sm font-bold">Top 10 Laptops of 2022</div>
             <div class="text-gray-500 text-xs">
               Our best picks for various needs and budgets.
             </div>
           </div>
         </div>
-        <div class="container flex flex-row gap-x-3">
+        <div class="flex flex-row gap-x-3">
           <div class="w-36">
             <img src="/image-gaming-growth.jpg" />
           </div>
-          <div class="container flex flex-col justify-between">
-            <div class="text-3xl font-bold text-gray-400">03</div>
-            <div class="text-xl font-bold">The Growth of Gaming</div>
+          <div>
+            <div class="text-xl font-bold text-gray-400">03</div>
+            <div class="text-sm font-bold">The Growth of Gaming</div>
             <div class="text-gray-500 text-xs">
               How the pandemic has sparked fresh opportunities.
             </div>
