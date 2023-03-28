@@ -52,12 +52,14 @@
         <img src="/icon-menu.svg" />
       </button>
     </header>
-    <main class="grid grid-row-1 md:grid-cols-3 gap-4 h-full gap-y-8">
-      <div class="col-span-2">
+    <main class="grid grid-row-1 md:grid-cols-3 gap-4 h-full gap-y-5">
+      <div class="md:order-1 order-1 col-span-2">
         <img class="hidden md:flex" src="/image-web-3-desktop.jpg" />
         <img class="md:hidden" src="/image-web-3-mobile.jpg" />
       </div>
-      <div class="col-span-2 md:col-span-1 md:row-span-2 bg-gray-900 md:h-auto">
+      <div
+        class="md:order-2 order-4 col-span-2 md:col-span-1 md:row-span-2 bg-gray-900 h-[500px]"
+      >
         <div class="flex flex-col mx-4 my-6 h-full">
           <div class="text-amber-400 text-3xl font-semibold">New</div>
           <div class="flex flex-col h-full justify-between">
@@ -93,12 +95,12 @@
         </div>
       </div>
       <div
-        class="col-span-2 md:col-span-1 gap-x-4 text-5xl font-bold basis-1/2"
+        class="md:order-3 order-2 col-span-2 md:col-span-1 gap-x-4 text-5xl font-bold basis-1/2 md:h-[150px] items-center"
       >
         The Bright Of WEB 3.0?
       </div>
       <div
-        class="col-span-2 md:col-span-1 flex flex-col basis-1/2 justify-between items-start gap-y-6"
+        class="md:order-4 order-3 col-span-2 md:col-span-1 flex flex-col basis-1/2 justify-between items-start gap-y-6"
       >
         <div class="text-gray-500 text-xs">
           We dive into the next evolution of the web that claims to put the
@@ -107,7 +109,9 @@
         </div>
         <button class="btn-readmore">READ MORE</button>
       </div>
-      <div class="col-span-2 md:col-span-1 container flex flex-row gap-x-3">
+      <div
+        class="md:order-5 order-5 col-span-2 md:col-span-1 container flex flex-row gap-x-3"
+      >
         <div class="w-38">
           <img src="/image-retro-pcs.jpg" />
         </div>
@@ -119,7 +123,9 @@
           </div>
         </div>
       </div>
-      <div class="col-span-2 md:col-span-1 container flex flex-row gap-x-3">
+      <div
+        class="md:order-6 order-6 col-span-2 md:col-span-1 container flex flex-row gap-x-3"
+      >
         <div class="w-38">
           <img src="/image-top-laptops.jpg" />
         </div>
@@ -131,7 +137,9 @@
           </div>
         </div>
       </div>
-      <div class="col-span-2 md:col-span-1 container flex flex-row gap-x-3">
+      <div
+        class="md:order-7 order-7 col-span-2 md:col-span-1 container flex flex-row gap-x-3"
+      >
         <div class="w-38">
           <img src="/image-gaming-growth.jpg" />
         </div>
