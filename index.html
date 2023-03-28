@@ -11,11 +11,12 @@
       @tailwind utilities;
     </style>
   </head>
-  <body class="flex flex-col bg-red-500">
-  <div class=""></div>
+  <body class="flex flex-col w-screen h-screen bg-teal-100/50 grid place-items-center p-12">
+  <div class="container flex flex-row w-full h-full bg-gray-500 rounded-3xl p-4">
+    <aside class="flex flex-col min-w-[144px] bg-red-500/50 rounded-2xl">
 
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    </aside>
+    <main class="flex flex-col bg-gray-50 w-full rounded-2xl">Content</main>
+  </div>
   </body>
 </html>
