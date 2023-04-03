@@ -12,36 +12,42 @@
         .btn {
             @apply w-full border-black border-2 rounded-2xl text-3xl font-bold active:shadow-2xl active:bg-gray-500;
         }
+        .displayCul {
+            @apply border-black border-2 rounded-xl w-full overflow-hidden items-center
+            content-center place-content-center
+        }
     </style>
   </head>
   <body class="flex flex-row h-screen justify-center items-center bg-blue-300/50">
-  <div class="flex bg-green-100/50 h-[400px] gap-3 w-[400px] border-2 border-black rounded-2xl">
+  <div class="flex bg-green-100/50 h-[400px] gap-3 w-[500px] border-2 border-black rounded-2xl">
     <div class="flex flex-col m-3 gap-y-3 w-full">
-      <div class="flex flex-row bg-green-50 w-full h-full">
-        <input id="inpFirstNumber">
-        <input id="inpSecondNumber">
-      </div>
-      <div class="flex flex-row bg-green-100 w-full h-full">
-        Результат:
-        <div id="ResultCount"></div>
+      <div class="flex flex-row bg-green-50 h-full justify-start font-bold text-2xl">
+        <input id="inpFirstNumber" type="number" class="displayCul">
+        <div class="flex bg-red-500" id="actionSymbol"></div>
+        <input id="inpSecondNumber" type="number" class="displayCul">
+        <div class="flex bg-red-500" id="actionSymbol2">=</div>
+        <div id="ResultCount" class="displayCul"></div>
       </div>
       <div class="flex flex-row w-full h-full gap-3 ">
         <button class="btn" id="btn1">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
-        <button class="btn">+</button>
+        <button class="btn" id="btn2">2</button>
+        <button class="btn" id="btn3">3</button>
+        <button id="btnSummarize" class="btn" >+</button>
+        <button class="btn" id="btn8">9</button>
       </div>
       <div class="flex flex-row w-full h-full gap-3 ">
-        <button class="btn">4</button>
-        <button class="btn">5</button>
-        <button class="btn">6</button>
-        <button class="btn">-</button>
+        <button class="btn" id="btn4">4</button>
+        <button class="btn" id="btn5">5</button>
+        <button class="btn" id="btn6">6</button>
+        <button class="btn" id="btnSubtract">-</button>
+        <button class="btn" id="btn8">9</button>
       </div>
       <div class="flex flex-row w-full h-full gap-3 ">
-        <button class="btn">7</button>
-        <button class="btn">8</button>
-        <button class="btn">9</button>
-        <button class="btn">=</button>
+        <button class="btn" id="btn7">7</button>
+        <button class="btn" id="btn8">8</button>
+        <button class="btn" id="btn8">9</button>
+        <button class="btn" id="btnResult">=</button>
+        <button class="btn" id="btn8">9</button>
       </div>
     </div>
 
