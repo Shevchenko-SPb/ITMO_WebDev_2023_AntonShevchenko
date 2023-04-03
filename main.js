@@ -1,28 +1,25 @@
-const DOM = document.getElementById.bind(document)
+const DOM = document.getElementById.bind(document);
 
-const domInpName = DOM('inpName');
-const domInpSurname = DOM('inpSurname');
-const domConResult = DOM('conResult');
+const domInpName = DOM("inpName");
+const domInpSurname = DOM("inpSurname");
+const domConResult = DOM("conResult");
 
-let fullname = "";
+domInpName.oninput = function (event) {
+  console.log("onInpNameInput:", { event });
+  renderFullName();
+};
 
-domInpName.oninput = function(event) {
-  console.log("omInpNameChange:", { event });
-  renderFullname()
-}
-domInpSurname.oninput = onInpSurnameInput;
+domInpSurname.oninput = function (event) {
+  console.log("onInpNameInput:", { event });
+  renderFullName();
+};
 
-function renderFullname () {
-  fullname = domInpName.value + " " + domInpSurname.value;
-  domConResult.textContent = fullname;
-}
-function onInpNameInput(event) {
-  console.log("omInpNameChange:", { event });
-  renderFullname()
-}
-function onInpSurnameInput(event) {
-  console.log("omInpSurnameChange:", { event });
-  renderFullname()
+const getFullName = () => `${domInpName.value} ${domInpSurname.value}`;
+
+function renderFullName() {
+  const fullName = getFullName();
+  console.log("renderFullName:", { fullName });
+  domConResult.textContent = fullName;
 }
 
 console.log(domInpName, domInpSurname);
