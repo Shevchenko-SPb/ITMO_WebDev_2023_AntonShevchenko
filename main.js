@@ -24,7 +24,7 @@ const domBtn9 = DOM("btn9");
 const domRadioBtn1 = DOM("RadioBtn1")
 
 let calResult = "";
-
+let selectedInput = domInpFirstNumber;
 
 domBtnResult.onclick = onBtnResult;
 domBtnSummarize.onclick = onBtnSummarize;
@@ -41,8 +41,8 @@ domBtn6.onclick = onbtn6;
 domBtn7.onclick = onbtn7;
 domBtn8.onclick = onbtn8;
 domBtn9.onclick = onbtn9;
-
-
+domInpFirstNumber.click = (e) => selectedInput = domInpFirstNumber;
+domInpSecondNumber.click = (e) => selectedInput = domInpSecondNumber;
 
 function onBtnSummarize () {
   let num1 = Number(domInpFirstNumber.value);
