@@ -5,6 +5,7 @@ const domInpFirstNumber = DOM("inpFirstNumber");
 const domInpSecondNumber = DOM("inpSecondNumber");
 const domResultCount = DOM("ResultCount");
 const domBtnResult = DOM("btnResult");
+const domContainerNumbers = DOM("selectNumbers");
 const domBtnSummarize = DOM("btnSummarize");
 const domBtnSubtract = DOM("btnSubtract");
 const domActionSymbol = DOM("actionSymbol");
@@ -15,10 +16,25 @@ const domBtnReset = DOM("btnReset");
 
 let domButtons = document.getElementsByClassName("btn");
 
-domButtons.click = (e) => console.log(domButtons.value)
+domButtons.onclick = (e) => console.log(domButtons.value)
 
+domContainerNumbers.onclick = (e) => {
+  const isTargetButton = e.target.hasAttribute('value')
+  if (!isTargetButton) return;
 
+  const valueString = e.target.getAttribute('value');
 
+  if (valueString == '00') {
+  }
+  else if (valueString == '.') {
+
+  } else {
+    let valueNumber = parseInt(valueString);
+    selectedInput.value += valueNumber;
+  }
+
+  console.log('domContainerNumbers.onclick:', parseInt(e.target.getAttribute('value')));
+}
 
 
 
@@ -33,9 +49,16 @@ domBtnMultiply.onclick = onBtnMultiply;
 domBtnDivide.onclick = onBtnDivide;
 domBtnReset.onclick = onBtnReset;
 
+selectedInput = domInpFirstNumber;
 
-domInpFirstNumber.click = (e) => selectedInput = domInpFirstNumber ;
-domInpSecondNumber.click = (e) => selectedInput = domInpSecondNumber ;
+domInpFirstNumber.onclick = (e) => {
+  console.log('domInpFirstNumber.click');
+  selectedInput = domInpFirstNumber ;
+}
+domInpSecondNumber.onclick = (e) => {
+  console.log('domInpSecondNumber.click');
+  selectedInput = domInpSecondNumber ;
+}
 
 
 
