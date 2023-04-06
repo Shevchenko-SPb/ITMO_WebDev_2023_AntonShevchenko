@@ -342,15 +342,7 @@
     "@unocss/preset-mini" "0.50.6"
     "@unocss/preset-wind" "0.50.6"
 
-"@unocss/preset-web-fonts@0.50.6":
-  version "0.50.6"
-  resolved "https://registry.npmjs.org/@unocss/preset-web-fonts/-/preset-web-fonts-0.50.6.tgz"
-  integrity sha512-81meQMAq2lOy7k5qHQZ2EGWN5iJQUJOLl8dc9dxIo1eZPgiZQruxTVr4AkNVH5LRFcjHs/1sDb2CYxAiakwTVg==
-  dependencies:
-    "@unocss/core" "0.50.6"
-    ofetch "^1.0.1"
-
-"@unocss/preset-web-fonts@^0.50.6":
+"@unocss/preset-web-fonts@0.50.6", "@unocss/preset-web-fonts@^0.50.6":
   version "0.50.6"
   resolved "https://registry.yarnpkg.com/@unocss/preset-web-fonts/-/preset-web-fonts-0.50.6.tgz#710e5b06f01f421441c3b8c5cfc8acf9295a1b8e"
   integrity sha512-81meQMAq2lOy7k5qHQZ2EGWN5iJQUJOLl8dc9dxIo1eZPgiZQruxTVr4AkNVH5LRFcjHs/1sDb2CYxAiakwTVg==
