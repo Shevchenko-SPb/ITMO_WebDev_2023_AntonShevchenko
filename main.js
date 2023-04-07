@@ -37,6 +37,7 @@ domContainerNumbers.onclick = (e) => {
   else {
     if (((valueString == '0') || (valueString == '00')) && selectedInput.value == "") {
     selectedInput.value = "0."
+      return;
     }
     if (valueString == '.') {
       if (selectedInput.value.includes(".")) {
