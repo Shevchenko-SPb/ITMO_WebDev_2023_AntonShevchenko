@@ -22,27 +22,16 @@
   </head>
   <body class="flex flex-row h-screen justify-center items-center bg-blue-100/50">
   <div class="flex bg-green-100/50 h-[310px] gap-3 w-[500px] border-2 border-black rounded-2xl">
-    <div class="flex flex-col m-3 gap-y-3 w-full">
-      <div class="flex flex-row bg-green-100/50 h-[40px] gap-x-2 justify-start font-bold text-2xl">
-        <input id="inpFirstNumber" type="number" class="displayCul">
+    <div class="flex flex-col m-3 gap-y-8 w-full">
+      <div class="flex flex-row bg-green-100/50 h-[40px] gap-x-2 justify-start mt-2 font-bold text-2xl">
+        <input id="inpFirstNumber" type="text" class="displayCul">
         <div class="flex" id="actionSymbol"></div>
-        <input id="inpSecondNumber" type="number" class="displayCul">
+        <input id="inpSecondNumber" type="text" class="displayCul">
         <div class="flex" id="resultSymbol"></div>
         <div id="ResultCount" class="displayCul"></div>
       </div>
-      <div class="flex flex-row w-full justify-start gap-x-2">
-        <div class="flex flex-row gap-x-1">
-          <input type="radio" id="RadioBtn1" value="option1" name="RadioBtn">
-          <label>Ввод первого числа</label>
-        </div>
-        <div class="flex flex-row gap-x-1">
-          <input type="radio" id="RadioBtn2" value="option2" name="RadioBtn">
-          <label> Ввод второго числа</label>
-        </div>
-      </div>
-
       <div class="flex flex-row gap-x-4">
-        <div id=selectNumbers class="grid bg-red-100 grid-cols-3 grid-rows-4 w-full h-full gap-3 ">
+        <div id=selectNumbers class="grid grid-cols-3 grid-rows-4 w-full h-full gap-3 ">
           <button class="btn" value="1">1</button>
           <button class="btn" value="2">2</button>
           <button class="btn" value="3">3</button>
@@ -66,7 +55,6 @@
         </div>
       </div>
     </div>
-
   </div>
     <script type="module" src="/main.js"></script>
   </body>

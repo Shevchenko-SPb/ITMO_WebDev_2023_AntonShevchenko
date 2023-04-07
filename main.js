@@ -1,4 +1,3 @@
-
 const DOM = document.getElementById.bind(document);
 
 const domInpFirstNumber = DOM("inpFirstNumber");
@@ -14,40 +13,8 @@ const domBtnMultiply = DOM("btnMultiply");
 const domBtnDivide = DOM("btnDivide");
 const domBtnReset = DOM("btnReset");
 
-let domButtons = document.getElementsByClassName("btn");
-
-domButtons.onclick = (e) => console.log(domButtons.value)
-
-domContainerNumbers.onclick = (e) => {
-  const isTargetButton = e.target.hasAttribute('value')
-  if (!isTargetButton) return;
-
-  const valueString = e.target.getAttribute('value');
-
-  if (valueString == '00') {
-  }
-  else if (valueString == '.') {
-
-  } else {
-    let valueNumber = parseInt(valueString);
-    selectedInput.value += valueNumber;
-  }
-
-  console.log('domContainerNumbers.onclick:', parseInt(e.target.getAttribute('value')));
-}
-
-
-
-
 let calResult = "";
 let selectedInput;
-
-domBtnResult.onclick = onBtnResult;
-domBtnSummarize.onclick = onBtnSummarize;
-domBtnSubtract.onclick = onBtnSubtract;
-domBtnMultiply.onclick = onBtnMultiply;
-domBtnDivide.onclick = onBtnDivide;
-domBtnReset.onclick = onBtnReset;
 
 selectedInput = domInpFirstNumber;
 
@@ -60,7 +27,40 @@ domInpSecondNumber.onclick = (e) => {
   selectedInput = domInpSecondNumber ;
 }
 
+domContainerNumbers.onclick = (e) => {
+  const isTargetButton = e.target.hasAttribute('value')
+  if (!isTargetButton) return;
 
+  const valueString = e.target.getAttribute('value');
+  if ((valueString == '.') && selectedInput.value == "") {
+  }
+  else {
+    if (((valueString == '0') || (valueString == '00')) && selectedInput.value == "") {
+    selectedInput.value = "0."
+    }
+    if (valueString == '.') {
+      if (selectedInput.value.includes(".")) {
+      }
+      else
+      {
+        selectedInput.value += "."
+      }
+    }
+    else
+    {
+    let valueNumber = valueString;
+    selectedInput.value += valueNumber;
+    }
+  }
+  console.log('domContainerNumbers.onclick:', parseInt(e.target.getAttribute('value')));
+}
+
+domBtnResult.onclick = onBtnResult;
+domBtnSummarize.onclick = onBtnSummarize;
+domBtnSubtract.onclick = onBtnSubtract;
+domBtnMultiply.onclick = onBtnMultiply;
+domBtnDivide.onclick = onBtnDivide;
+domBtnReset.onclick = onBtnReset;
 
 function onBtnSummarize () {
   let num1 = Number(domInpFirstNumber.value);
