@@ -8,11 +8,15 @@ const Dom = {
       TASK: 'templateTask',
       Task: {
         TITLE: 'templateTaskTitle',
+        DATA: 'templateCreateData',
+        TAG: 'templateTag',
       },
     },
     Popup: {
       CREATE_TASK: "popupCreateTask",
       INPUT_TITLE: 'inpTitle',
+      DATA_POPUP_CREATE_TASK: 'inpDate',
+      TAG_POPUP_SELECT: 'countries',
     },
 };
 

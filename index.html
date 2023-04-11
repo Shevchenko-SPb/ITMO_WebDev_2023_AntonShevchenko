@@ -21,7 +21,7 @@
           <label class="ml-1 text-sm text-neutral-600" for="inpDate">Title: </label>
           <input
             class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200"
-            id="inpTitle"
+            data-id="inpTitle"
             type="text"
             placeholder="e.g. Read books"
           />
@@ -33,7 +33,7 @@
           <input
             class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200"
             type="date"
-            id="inpDate"
+            data-id="inpDate"
             name="trip-start"
             min="2018-01-01"
           />
@@ -43,7 +43,7 @@
         <div class="flex flex-col w-full">
           <label for="countries" class="ml-1 text-sm text-neutral-600">Select tag:</label>
           <select
-            id="countries"
+            data-id="countries"
             class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200 focus:border-none"
           >
             <option selected>Choose a tag</option>
@@ -134,7 +134,7 @@
                         >
                           Update
                         </div>
-                        <div
+                        <div data-id="templateTag"
                           class="text-xs rounded-lg py-1 px-2 bg-neutral-200/60 text-neutral-600"
                         >
                           Web
@@ -142,7 +142,7 @@
                       </div>
                       <div class="flex flex-row items-center gap-x-1">
                         <div class="i-mdi-clock-time-eight-outline text-sm text-green-600"></div>
-                        <div class="text-xs text-neutral-400">12 days left</div>
+                        <div data-id="templateCreateData" class="text-xs text-neutral-400">12 days left</div>
                       </div>
                     </div>
                     <div class="flex flex-row -space-x-2">

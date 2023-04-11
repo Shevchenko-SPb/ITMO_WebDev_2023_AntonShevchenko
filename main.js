@@ -10,10 +10,10 @@ class TaskVO {
   this.title = title;
   this.date = date;
   this.tag = tag;
-  }
-}
+  };
+};
 
-const task = new TaskVO("read", Date.now())
+const task = new TaskVO("read", Date.now());
 
 
 const DOM = (id) => document.getElementById(id);
@@ -30,6 +30,8 @@ DOM(Dom.Button.CREATE_TASK).onclick = () => {
   const domBtnClose = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CLOSE);
   const domBtnConfirm = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CONFIRM);
   const domInputTitle = QUERY(domPopupCreateTask, Dom.Popup.INPUT_TITLE);
+  const domDataCreateTask = QUERY(domPopupCreateTask, Dom.Popup.DATA_POPUP_CREATE_TASK);
+  const domTagPopupSelect = QUERY(domPopupCreateTask, Dom.Popup.TAG_POPUP_SELECT);
 
   domPopupCreateTask.classList.remove("hidden");
 
@@ -41,23 +43,15 @@ DOM(Dom.Button.CREATE_TASK).onclick = () => {
 
   domBtnClose.onclick = closePopup;
 
-
-  domInputTitle.oninput = (e) => {
-    domInputTitle = title.Popup
-  console.log(title.Popup)
-}
-
-
-
   domBtnConfirm.onclick = () => {
-    const domInputTitle = QUERY(domPopupCreateTask, Dom.Popup.INPUT_TITLE);
-    domInputTitle.oninput = teste;
 
-    const taskVO = new TaskVO(randomString(10),Date.now(), Tags[0]);
+    const taskVO = new TaskVO(domInputTitle.value, domDataCreateTask.value, domTagPopupSelect.value);
     const taskView = domTask.cloneNode(true);
 
 
     QUERY(taskView, Dom.Template.Task.TITLE).innerText = taskVO.title;
+    QUERY(taskView, Dom.Template.Task.DATA).innerText = taskVO.date;
+    QUERY(taskView, Dom.Template.Task.TAG).innerText = taskVO.tag;
 
 
     domTask.parentNode.prepend(taskView);
