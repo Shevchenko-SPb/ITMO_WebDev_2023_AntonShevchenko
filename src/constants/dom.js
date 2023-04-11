@@ -12,6 +12,7 @@ const Dom = {
     },
     Popup: {
       CREATE_TASK: "popupCreateTask",
+      INPUT_TITLE: 'inpTitle',
     },
 };
 

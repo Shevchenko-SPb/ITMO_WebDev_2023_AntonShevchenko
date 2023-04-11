@@ -29,6 +29,7 @@ DOM(Dom.Button.CREATE_TASK).onclick = () => {
   const domPopupCreateTask = DOM(Dom.Popup.CREATE_TASK);
   const domBtnClose = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CLOSE);
   const domBtnConfirm = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CONFIRM);
+  const domInputTitle = QUERY(domPopupCreateTask, Dom.Popup.INPUT_TITLE);
 
   domPopupCreateTask.classList.remove("hidden");
 
@@ -40,9 +41,21 @@ DOM(Dom.Button.CREATE_TASK).onclick = () => {
 
   domBtnClose.onclick = closePopup;
 
+
+  domInputTitle.oninput = (e) => {
+    domInputTitle = title.Popup
+  console.log(title.Popup)
+}
+
+
+
   domBtnConfirm.onclick = () => {
+    const domInputTitle = QUERY(domPopupCreateTask, Dom.Popup.INPUT_TITLE);
+    domInputTitle.oninput = teste;
+
     const taskVO = new TaskVO(randomString(10),Date.now(), Tags[0]);
     const taskView = domTask.cloneNode(true);
+
 
     QUERY(taskView, Dom.Template.Task.TITLE).innerText = taskVO.title;
 
