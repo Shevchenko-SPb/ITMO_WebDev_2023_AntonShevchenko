@@ -1,64 +1,71 @@
 import "uno.css";
 import "@unocss/reset/tailwind.css";
-import Dom from "./src/constants/dom.js";
-import { presetTagify } from "unocss";
-import { randomString } from "./src/utils/stringUtils.js";
+import DOM from "./src/constants/dom";
+import { randomString } from "./src/utils/stringutils";
+
+const KEY_LOCAL_TASKS = "tasks";
 
 const Tags = ["Web", "Update", "Design", "Content"];
+
 class TaskVO {
+  static fromJSON(json) {
+    return new TaskVO(json.title, json.date, json.tag);
+  }
   constructor(title, date, tag) {
-  this.title = title;
-  this.date = date;
-  this.tag = tag;
-  };
-};
+    this.title = title;
+    this.date = date;
+    this.tag = tag;
+  }
+}
 
-const task = new TaskVO("read", Date.now());
-
-
-const DOM = (id) => document.getElementById(id);
+// const task = new TaskVO("Read", Date.now(), Tags[0]);
+const getDOM = (id) => document.getElementById(id);
 const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 
-const domTask = DOM(Dom.Template.TASK);
+const domTemplateTask = getDOM(DOM.Template.TASK);
+const domTaskColumn = domTemplateTask.parentNode;
+domTemplateTask.remove();
 
-const tasks = [];
+const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
 
-DOM(Dom.Button.CREATE_TASK).onclick = () => {
-  console.log("> domBtnCreateTask");
+const tasks = rawTasks ? JSON.parse(rawTasks).map((json) => TaskVO.fromJSON(json)) : [];
+tasks.forEach((taskVO) => renderTask(taskVO));
+console.log("> tasks", tasks);
 
-  const domPopupCreateTask = DOM(Dom.Popup.CREATE_TASK);
-  const domBtnClose = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CLOSE);
-  const domBtnConfirm = QUERY(domPopupCreateTask, Dom.Button.POPUP_CREATE_TASK_CONFIRM);
-  const domInputTitle = QUERY(domPopupCreateTask, Dom.Popup.INPUT_TITLE);
-  const domDataCreateTask = QUERY(domPopupCreateTask, Dom.Popup.DATA_POPUP_CREATE_TASK);
-  const domTagPopupSelect = QUERY(domPopupCreateTask, Dom.Popup.TAG_POPUP_SELECT);
+getDOM(DOM.Button.CREATE_TASK).onclick = () => {
+  console.log("> domPopupCreateTask.classList");
+
+  const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
+  const domBtnClose = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CLOSE);
+  const domBtnConfirm = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CONFIRM);
+  const domInputTitle = getDOM(DOM.Popup.Input.INFO_TITLE);
+  // const domCreateDate = getDOM(DOM.Popup.Input.USER_DATE);
 
   domPopupCreateTask.classList.remove("hidden");
-
-  const closePopup = () => {
+  const onClosePopup = () => {
     domPopupCreateTask.classList.add("hidden");
     domBtnClose.onclick = null;
     domBtnConfirm.onclick = null;
   };
 
-  domBtnClose.onclick = closePopup;
-
   domBtnConfirm.onclick = () => {
+    let titleInfo = domInputTitle.value;
+    domInputTitle.innerHTML = titleInfo;
 
-    const taskVO = new TaskVO(domInputTitle.value, domDataCreateTask.value, domTagPopupSelect.value);
-    const taskView = domTask.cloneNode(true);
+    const taskVO = new TaskVO(titleInfo, Date.now(), Tags[0]);
 
+    renderTask(taskVO);
 
-    QUERY(taskView, Dom.Template.Task.TITLE).innerText = taskVO.title;
-    QUERY(taskView, Dom.Template.Task.DATA).innerText = taskVO.date;
-    QUERY(taskView, Dom.Template.Task.TAG).innerText = taskVO.tag;
-
-
-    domTask.parentNode.prepend(taskView);
     tasks.push(taskVO);
 
+    localStorage.setItem(KEY_LOCAL_TASKS, JSON.stringify(tasks));
 
-    console.log("confirm", taskVO);
-    closePopup();
+    onClosePopup();
   };
 };
+
+function renderTask(taskVO) {
+  const domTaskClone = domTemplateTask.cloneNode(true);
+  QUERY(domTaskClone, DOM.Template.Task.TITLE).innerHTML = taskVO.title;
+  domTaskColumn.prepend(domTaskClone);
+}

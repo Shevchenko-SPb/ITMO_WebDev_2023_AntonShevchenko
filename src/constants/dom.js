@@ -1,23 +1,24 @@
-const Dom = {
-    Button: {
-      CREATE_TASK: "btnCreateTask",
-      POPUP_CREATE_TASK_CLOSE: "btnCloseCreateTaskPopup",
-      POPUP_CREATE_TASK_CONFIRM: "btnConfirmTaskPopup",
+const DOM = {
+  Button: {
+    CREATE_TASK: "btnCreateTask",
+    POPUP_CREATE_TASK_CLOSE: "btnCloseCreateTaskPopup",
+    POPUP_CREATE_TASK_CONFIRM: "btnConfirmTaskPopup",
+  },
+  Template: {
+    TASK: "templateTask",
+    Task: {
+      TITLE: "templateTaskTitle",
     },
-    Template: {
-      TASK: 'templateTask',
-      Task: {
-        TITLE: 'templateTaskTitle',
-        DATA: 'templateCreateData',
-        TAG: 'templateTag',
-      },
+  },
+  Popup: {
+    CREATE_TASK: "popupCreateTask",
+    Input: {
+      INFO_TITLE: "inpTitle",
+      INFO_DATE: "inpDate",
+      USER_DATE: "userDate",
+      INFO_TAG: "countries",
     },
-    Popup: {
-      CREATE_TASK: "popupCreateTask",
-      INPUT_TITLE: 'inpTitle',
-      DATA_POPUP_CREATE_TASK: 'inpDate',
-      TAG_POPUP_SELECT: 'countries',
-    },
+  },
 };
 
-export default Dom;
+export default DOM;
