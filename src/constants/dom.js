@@ -12,13 +12,9 @@ const DOM = {
   },
   Popup: {
     CREATE_TASK: "popupCreateTask",
-    Input: {
-      INFO_TITLE: "inpTitle",
-      INFO_DATE: "inpDate",
-      USER_DATE: "userDate",
-      INFO_TAG: "countries",
+    CreateTask: {
+      TITLE: 'title',
     },
-    CreateTask: 'title',
   },
 };
 

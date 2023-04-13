@@ -35,16 +35,19 @@ tasks.forEach((taskVO) => renderTask(taskVO));
 console.log("> tasks", tasks);
 
 domTaskColumn.onclick = (e) => {
-  console.log(e.target);
-}
+  e.stopPropagation();
+  console.log('domTaskColumn', e.target);
+  renderTaskPopup('Update task', 'Update', () => {
+  console.log('> Update -> On Confirm');
+  });
+};
 
 getDOM(DOM.Button.CREATE_TASK).onclick = () => {
   console.log("> domPopupCreateTask.classList");
-  renderTaskPopup ('Create task', 'Create', () => {
-    console.log('> CreateTask')
+  renderTaskPopup ('Create task', 'Create', ()  => {
+    console.log('> CreateTask -> On Confirm');
   });
-  };
-
+};
 
 function  onCreateTaskClick () {
     const taskId = `task_${Date.now()}`;
@@ -53,6 +56,7 @@ function  onCreateTaskClick () {
 
     renderTask(taskVO);
     tasks.push(taskVO);
+    consol.log('confirm', taskVO);
     localStorage.setItem(KEY_LOCAL_TASKS, JSON.stringify(tasks));
 }
 
@@ -65,16 +69,15 @@ function renderTask(taskVO) {
 
 function renderTaskPopup (popupTitle, btnConfirmText, confirmCallback) {
   const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
-  const domBtnClose = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CLOSE);
-  const domBtnConfirm = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CONFIRM);
-  const domInputTitle = getDOM(DOM.Popup.Input.INFO_TITLE);
 
-  domPopupCreateTask.classList.remove("hidden");
+  const domBtnClose = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CLOSE);
+
+  const domBtnConfirm = QUERY(domPopupCreateTask, DOM.Button.POPUP_CREATE_TASK_CONFIRM);
 
   const domTitle = QUERY(domPopupCreateTask, DOM.Popup.CreateTask.TITLE);
 
+  domBtnConfirm.innerText = btnConfirmText;
   domTitle.innerText = popupTitle;
-
 
   const onClosePopup = () => {
     domPopupCreateTask.classList.add("hidden");
@@ -90,5 +93,5 @@ function renderTaskPopup (popupTitle, btnConfirmText, confirmCallback) {
     if (confirmCallback) confirmCallback();
     onCreateTaskClick();
     onClosePopup();
-  }
+  };
 }
