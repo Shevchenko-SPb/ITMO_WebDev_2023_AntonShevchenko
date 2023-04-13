@@ -2,6 +2,7 @@ import 'uno.css';
 import '@unocss/reset/tailwind.css';
 import DOM from './src/constants/dom';
 import { randomString } from './src/utils/stringUtils.js';
+import taskPopup from "./src/view/popup/TaskPopup.js";
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -67,37 +68,31 @@ function renderTask(taskVO) {
   domTaskColumn.prepend(domTaskClone);
 }
 
-function renderTaskPopup(popupTitle, btnConfirmText, confirmCallback) {
-  const domPopupCreateTask = getDOM(DOM.Popup.CREATE_TASK);
+async function renderTaskPopup(popupTitle, confirmText, confirmCallback) {
+  const domPopupContainer = getDOM(DOM.Popup.Container);
+  const domSpinner = domPopupContainer.querySelector('.spinner');
 
-  const domBtnClose = QUERY(
-    domPopupCreateTask,
-    DOM.Button.POPUP_CREATE_TASK_CLOSE
+  domPopupContainer.classList.remove('hidden');
+
+  const onClose = () => {
+    domPopupContainer.innerHTML = '';
+    domPopupContainer.append(domSpinner);
+    domPopupContainer.classList.add('hidden');
+  }
+
+  const TaskPopup = (await import('./src/view/popup/TaskPopup')).default;
+  const taskPopupInstance = new TaskPopup(
+    popupTitle,
+    Tags,
+    confirmText,
+    (taskTitle, taskDate, taskTags) => {
+      confirmCallback(taskTitle, taskDate, taskTags);
+      onClose();
+    },
+    onClose
   );
-  const domBtnConfirm = QUERY(
-    domPopupCreateTask,
-    DOM.Button.POPUP_CREATE_TASK_CONFIRM
-  );
-  const domTitle = QUERY(domPopupCreateTask, DOM.Popup.CreateTask.TITLE);
-
-  domBtnConfirm.innerText = btnConfirmText;
-  domTitle.innerText = popupTitle;
-
-  const onClosePopup = () => {
-    domPopupCreateTask.classList.add('hidden');
-    domBtnClose.onclick = null;
-    domBtnConfirm.onclick = null;
-  };
-
-  domPopupCreateTask.classList.remove('hidden');
-
-  domBtnClose.onclick = onClosePopup;
-
-  domBtnConfirm.onclick = () => {
-    const taskTitle = randomString(12);
-    const taskDate = randomString(12);
-    const taskTags = Tags[0];
-    confirmCallback && confirmCallback(taskTitle, taskDate, taskTags);
-    onClosePopup();
-  };
-}
+  setTimeout(() => {
+    domPopupContainer.removeChild(domSpinner);
+    domPopupContainer.append(taskPopupInstance.render());
+  }, 1000);
+};
