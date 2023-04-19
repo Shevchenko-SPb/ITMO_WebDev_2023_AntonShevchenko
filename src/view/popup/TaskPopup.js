@@ -13,9 +13,10 @@ class TaskPopup {
     this.#confirmCallback = confirmCallback;
     this.#closeCallback = closeCallback;
   }
+
   #taskTitle = '';
+
   set taskTitle(value) {
-    console.log('taskTitle', value);
     this.#taskTitle = value;
   }
 
@@ -88,8 +89,6 @@ class TaskPopup {
       domBtnConfirm.onclick = null;
       this.#closeCallback();
     };
-
-
 
     domBtnConfirm.onclick = () => {
       const taskTitle = domInpTitle.value;
