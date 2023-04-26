@@ -1,6 +1,7 @@
 import 'uno.css';
 import '@unocss/reset/tailwind.css';
 import DOM from './src/constants/dom';
+import { delay } from "./src/utils/timeUtils.js";
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -51,7 +52,7 @@ const taskOperations = {
         saveTask();
       }
     );
-  },smdslkmgfdkfd;mdd;kvfdfdklvflvfdlkfkvfkkgdf;f;fbZDfvm d.fz,mfzd/kgm;kfd/gm
+  },
   [DOM.Template.Task.BTN_EDIT]: (taskVO, domTask) => {
     renderTaskPopup(
       taskVO,
@@ -141,6 +142,7 @@ async function renderTaskPopup(
   domPopupContainer.classList.remove('hidden');
 
   const onClosePopup = () => {
+    document.onkeyup = null;
     domPopupContainer.children[0].remove();
     domPopupContainer.append(domSpinner);
     domPopupContainer.classList.add('hidden');
@@ -167,15 +169,16 @@ async function renderTaskPopup(
     taskPopupInstance.taskTitle = taskVO.title;
   }
 
-  // setTimeout(() => {
-  domSpinner.remove();
-  document.onkeyup = (e) => {
-    if (e.key === 'Escape') {
-      onClosePopup();
-    }
-  };
-  domPopupContainer.append(taskPopupInstance.render());
-  // }, 1000);
+  delay(1000).then(() => {
+    console.log('render 1');
+    domSpinner.remove();
+    document.onkeyup = (e) => {
+      if (e.key === 'Escape') {
+        onClosePopup();
+      }
+    };
+    domPopupContainer.append(taskPopupInstance.render());
+  });
 }
 
 function saveTask() {
