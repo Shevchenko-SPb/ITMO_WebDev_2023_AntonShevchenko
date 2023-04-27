@@ -28,6 +28,16 @@ domTemplateTask.removeAttribute('id');
 domTemplateTask.remove();
 
 const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
+fetch('http://localhost:3000/tasks').then((response) => {
+ return response.ok && response.json();
+}).then((rawTasks) => {
+  if (rawTasks && rawTasks instanceof Object) {
+    console.log('json', rawTasks);
+    const serverTasks = rawTasks.map((json) => TaskVO.fromJSON(json))
+    serverTasks.forEach((taskVO) => renderTask(taskVO))
+    tasks.push(...serverTasks)
+  }
+})
 
 const tasks = rawTasks
   ? JSON.parse(rawTasks).map((json) => TaskVO.fromJSON(json))
