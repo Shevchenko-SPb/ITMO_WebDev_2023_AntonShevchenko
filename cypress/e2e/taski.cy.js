@@ -1,5 +1,5 @@
 import DOM from '../../src/constants/dom';
-import taskPopup from "../../src/view/popup/TaskPopup.js";
+import taskPopup from "../../src/mvc/view/popup/TaskPopup.js";
 
 const SERVER_URL = 'http://localhost:4173/';
 
