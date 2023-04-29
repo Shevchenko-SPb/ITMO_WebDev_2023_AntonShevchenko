@@ -23,9 +23,27 @@ class TasksController {
         return [];
       });
   }
+
+  deleteTask(taskID) {
+    console.log("> TaskController -> ");
+    return fetch(`http://localhost:3000/tasks/${taskId}`, {
+      method: "DELETE",
+    })
+      .then((response) => {
+        console.log(">TaskController -> deleteTask: = ", response.ok);
+        if (response.ok) {
+          this.#model.deleteTaskById(taskId);
+        }
+      })
+      .catch((e) => {
+        console.error(">TaskController -> deleteTask: error = ", e);
+        throw new Error(e.toString());
+      });
+  }
+
   createTask(taskTitle, taskDate, taskTags) {
     console.log("> Create task -> On Confirm");
-    fetch("http://localhost:3000/tasks", {
+    return fetch("http://localhost:3000/tasks", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,13 +53,18 @@ class TasksController {
         date: taskDate,
         tags: taskTags,
       }),
-    });
-    const taskId = `task_${Date.now()}`;
-    const taskVO = new TaskVO(taskId, taskTitle, taskDate, taskTags);
-
-    // renderTask(taskVO);
-    // tasks.push(taskVO);
-    // saveTask();
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(">TaskController -> createTask: data = ", data);
+        const taskVO = TaskVO.fromJSON(data);
+        this.#model.addTask(taskVO);
+        return taskVO;
+      })
+      .catch((e) => {
+        console.log(">TaskController -> createTask: error = ", e);
+        throw new Error(e.toString());
+      });
   }
 }
 

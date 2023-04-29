@@ -10,7 +10,6 @@
     "e2e:open": "cypress open",
     "e2e:run": "yarn build && yarn preview | cypress run",
     "server:json": "json-server ./db.json -w"
-
   },
   "devDependencies": {
     "@iconify/json": "^2.2.42",
@@ -29,5 +28,8 @@
   "main": "index.js",
   "repository": "https://github.com/Shevchenko-SPb/ITMO_WebDev_2023_AntonShevchenko.git",
   "author": "Shevchenko-SPb <Shevchenko-SPb@yandex.ru>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "toastify-js": "^1.12.0"
+  }
 }
