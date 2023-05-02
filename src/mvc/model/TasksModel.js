@@ -4,10 +4,10 @@ class TasksModel {
   constructor() {}
   set tasks(value) {
     this.#tasks = value;
-    this.#update();
+    this.#notify();
   }
 
-  #update() {
+  #notify() {
     this.#upDateCallBacks.forEach((c) => c(this.#tasks));
   }
   addUpdateCallback(upDateCallback) {
@@ -26,13 +26,20 @@ class TasksModel {
     console.log(">TaskModel -> deleteTaskById", taskId);
     const index = this.#tasks.filter((taskVO) => taskVO.id !== taskId);
     this.#tasks.splice(index, 1);
-    this.#update();
+    this.#notify();
   }
 
   addTask(taskVO) {
     console.log(">TaskModel -> addTask:", taskVO);
     this.#tasks.push(taskVO);
-    this.#update();
+    this.#notify();
+  }
+
+  updateTaskById(taskId, data) {
+    console.log(">TaskModel -> updateTaskById:", { taskId, data });
+    const taskVO = this.getTaskById(taskId);
+    Object.assign(taskVO, data);
+    this.#notify();
   }
 }
 
