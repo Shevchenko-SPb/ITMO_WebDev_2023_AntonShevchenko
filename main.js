@@ -13,8 +13,9 @@ const domBtnMultiply = DOM("btnMultiply");
 const domBtnDivide = DOM("btnDivide");
 const domBtnReset = DOM("btnReset");
 
-let calResult = "";
 let selectedInput;
+let firstInputNumber;
+let secondInputNumber;
 
 selectedInput = domInpFirstNumber;
 
@@ -63,33 +64,44 @@ domBtnMultiply.onclick = onBtnMultiply;
 domBtnDivide.onclick = onBtnDivide;
 domBtnReset.onclick = onBtnReset;
 
+function updateInputNumbers () {
+   firstInputNumber = Number(domInpFirstNumber.value);
+   secondInputNumber = Number(domInpSecondNumber.value);
+}
+
 function onBtnSummarize () {
-  let num1 = Number(domInpFirstNumber.value);
-  let num2 = Number(domInpSecondNumber.value);
   domActionSymbol.innerHTML = "+";
-  calResult = num1 + num2;
 }
 function onBtnSubtract () {
-  let num1 = Number(domInpFirstNumber.value);
-  let num2 = Number(domInpSecondNumber.value);
   domActionSymbol.innerHTML = "-";
-  calResult = num1 - num2;
 }
 function onBtnMultiply () {
-  let num1 = Number(domInpFirstNumber.value);
-  let num2 = Number(domInpSecondNumber.value);
   domActionSymbol.innerHTML = "*";
-  calResult = num1 * num2;
 }
 function onBtnDivide () {
-  let num1 = Number(domInpFirstNumber.value);
-  let num2 = Number(domInpSecondNumber.value);
   domActionSymbol.innerHTML = "/";
-  calResult = num1/num2;
 }
 function onBtnResult () {
+  updateInputNumbers();
   domResultSymbol.innerHTML = "=";
-  domResultCount.innerHTML = calResult;
+  console.log("actionSymbol ->",domActionSymbol.textContent)
+  if(domActionSymbol.textContent == "+") {
+    domResultCount.innerHTML = firstInputNumber + secondInputNumber;
+  }
+  if(domActionSymbol.textContent == "-") {
+    domResultCount.innerHTML = firstInputNumber - secondInputNumber;
+  }
+  if(domActionSymbol.textContent == "/") {
+    if (secondInputNumber == 0){
+      domResultCount.innerHTML = "Fatal error"
+    }
+    else {
+      domResultCount.innerHTML = firstInputNumber / secondInputNumber;
+    }
+  }
+  if(domActionSymbol.textContent == "*") {
+    domResultCount.innerHTML = firstInputNumber * secondInputNumber;
+  }
 }
 function onBtnReset () {
   domInpFirstNumber.value = "";
