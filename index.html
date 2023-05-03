@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Intro</title>
+    <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+        .btn, .btnAct {
+            @apply w-full border-black border-2 rounded-2xl text-3xl font-bold
+            active:shadow-2xl active:bg-gray-500 bg-green-100/50;
+        }
+
+        .displayCul {
+            @apply border-black border-2 rounded-xl w-full overflow-hidden items-center
+            content-center place-content-center bg-neutral-50
+        }
+    </style>
+  </head>
+  <body class="flex flex-row h-screen justify-center items-center bg-blue-100/50">
+  <div class="flex bg-green-100/50 h-[310px] gap-3 w-[500px] border-2 border-black rounded-2xl">
+    <div class="flex flex-col m-3 gap-y-8 w-full">
+      <div class="flex flex-row bg-green-100/50 h-[40px] gap-x-2 justify-start mt-2 font-bold text-2xl">
+        <input id="inpFirstNumber" type="text" class="displayCul">
+        <div class="flex" id="actionSymbol"></div>
+        <input id="inpSecondNumber" type="text" class="displayCul">
+        <div class="flex" id="resultSymbol"></div>
+        <div id="ResultCount" class="displayCul"></div>
+      </div>
+      <div class="flex flex-row gap-x-4">
+        <div id=selectNumbers class="grid grid-cols-3 grid-rows-4 w-full h-full gap-3 ">
+          <button class="btn" value="1">1</button>
+          <button class="btn" value="2">2</button>
+          <button class="btn" value="3">3</button>
+          <button class="btn" value="4">4</button>
+          <button class="btn" value="5">5</button>
+          <button class="btn" value="6">6</button>
+          <button class="btn" value="7">7</button>
+          <button class="btn" value="8">8</button>
+          <button class="btn" value="9">9</button>
+          <button class="btn" value="0">0</button>
+          <button class="btn" value="00">00</button>
+          <button class="btn" value=".">.</button>
+        </div>
+        <div class="grid grid-cols-2 grid-rows-3 w-full h-full gap-3">
+          <button class="btnAct" id="btnSubtract">-</button>
+          <button class="btnAct" id="btnDivide">/</button>
+          <button id="btnSummarize" class="btnAct" >+</button>
+          <button class="btnAct" id="btnMultiply">*</button>
+          <button class="btnAct" id="btnResult">=</button>
+          <button class="btnAct" id="btnReset">C</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
