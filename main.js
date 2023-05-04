@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+
 class Planet {
   x;
   y;
@@ -10,19 +11,23 @@ class Planet {
   pY;
   atmosphere;
   radius;
-  constructor(x, y, size, atmosphere, radius = 50) {
+  speed;
+  constructor(x, y, speed, size, atmosphere, radius = 50) {
     this.pX = x;
     this.pY = y;
     this.atmosphere = atmosphere;
     this.radius = radius;
     this.size = size;
+    this.speed = speed;
+    this.alpha = 0;
   }
 
   move() {
-    planet.x = planet.radius * Math.sin(alpha) + planet.pX;
-    planet.y = planet.radius * Math.cos(alpha) + planet.pY;
-    alpha += (SPEED_MULT * Math.PI) / 180;
+    planet.x = planet.radius * Math.sin(this.alpha) + planet.pX;
+    planet.y = planet.radius * Math.cos(this.alpha) + planet.pY;
+    this.alpha += (this.speed * Math.PI) / 180;
   }
+
   render(ctx) {
     ctx.beginPath();
     ctx.fillStyle = this.atmosphere;
@@ -32,20 +37,24 @@ class Planet {
   }
 }
 
-let x = 0,
-  y = 0;
-
-const R = 150;
-let alpha = 0;
-let SPEED_MULT = 0.1;
+class Position {
+  x;
+  y;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
 
 const planets = [
-  new Planet(300, 300, 10, "red", 300),
-  new Planet(300, 300, 20, "blue", 260),
-  new Planet(300, 300, 30, "red", 200),
-  new Planet(300, 300, 40, "green", 130),
+  new Planet(300, 300, 0.1, 10, "red", 300),
+  new Planet(300, 300, 0.2, 20, "blue", 260),
+  new Planet(300, 300, 0.3, 30, "pink", 200),
+  new Planet(300, 300, 0.4, 40, "green", 130),
 ];
+
 let planet;
+
 const render = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
