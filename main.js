@@ -15,7 +15,7 @@ const earth = new Earth(sun.position);
 const planets = [
   sun,
   earth,
-  new Planet(centerPosition, 10000, 150, new RenderPlanet(40, "#ccc")),
+  new Planet(centerPosition, 10, 150, new RenderPlanet(40, "#ccc")),
   new Planet(centerPosition, 0.4, 80, new RenderPlanet(25, "red")),
 ];
 
