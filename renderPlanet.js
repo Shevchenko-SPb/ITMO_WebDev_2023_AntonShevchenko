@@ -1,7 +1,7 @@
 export class RenderPlanet {
   size;
   atmosphere;
-  constructor(size = 10, atmosphere = "red") {
+  constructor(size = 20, atmosphere = "red") {
     this.size = size;
     this.atmosphere = atmosphere;
   }

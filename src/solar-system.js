@@ -53,8 +53,8 @@ class Position {
 class Earth extends Planet {
   moon;
   constructor(center) {
-    super(center, 1.2, 30, new RenderPlanet(10, "black"));
-    this.moon = new Planet(this.position, 2, 200, new RenderPlanet(10, "red"));
+    super(center, 1.2, 100, new RenderPlanet(20, "black"));
+    this.moon = new Planet(this.position, 2, 30, new RenderPlanet(10, "red"));
   }
   move() {
     super.move();
@@ -65,7 +65,7 @@ class Earth extends Planet {
     super.render(ctx);
     ctx.beginPath();
     ctx.fillStyle = "green";
-    ctx.arc(this.position.x + 5, this.position.y, 15, 50, Math.PI * 2);
+    ctx.arc(this.position.x + 5, this.position.y, 25, 50, Math.PI * 2);
     ctx.fill();
     ctx.closePath();
     this.moon.render(ctx);
