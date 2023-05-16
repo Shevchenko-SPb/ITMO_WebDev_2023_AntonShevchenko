@@ -2,31 +2,48 @@ const appendBlock = (block) => document.getElementById("app").appendChild(block)
 
 let blocksRaw = [];
 blocksRaw.forEach((element) => console.log(element));
-const createBlock = (x, y, size = 50) => {
+const generateColor = () => {
+  const isNotEmpty = Math.random() > 0.5;
+  if (isNotEmpty) {
+    return "black";
+  }
+  return null;
+}
+const createBlock = (x, y, size, color) => {
   const result = document.createElement("div");
-  const isEmpty = Math.random() > 0.5;
-  if (isEmpty) {
-  } else {
-    result.style.backgroundColor = "black";
+  if (color) {
+    result.style.backgroundColor = color;
   }
   result.style.width = result.style.height = `${size}px`;
   result.style.position = "absolute";
   result.style.left = `${x}px`;
   result.style.top = `${y}px`;
-  blocksRaw.push(result);
   return result;
 };
 
 const BLOCK_SIZE = 50;
-let columns = 5;
+const DIMENTION = 5;
+
+let columns = DIMENTION;
+let rows = columns * 2;
 let xPos = 100;
 let yPos = 100;
 
-while (columns-- > 0) {
-  const block = createBlock(xPos, yPos, BLOCK_SIZE);
-  xPos = xPos + BLOCK_SIZE;
-  console.log("blocksRaw elements ->", block);
-  blocksRaw.push(block);
+while (rows-- > 0) {
+  let line = [];
+  xPos = 100;
+  columns = DIMENTION;
+  while (columns-- > 0) {
+    const color = generateColor();
+  const block = createBlock(xPos, yPos, BLOCK_SIZE, color);
+  line.push(color);
+  xPos += BLOCK_SIZE;
   appendBlock(block);
 }
-console.log("blocksRaw ->", blocksRaw);
+line.reverse().forEach((color) => {
+  const block = createBlock(xPos, yPos, BLOCK_SIZE, color);
+  appendBlock(block);
+  xPos += BLOCK_SIZE;
+});
+yPos += BLOCK_SIZE;
+}
