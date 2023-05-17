@@ -1,6 +1,3 @@
-const container = (xPosMonsters) => {
-  const result = document.createElement("div");
-  result.style.left = `${xPosMonsters}px`;
   const appendBlock = (block) => document.getElementById("app").appendChild(block);
 
   const generateColor = () => {
@@ -22,17 +19,21 @@ const container = (xPosMonsters) => {
     return result;
   };
 
-  const BLOCK_SIZE = 50;
+  const BLOCK_SIZE = 10;
   const DIMENTION = 5;
 
   let columns = DIMENTION;
-  let rows = columns * 2;
+  let monsters = 5;
+  let rows = 10;
   let xPos = 100;
   let yPos = 100;
+  let startPosition = BLOCK_SIZE * columns
 
+while (monsters-- > 0) {
+  startPosition += 30;
   while (rows-- > 0) {
     let line = [];
-    xPos = 100;
+    xPos = startPosition;
     columns = DIMENTION;
     while (columns-- > 0) {
       const color = generateColor();
@@ -48,14 +49,6 @@ const container = (xPosMonsters) => {
     });
     yPos += BLOCK_SIZE;
   }
-};
-
-
-let monsters = 4;
-while (monsters-- > 0) {
-  let monsterBlocks = [];
-  let xPosMonsters = 100;
-  xPosMonsters += xPosMonsters;
-  monsterBlocks.push(container(xPosMonsters));
 
 }
+
