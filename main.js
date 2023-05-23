@@ -51,7 +51,7 @@ const taskOperations = {
         saveTask();
       }
     );
-  },smdslkmgfdkfd;mdd;kvfdfdklvflvfdlkfkvfkkgdf;f;fbZDfvm d.fz,mfzd/kgm;kfd/gm
+  },
   [DOM.Template.Task.BTN_EDIT]: (taskVO, domTask) => {
     renderTaskPopup(
       taskVO,
