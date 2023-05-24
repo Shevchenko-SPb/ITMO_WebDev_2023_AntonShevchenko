@@ -24,7 +24,7 @@
         }
     </style>
   </head>
-  <body class="bg-teal-100/50 w-screen h-screen grid place-items-center p-12 font-sans">
+  <body class="bg-teal-100/50 w-screen h-screen grid place-items-center p-6 font-sans">
   <div
     id="popupContainer"
     class="hidden fixed w-screen h-screen top-0 left-0 bg-black/70 z-10 grid place-items-center"
@@ -32,10 +32,48 @@
     <div class="spinner"></div>
   </div>
     <div class="container flex flex-row w-full h-full bg-gray-200 rounded-3xl p-4">
-      <aside class="flex flex-col min-w-[120px]">
-        <div class="flex flex-row items-center gap-x-2 py-4">
-          <i class="i-ph:cube-focus-bold text-teal-700 text-3xl"></i>
-          <span class="font-bold text-xl">Taski</span>
+      <aside class="flex flex-col min-w-[300px]">
+        <div>
+          <div class="flex flex-row items-center gap-x-2 py-4">
+            <i class="i-ph:cube-focus-bold text-teal-700 text-3xl"></i>
+            <span class="font-bold text-xl">Taski</span>
+          </div>
+          <div class="flex flex-row">
+            <div>
+              <img src="https://cdn3.iconfinder.com/data/icons/user-2/100/10-512.png" class="w-12 m-auto rounded-full shadow">
+            </div>
+            <div class="flex flex-col justify-center mx-2">
+              <div class="font-bold">Name Surname</div>
+              <div class="text-xs font-thin">Premium account</div>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <i class="i-mdi-filter hover:text-neutral-600"></i>
+            <div>Activity</div>
+            <div class="px-3 py-0.5 bg-teal-600 rounded-3xl">
+              <span class="text-white">3</span>
+            </div>
+          </div>
+          <div class="flex flex-row">
+            <i class="i-mdi-filter hover:text-neutral-600"></i>
+            <div>My Profile</div>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div>Pages</div>
+          <div class="flex flex-row">
+            <i class="i-radix-icons:dashboard hover:text-neutral-600"></i>
+            <span>Dashboard</span>
+          </div>
+
+        </div>
+        <div class="flex flex-row">
+          <div>Labels</div>
+
+        </div>
+        <div class="flex flex-row">
+          <div>Help center</div>
+
         </div>
       </aside>
       <main class="flex flex-col w-full bg-gray-50 rounded-2xl px-4 pt-2 pb-4 gap-y-4">
@@ -46,7 +84,7 @@
           <div class="flex flex-col">
             <div class="flex flex-row items-center gap-x-8">
               <span class="text-neutral-400">Search</span>
-              <button id="btnCreateTask" class="px-4 py-2 bg-teal-600 rounded-full">
+              <button id="btnCreateTask" class="px-4 py-2 bg-teal-600 rounded-xl">
                 <span class="text-white">+ Create Task</span>
               </button>
             </div>
@@ -83,7 +121,7 @@
         <hr />
         <div class="flex flex-row justify-between gap-x-4">
           <div
-            class="flex flex-col h-full w-1/2 bg-gray-200 border-1 border-gray-300/50 rounded-xl p-2"
+            class="flex flex-col h-full w-1/3 bg-gray-200 border-1 border-gray-300/50 rounded-xl p-2"
           >
             <div class="flex flex-row justify-between py-1 px-1">
               <div class="flex flex-row font-bold gap-x-1">
@@ -146,6 +184,43 @@
               </div>
             </div>
           </div>
+          <div
+            class="flex flex-col h-full w-1/3 bg-gray-200 border-1 border-gray-300/50 rounded-xl p-2"
+          >
+            <div class="flex flex-row justify-between py-1 px-1">
+              <div class="flex flex-row font-bold gap-x-1">
+                <span>In Progress </span>
+                <span class="text-gray-400">2</span>
+              </div>
+              <div class="flex flex-col text-neutral-500">+ ...</div>
+            </div>
+            <div class="flex flex-row pt-2">
+              <div data-test-id="tasks-column" class="flex flex-col justify-start w-full gap-y-4 justify-between">
+                <button class="rounded-lg bg-neutral-50 w-full py-2 shadow text-neutral-500">
+                  + Add task
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col h-full w-1/3 bg-gray-200 border-1 border-gray-300/50 rounded-xl p-2"
+          >
+            <div class="flex flex-row justify-between py-1 px-1">
+              <div class="flex flex-row font-bold gap-x-1">
+                <span>In Review </span>
+                <span class="text-gray-400">2</span>
+              </div>
+              <div class="flex flex-col text-neutral-500">+ ...</div>
+            </div>
+            <div class="flex flex-row pt-2">
+              <div data-test-id="tasks-column" class="flex flex-col justify-start w-full gap-y-4 justify-between">
+                <button class="rounded-lg bg-neutral-50 w-full py-2 shadow text-neutral-500">
+                  + Add task
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </main>
     </div>
