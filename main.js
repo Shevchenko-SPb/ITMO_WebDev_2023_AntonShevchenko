@@ -31,7 +31,13 @@ domAddItem.onclick = (e) => {
     domPopupContainer.classList.add("hidden");
     domClosePopup.onclick = null;
   }
-  
+  domCreateItem.onclick = () => {
+    const invoiceItem = new InvoiceItem("sdd","vfb",1,2,3);
+    const itemView = domItem.cloneNode(true)
+    QUERY(itemView, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.nameItem;
+    domItem.parentNode.prepend(itemView)
+    items.push(InvoiceItem);
+  }
 }
 
 

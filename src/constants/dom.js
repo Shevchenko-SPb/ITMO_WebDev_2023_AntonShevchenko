@@ -7,6 +7,13 @@ const Dom = {
   },
   Template: {
     ITEM: 'templateInvoiceItem',
+    Item: {
+      ITEM_NAME: 'templateItemName',
+      ITEM_DESCRIPTION: 'templateItemDescription',
+      ITEM_COST: 'templateItemCost',
+      ITEM_QTY: 'templateItemQty',
+      ITEM_TOTAL: 'templateItemTotalCost',
+    }
   },
   Popup: {
     CONTAINER: 'popupAddItem',
