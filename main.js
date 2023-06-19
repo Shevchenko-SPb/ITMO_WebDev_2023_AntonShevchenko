@@ -62,15 +62,72 @@ domAddItem.onclick = (e) => {
   });
 }
 
-function renderItem(taskVO) {
+function renderItem(invoiceItem) {
   const domItemClone = domItem.cloneNode(true);
   domItemClone.dataset.id = invoiceItem.id;
-  QUERY(domItemClone, DOM.Template.Task.TITLE).innerText = taskVO.title;
-  domTaskColumn.prepend(domTaskClone);
-  return domTaskClone;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.name;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_DESCRIPTION).innerText = invoiceItem.description;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_COST).innerText = invoiceItem.cost;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_QTY).innerText = invoiceItem.qty;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_TOTAL).innerText = invoiceItem.total;
+  domItemColumn.prepend(domItemClone);
+  return domItemClone;
 }
 
+async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
+  const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
+  const domSpinner = domPopupContainer.querySelector('.spinner');
+  domPopupContainer.classList.remove('hidden');
 
+  const onClosePopup = () => {
+    domPopupContainer.children[0].remove();
+    domPopupContainer.append(domSpinner);
+    domPopupContainer.classList.add('hidden');
+  };
+
+  class ItemPopup {
+    #title;
+    #name;
+    #description;
+    #cost;
+    #qty;
+    #total;
+
+    constructor(title, name, description, cost, qty, total) {
+      this.#title = title;
+      this.#name = name;
+      this.#description = description;
+      this.#cost = cost;
+      this.#qty = qty;
+      this.#total = total;
+    }
+
+    #itemTitle = '';
+
+    set itemTitle(value) {
+      this.#itemTitle = value;
+    }
+
+    // const
+    // ItemPopup = (await import('./src/view/popup/TaskPopup')).default;
+    const
+    itemPopupInstance = new ItemPopup(
+      popupTitle,
+      Tags,
+      confirmText,
+      (taskTitle, taskDate, taskTags) => {
+
+        processDataCallback(taskTitle, taskDate, taskTags);
+        onClosePopup();
+      },
+      onClosePopup
+    );
+
+    if(invoiceItem) {
+      itemPopupInstance.taskTitle = invoiceItem.title
+    }
+  }
+}
 
 
 function saveItem () {
