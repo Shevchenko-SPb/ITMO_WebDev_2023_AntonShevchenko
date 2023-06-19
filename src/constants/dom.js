@@ -8,6 +8,7 @@ const Dom = {
   Template: {
     ITEM: 'templateInvoiceItem',
     Item: {
+      ITEM_TITLE: '',
       ITEM_NAME: 'templateItemName',
       ITEM_DESCRIPTION: 'templateItemDescription',
       ITEM_COST: 'templateItemCost',

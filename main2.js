@@ -1,7 +1,6 @@
 import 'uno.css';
 import '@unocss/reset/tailwind.css';
 import DOM from './src/constants/dom';
-import { randomString } from './src/utils/stringUtils.js';
 
 const KEY_LOCAL_TASKS = 'tasks';
 
@@ -33,6 +32,7 @@ const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
 const tasks = rawTasks
   ? JSON.parse(rawTasks).map((json) => TaskVO.fromJSON(json))
   : [];
+
 tasks.forEach((taskVO) => renderTask(taskVO));
 console.log('> tasks:', tasks);
 
@@ -88,7 +88,7 @@ async function renderTaskPopup(taskVO, popupTitle, confirmText, processDataCallb
     domPopupContainer.classList.add('hidden');
   };
 
-  const TaskPopup = (await import('./src/view/popup/TaskPopup')).default;
+  const TaskPopup = (await import('./src/view/popup/ItemPopup.js')).default;
   const taskPopupInstance = new TaskPopup(
     popupTitle,
     Tags,

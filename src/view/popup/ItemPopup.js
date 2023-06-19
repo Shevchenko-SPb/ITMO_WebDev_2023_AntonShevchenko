@@ -1,5 +1,3 @@
-import { randomString } from '../../utils/stringUtils.js';
-
 class ItemPopup {
   #title;
   #confirmCallback;
