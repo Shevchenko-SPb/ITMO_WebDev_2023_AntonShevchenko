@@ -34,44 +34,56 @@ const items = rawItems
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
 
+domAddItem.onclick = (e) => {
+  renderItemPopup(null,'Create task', 'Create', (taskTitle, taskDate, taskTag) => {
+
+    const itemId = `task_${Date.now()}`;
+    const invoiceItem = new InvoiceItem(taskId, taskTitle, taskDate, taskTag);
+
+    renderItem(invoiceItem);
+    items.push(invoiceItem);
+
+    saveItem()
+  });
+  // const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
+  // const domClosePopup = QUERY(domPopupContainer, Dom.Button.CLOSE_POPUP);
+  // const domCreateItem = QUERY(domPopupContainer, Dom.Button.CREATE_ITEM);
+  //
+  //
+  // domPopupContainer.classList.remove("hidden");
+  // domClosePopup.onclick = () => {
+  //   domPopupContainer.classList.add("hidden");
+  //   domClosePopup.onclick = null;
+  // }
+  // domCreateItem.onclick = () => {
+  //   const invoiceItem = new InvoiceItem("sdd","vfb",1,2,3);
+  //   const itemView = domItem.cloneNode(true)
+  //   QUERY(itemView, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.nameItem;
+  //   domItem.parentNode.prepend(itemView)
+  //   items.push(InvoiceItem);
+  }
+}
+
 domItemColumn.onclick = (e) => {
   e.stopPropagation();
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
-  renderItemPopup(taskVO,'Update task', 'Update', (taskTitle, taskDate, taskTag) => {
+  renderItemPopup(invoiceItem,'Update', 'Update', (taskTitle, taskDate, taskTag) => {
 
     invoiceItem.title = taskTitle;
-     const domTask = renderTask(taskVO)
-     e.target.parentNode.replaceChild(domTask, e.target)
-     saveTask();
+    const domTask = renderItem(invoiceItem)
+    e.target.parentNode.replaceChild(domItem, e.target)
+    saveItem();
   });
 };
 
 
 
-domAddItem.onclick = (e) => {
-  const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
-  const domClosePopup = QUERY(domPopupContainer, Dom.Button.CLOSE_POPUP);
-  const domCreateItem = QUERY(domPopupContainer, Dom.Button.CREATE_ITEM);
 
-
-  domPopupContainer.classList.remove("hidden");
-  domClosePopup.onclick = () => {
-    domPopupContainer.classList.add("hidden");
-    domClosePopup.onclick = null;
-  }
-  domCreateItem.onclick = () => {
-    const invoiceItem = new InvoiceItem("sdd","vfb",1,2,3);
-    const itemView = domItem.cloneNode(true)
-    QUERY(itemView, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.nameItem;
-    domItem.parentNode.prepend(itemView)
-    items.push(InvoiceItem);
-  }
-}
-
-
-
+function saveItem () {
+   localStorage.setItem(KEY_LOCAL_ITEMS, JSON.stringify(items));
+ }
 
 
 

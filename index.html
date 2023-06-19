@@ -101,7 +101,13 @@
     <main class="flex w-screen max-w-screen-lg justify-between bg-neutral-100">
       <div class="m-7 flex w-full flex-col">
         <div class="flex flex-row justify-between">
-          <div class="flex w-1/2 flex-col text-5xl text-neutral-500/70">#123</div>
+          <div class="flex flex-row w-1/2">
+            <span class="flex flex-col text-5xl text-neutral-500/70">#</span>
+            <input
+              class="flex text-5xl text-neutral-500/70 w-28 h-12 indent-1 bg-neutral-100 border-b-2"
+              style="outline:none"
+              placeholder="123">
+          </div>
           <div class="flex h-full w-1/2 flex-col gap-y-5">
             <span class="text-4xl font-bold">Invoice</span>
 
