@@ -8,10 +8,10 @@ class InvoiceItem {
   static fromJSON(json) {
     return new InvoiceItem(json.id, json.nameItem, json.descriptionItem, json.cost, json.qty, json.total)
   }
-  constructor(id, nameItem, descriptionItem, cost, qty, total) {
+  constructor(id, name, description, cost, qty, total) {
     this.id = id;
-    this.nameItem = nameItem;
-    this.descriptionItem = descriptionItem;
+    this.nameItem = name;
+    this.descriptionItem = description;
     this.cost = cost;
     this.qty = qty;
     this.total = total;
@@ -34,42 +34,12 @@ const items = rawItems
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
 
-domAddItem.onclick = (e) => {
-  renderItemPopup(null,'Create task', 'Create', (taskTitle, taskDate, taskTag) => {
-
-    const itemId = `task_${Date.now()}`;
-    const invoiceItem = new InvoiceItem(taskId, taskTitle, taskDate, taskTag);
-
-    renderItem(invoiceItem);
-    items.push(invoiceItem);
-
-    saveItem()
-  });
-  // const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
-  // const domClosePopup = QUERY(domPopupContainer, Dom.Button.CLOSE_POPUP);
-  // const domCreateItem = QUERY(domPopupContainer, Dom.Button.CREATE_ITEM);
-  //
-  //
-  // domPopupContainer.classList.remove("hidden");
-  // domClosePopup.onclick = () => {
-  //   domPopupContainer.classList.add("hidden");
-  //   domClosePopup.onclick = null;
-  // }
-  // domCreateItem.onclick = () => {
-  //   const invoiceItem = new InvoiceItem("sdd","vfb",1,2,3);
-  //   const itemView = domItem.cloneNode(true)
-  //   QUERY(itemView, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.nameItem;
-  //   domItem.parentNode.prepend(itemView)
-  //   items.push(InvoiceItem);
-  }
-}
-
 domItemColumn.onclick = (e) => {
   e.stopPropagation();
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
-  renderItemPopup(invoiceItem,'Update', 'Update', (taskTitle, taskDate, taskTag) => {
+  renderItemPopup(invoiceItem,'Update', (itemId, itemName, itemDescription, itemCost, itemQty, itemTotal) => {
 
     invoiceItem.title = taskTitle;
     const domTask = renderItem(invoiceItem)
@@ -77,6 +47,21 @@ domItemColumn.onclick = (e) => {
     saveItem();
   });
 };
+
+
+domAddItem.onclick = (e) => {
+  renderItemPopup(null,'Add', (itemId, itemName, itemDescription, itemCost, itemQty, itemTotal) => {
+
+    const itemId = `task_${Date.now()}`;
+    const invoiceItem = new InvoiceItem(itemId, itemName, itemDescription, itemCost, itemQty, itemTotal);
+
+    renderItem(invoiceItem);
+    items.push(invoiceItem);
+
+    saveItem()
+  });
+}
+
 
 
 
