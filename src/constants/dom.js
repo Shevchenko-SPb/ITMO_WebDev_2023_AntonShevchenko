@@ -17,7 +17,7 @@ const Dom = {
     }
   },
   Popup: {
-    CONTAINER: 'popupAddItem',
+    CONTAINER: 'popupContainer',
   },
 };
 
