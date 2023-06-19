@@ -24,8 +24,29 @@ const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 const domAddItem = getDOM(Dom.Button.ADD_ITEM);
 const domItem = getDOM(Dom.Template.ITEM);
 const domItemColumn = domAddItem.parentNode;
-const items = [];
+domItem.removeAttribute('id');
+domItem.remove();
+const rawItems = localStorage.getItem(KEY_LOCAL_ITEMS);
 
+const items = rawItems
+  ? JSON.parse(rawItems).map((json) => InvoiceItem.fromJSON(json))
+  : [];
+
+items.forEach((invoiceItem) => renderItem(invoiceItem));
+
+domItemColumn.onclick = (e) => {
+  e.stopPropagation();
+  const itemId = e.target.dataset.id;
+  if (!itemId) return;
+  const invoiceItem = items.find((item) => item.id === itemId);
+  renderItemPopup(taskVO,'Update task', 'Update', (taskTitle, taskDate, taskTag) => {
+
+    invoiceItem.title = taskTitle;
+     const domTask = renderTask(taskVO)
+     e.target.parentNode.replaceChild(domTask, e.target)
+     saveTask();
+  });
+};
 
 
 
