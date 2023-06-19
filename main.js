@@ -52,7 +52,7 @@ domItemColumn.onclick = (e) => {
 domAddItem.onclick = (e) => {
   renderItemPopup(null,'Add', (itemId, itemName, itemDescription, itemCost, itemQty, itemTotal) => {
 
-    const itemId = `task_${Date.now()}`;
+    const itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemName, itemDescription, itemCost, itemQty, itemTotal);
 
     renderItem(invoiceItem);
@@ -62,6 +62,13 @@ domAddItem.onclick = (e) => {
   });
 }
 
+function renderItem(taskVO) {
+  const domItemClone = domItem.cloneNode(true);
+  domItemClone.dataset.id = invoiceItem.id;
+  QUERY(domItemClone, DOM.Template.Task.TITLE).innerText = taskVO.title;
+  domTaskColumn.prepend(domTaskClone);
+  return domTaskClone;
+}
 
 
 
