@@ -49,10 +49,9 @@ domItemColumn.onclick = (e) => {
 };
 
 
-domAddItem.onclick = (e) => {
+domAddItem.onclick = () => {
   renderItemPopup(null,'Add', (itemId, itemName, itemDescription, itemCost, itemQty, itemTotal) => {
-
-    const itemId = `item_${Date.now()}`;
+    itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemName, itemDescription, itemCost, itemQty, itemTotal);
 
     renderItem(invoiceItem);
