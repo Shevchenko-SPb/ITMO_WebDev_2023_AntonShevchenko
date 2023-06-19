@@ -2,9 +2,11 @@ const Dom = {
   Button: {
     ADD_ITEM: 'btnAddItem',
     CLOSE_POPUP: 'btnClosePopup',
+    DELETE_ITEM: 'btnDeleteItem',
+    CREATE_ITEM: 'btnCreateItem',
   },
   Template: {
-    TASK: 'templateTask!!!!!!!!!!!!!!!!!!',
+    ITEM: 'templateInvoiceItem',
   },
   Popup: {
     CONTAINER: 'popupAddItem',
