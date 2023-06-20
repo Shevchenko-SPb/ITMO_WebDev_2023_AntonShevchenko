@@ -146,10 +146,10 @@ class ItemPopup {
       this.#closeCallback();
     };
 
-    domBtnDelete.onclick = () => {
 
 
-    }
+
+
 
 
     domBtnConfirm.onclick = () => {
@@ -166,4 +166,6 @@ class ItemPopup {
   }
 }
 
-export default ItemPopup;
+export default ItemPopup
+
+

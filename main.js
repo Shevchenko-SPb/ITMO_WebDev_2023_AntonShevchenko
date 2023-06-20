@@ -1,4 +1,10 @@
 import Dom from "./src/constants/dom.js";
+import ItemPopup from "./src/view/popup/ItemPopup.js";
+
+console.log(ItemPopup)
+ItemPopup.onclick = () => {
+  console.log("Тык")
+}
 
 const KEY_LOCAL_ITEMS = 'items'
 
