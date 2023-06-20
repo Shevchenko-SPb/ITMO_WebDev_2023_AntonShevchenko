@@ -8,13 +8,12 @@ class InvoiceItem {
   static fromJSON(json) {
     return new InvoiceItem(json.id, json.nameItem, json.descriptionItem, json.cost, json.qty, json.total)
   }
-  constructor(id, name, description, cost, qty, total) {
+  constructor(id, name, description, cost, qty,) {
     this.id = id;
     this.nameItem = name;
     this.descriptionItem = description;
     this.cost = cost;
     this.qty = qty;
-    this.total = total;
   }
 }
 const getDOM = (id) => document.getElementById(id);
@@ -49,9 +48,14 @@ domItemColumn.onclick = (e) => {
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
+  console.log('> domPopupCreateTask.classList');
   renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription) => {
+
     const itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription);
+
+
+
 
     renderItem(invoiceItem);
     items.push(invoiceItem);
@@ -61,7 +65,9 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 }
 
 function renderItem(invoiceItem) {
+  console.log("> Work renderItem")
   const domItemClone = domItem.cloneNode(true);
+
   domItemClone.dataset.id = invoiceItem.id;
   QUERY(domItemClone, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.name;
   QUERY(domItemClone, Dom.Template.Item.ITEM_DESCRIPTION).innerText = invoiceItem.description;
@@ -88,10 +94,13 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
     (itemQty, itemCost, itemTitle, itemDescription) => {
 
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription);
+
       onClosePopup();
     },
+
     onClosePopup
   );
+
   if (invoiceItem) {
     itemPopupInstance.taskTitle = invoiceItem.title
   }
