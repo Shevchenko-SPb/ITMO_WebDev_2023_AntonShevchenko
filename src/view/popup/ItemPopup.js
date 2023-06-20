@@ -105,7 +105,7 @@ class ItemPopup {
       </div>
     </div>
     `;
-    console.log('div.firstChild', div.children);
+
 
     const popup = div.children[0];
 

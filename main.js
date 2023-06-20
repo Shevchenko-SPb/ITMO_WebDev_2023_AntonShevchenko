@@ -6,9 +6,9 @@ const KEY_LOCAL_ITEMS = 'items'
 
 class InvoiceItem {
   static fromJSON(json) {
-    return new InvoiceItem(json.id, json.nameItem, json.descriptionItem, json.cost, json.qty, json.total)
+    return new InvoiceItem(json.id, json.qty,  json.cost, json.nameItem, json.descriptionItem)
   }
-  constructor(id, name, description, cost, qty,) {
+  constructor(id, qty, cost, name, description) {
     this.id = id;
     this.nameItem = name;
     this.descriptionItem = description;
@@ -48,7 +48,7 @@ domItemColumn.onclick = (e) => {
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
-  console.log('> domPopupCreateTask.classList');
+
   renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription) => {
 
     const itemId = `item_${Date.now()}`;
@@ -65,12 +65,12 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 }
 
 function renderItem(invoiceItem) {
-  
+
   const domItemClone = domItem.cloneNode(true);
 
   domItemClone.dataset.id = invoiceItem.id;
-  QUERY(domItemClone, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.name;
-  QUERY(domItemClone, Dom.Template.Item.ITEM_DESCRIPTION).innerText = invoiceItem.description;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_NAME).innerText = invoiceItem.nameItem;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_DESCRIPTION).innerText = invoiceItem.descriptionItem;
   QUERY(domItemClone, Dom.Template.Item.ITEM_COST).innerText = invoiceItem.cost;
   QUERY(domItemClone, Dom.Template.Item.ITEM_QTY).innerText = invoiceItem.qty;
   domItemColumn.prepend(domItemClone);
