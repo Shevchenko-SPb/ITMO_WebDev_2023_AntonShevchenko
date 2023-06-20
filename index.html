@@ -120,23 +120,26 @@
             ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><g id="galaAdd0" fill="none" stroke="currentColor" stroke-dasharray="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1" stroke-width="16"><circle id="galaAdd1" cx="128" cy="128" r="112"/><path id="galaAdd2" d="M 79.999992,128 H 176.0001"/><path id="galaAdd3" d="m 128.00004,79.99995 v 96.0001"/></g></svg></button>
           </div>
           <div class="flex w-1/2">
-            <div class="mt-10 flex w-full flex-col text-xs">
+            <div class="mt-10 flex w-full flex-col text-xs"
+                 id = "templateInvoiceResult" >
               <div
                 class="flex w-full flex-col border-t-2 border-neutral-800/70"
               >
                 <div class="flex flex-row justify-between mt-1.5">
                   <div class="font-bold">Subtotal</div>
-                  <div>$7,000</div>
+                  <div data-id="templateItemSubtotal"
+                       type="number"
+                       value="0">0</div>
                 </div>
                 <div class="flex flex-row justify-between mb-1.5">
                   <div class="font-bold ">Discount <span class="font-thin">(20%)</span></div>
-                  <div>$1,400</div>
+                  <div data-id="templateItemDiscount">0</div>
                 </div>
               </div>
               <div class="mt-7 flex w-full flex-col border-t-2 border-neutral-800/70">
                 <div class="flex flex-row justify-between my-1.5">
                   <div class="font-bold ">Total</div>
-                  <div>$5,600</div>
+                  <div data-id="templateItemTotal">0</div>
                 </div>
               </div>
             </div>

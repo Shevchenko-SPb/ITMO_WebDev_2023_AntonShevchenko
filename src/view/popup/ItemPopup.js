@@ -22,7 +22,7 @@ class ItemPopup {
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
           <div><button data-id="btnDelete" 
-                  class="text-neutral-400 hidden hover:text-neutral-500">Delete</button></div>
+                  class="text-neutral-400 hover:text-neutral-500">Delete</button></div>
           <button data-id="btnClose" 
                   class="text-neutral-400 hover:text-neutral-500">Close</button>
         </div>
@@ -60,9 +60,7 @@ class ItemPopup {
                          data-id="inpCost"
                          type="number"
                          value="${this.#itemCost}"
-                        
-                         >
-                         
+                         >                        
                 </div>
               </div>
               <div class="flex flex-row">
@@ -76,7 +74,7 @@ class ItemPopup {
                        data-id="itemTotal"
                        type="number"
                        value="${this.#itemTotal}"
-                  >444</span>
+                  ></span>
               </div>
               <button data-id=btnConfirm
                       class="flex h-full w-24 bg-black/30 rounded-md items-center
@@ -126,9 +124,19 @@ class ItemPopup {
     const domInpCost = popup.querySelector('[data-id="inpCost"]');
     const domItemTotal = popup.querySelector(`[data-id="itemTotal"]`);
 
-    domInpQty.addEventListener (  'change' {
-      console.log("eventListener")
+    domInpQty.addEventListener ('change', function (event) {
+      renderTotalPopup ()
     })
+    domInpCost.addEventListener ('change', function (event) {
+      renderTotalPopup ()
+    })
+
+    function renderTotalPopup () {
+      console.log(domItemTotal.value)
+      domItemTotal.value = domInpQty.value * domInpCost.value;
+      domItemTotal.innerHTML = domItemTotal.value;
+    }
+
 
     domBtnClose.onclick = () => {
       domBtnClose.onclick = null;

@@ -14,6 +14,12 @@ const Dom = {
       ITEM_COST: 'templateItemCost',
       ITEM_QTY: 'templateItemQty',
       ITEM_TOTAL: 'templateItemTotalCost',
+    },
+    RESULT: 'templateInvoiceResult',
+    Result: {
+      RESULT_SUBTOTAL: 'templateItemSubtotal',
+      RESULT_DISCOUNT: 'templateItemDiscount',
+      RESULT_TOTAL: 'templateItemTotal',
     }
   },
   Popup: {

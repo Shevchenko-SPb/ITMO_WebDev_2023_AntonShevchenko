@@ -20,6 +20,10 @@ const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 
 
 const domItem = getDOM(Dom.Template.ITEM);
+const domResult = getDOM(Dom.Template.RESULT);
+const subTotal = QUERY(domResult, Dom.Template.Result.RESULT_SUBTOTAL);
+subTotal.value = 0;
+
 const domItemColumn = domItem.parentNode;
 domItem.removeAttribute('id');
 domItem.remove();
@@ -31,6 +35,16 @@ const items = rawItems
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
 
+items.forEach((invoiceItem) => calculationTotal(invoiceItem))
+
+function calculationTotal (invoiceItem) {
+  console.log(invoiceItem.total);
+  console.log(subTotal.value);
+
+  subTotal.value = invoiceItem.total + subTotal.value;
+  subTotal.innerText =  subTotal.value;
+}
+
 domItemColumn.onclick = (e) => {
   e.stopPropagation();
   const itemId = e.target.dataset.id;
@@ -39,7 +53,7 @@ domItemColumn.onclick = (e) => {
 
   renderItemPopup(invoiceItem,'Update', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
-    invoiceItem.title = taskTitle;
+    invoiceItem.title = itemTitle;
     const domItem = renderItem(invoiceItem)
     e.target.parentNode.replaceChild(domItem, e.target)
     saveItem();
