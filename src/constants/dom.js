@@ -21,7 +21,8 @@ const Dom = {
       RESULT_DISCOUNT: 'templateItemDiscount',
       RESULT_TOTAL: 'templateItemTotal',
       INPUT_DISCOUNT: 'templateInpDiscount',
-    }
+    },
+    INVOICE_NUMBER: 'invoiceNumber',
   },
   Popup: {
     CONTAINER: 'popupContainer',

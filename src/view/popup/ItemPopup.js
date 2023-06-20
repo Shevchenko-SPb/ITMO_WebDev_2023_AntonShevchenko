@@ -1,3 +1,5 @@
+import Dom from "../../constants/dom.js";
+
 class ItemPopup {
   #title;
   #confirmCallback;
@@ -124,10 +126,10 @@ class ItemPopup {
     const domInpCost = popup.querySelector('[data-id="inpCost"]');
     const domItemTotal = popup.querySelector(`[data-id="itemTotal"]`);
 
-    domInpQty.addEventListener ('change', function (event) {
+    domInpQty.addEventListener ('keyup', function (event) {
       renderTotalPopup ()
     })
-    domInpCost.addEventListener ('change', function (event) {
+    domInpCost.addEventListener ('keyup', function (event) {
       renderTotalPopup ()
     })
 
@@ -142,6 +144,10 @@ class ItemPopup {
       domBtnConfirm.onclick = null;
       this.#closeCallback();
     };
+
+    domBtnDelete.onclick = () => {
+
+    }
 
     domBtnConfirm.onclick = () => {
       const itemQty = domInpQty.value;

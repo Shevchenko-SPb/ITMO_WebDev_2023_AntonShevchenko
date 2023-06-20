@@ -29,6 +29,18 @@
           -webkit-transform: rotate(360deg);
         }
       }
+
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input[type='number'],
+        input[type="number"]:hover,
+        input[type="number"]:focus {
+            appearance: none;
+            -moz-appearance: textfield;
+        }
     </style>
   </head>
   <body class="grid w-screen place-items-center bg-neutral-200/70 p-5 font-sans">
@@ -42,7 +54,9 @@
             <span class="flex flex-col text-5xl text-neutral-500/70">#</span>
             <input
               class="flex text-5xl text-neutral-500/70 w-28 h-12 indent-1 bg-neutral-100 border-b-2"
+              id="invoiceNumber"
               style="outline:none"
+              type="number"
               placeholder="123">
           </div>
           <div class="flex h-full w-1/2 flex-col gap-y-5">
@@ -134,14 +148,14 @@
                 <div class="flex flex-row justify-between mb-1.5">
                   <div class="font-bold ">Discount
                     <span>(
-                      <input class="font-thin bg-neutral-100 w-3.5"
+                      <input class="font-thin text-lg bg-neutral-100 w-5"
                              placeholder="00"
                              style="outline:none"
                              data-id="templateInpDiscount"
                       >
                       )%</span>
                   </div>
-                  <div data-id="templateItemDiscount">0</div>
+                  <div data-id="templateItemDiscount" class="mt-2.5">0</div>
                 </div>
               </div>
               <div class="mt-7 flex w-full flex-col border-t-2 border-neutral-800/70">
@@ -150,7 +164,26 @@
                   <div data-id="templateItemTotal">0</div>
                 </div>
               </div>
-              <div>IBAN</div>
+              <div class="flex mt-32 gap-y-7 flex-col">
+                <div class="flex flex-row justify-between">
+                  <div class="font-bold">IBAN</div>
+                  <input class="h-6 w-80 text-xl  bg-neutral-100 border-b-2"
+                         style="outline:none"
+                         type="text"
+                         placeholder="XXXX XXXX XXXX XXXX XXXX"
+                  >
+                </div>
+                <div>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                  nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="text-lg">
+                  <div>Thank you,</div>
+                  <div>Your name</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
