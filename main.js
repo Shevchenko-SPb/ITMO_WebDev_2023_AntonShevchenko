@@ -28,7 +28,7 @@ const inpTotalDiscount = QUERY(domResult, Dom.Template.Result.INPUT_DISCOUNT);
 
 inpTotalDiscount.value = 0;
 
-inpTotalDiscount.addEventListener ('change', function (event) {
+inpTotalDiscount.addEventListener ('keyup', function (event) {
   calculationDiscount ();
 })
 
