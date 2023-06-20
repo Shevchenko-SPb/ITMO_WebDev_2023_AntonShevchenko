@@ -2,7 +2,7 @@ class ItemPopup {
   #title;
   #confirmCallback;
   #closeCallback;
-  constructor(title, itemDescription, confirmCallback, closeCallback) {
+  constructor(title, confirmCallback, closeCallback) {
     this.#title = title;
     this.#confirmCallback = confirmCallback;
     this.#closeCallback = closeCallback;
@@ -105,6 +105,7 @@ class ItemPopup {
       </div>
     </div>
     `;
+    console.log('div.firstChild', div.children);
 
     const popup = div.children[0];
 

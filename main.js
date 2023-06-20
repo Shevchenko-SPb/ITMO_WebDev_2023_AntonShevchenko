@@ -65,7 +65,7 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 }
 
 function renderItem(invoiceItem) {
-  console.log("> Work renderItem")
+  
   const domItemClone = domItem.cloneNode(true);
 
   domItemClone.dataset.id = invoiceItem.id;
