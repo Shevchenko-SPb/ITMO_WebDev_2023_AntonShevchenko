@@ -132,7 +132,6 @@ class ItemPopup {
     })
 
     function renderTotalPopup () {
-      console.log(domItemTotal.value)
       domItemTotal.value = domInpQty.value * domInpCost.value;
       domItemTotal.innerHTML = domItemTotal.value;
     }

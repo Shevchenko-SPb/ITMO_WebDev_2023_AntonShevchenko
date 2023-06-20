@@ -20,6 +20,7 @@ const Dom = {
       RESULT_SUBTOTAL: 'templateItemSubtotal',
       RESULT_DISCOUNT: 'templateItemDiscount',
       RESULT_TOTAL: 'templateItemTotal',
+      INPUT_DISCOUNT: 'templateInpDiscount',
     }
   },
   Popup: {

@@ -22,6 +22,18 @@ const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 const domItem = getDOM(Dom.Template.ITEM);
 const domResult = getDOM(Dom.Template.RESULT);
 const subTotal = QUERY(domResult, Dom.Template.Result.RESULT_SUBTOTAL);
+const discountTotal = QUERY(domResult, Dom.Template.Result.RESULT_DISCOUNT);
+const totalResult = QUERY(domResult, Dom.Template.Result.RESULT_TOTAL);
+const inpTotalDiscount = QUERY(domResult, Dom.Template.Result.INPUT_DISCOUNT);
+
+inpTotalDiscount.value = 0;
+
+inpTotalDiscount.addEventListener ('change', function (event) {
+  calculationDiscount ();
+})
+
+
+
 subTotal.value = 0;
 
 const domItemColumn = domItem.parentNode;
@@ -35,14 +47,19 @@ const items = rawItems
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
 
-items.forEach((invoiceItem) => calculationTotal(invoiceItem))
+items.forEach((invoiceItem) => calculationSubTotal(invoiceItem))
 
-function calculationTotal (invoiceItem) {
-  console.log(invoiceItem.total);
-  console.log(subTotal.value);
-
+function calculationSubTotal (invoiceItem) {
   subTotal.value = invoiceItem.total + subTotal.value;
   subTotal.innerText =  subTotal.value;
+  totalResult.innerHTML = subTotal.value;
+}
+
+
+function calculationDiscount () {
+  const discontSumm = subTotal.value / 100 * inpTotalDiscount.value;
+  discountTotal.innerHTML = discontSumm;
+  totalResult.innerHTML =  subTotal.value - discontSumm;
 }
 
 domItemColumn.onclick = (e) => {
@@ -68,9 +85,7 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
     const itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
-
-
-
+    calculationSubTotal(invoiceItem)
     renderItem(invoiceItem);
     items.push(invoiceItem);
 
