@@ -12,16 +12,17 @@ class ItemPopup {
   #itemDescription = '';
   #itemQty = '';
   #itemCost = '';
+  #itemTotal = '';
 
 
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-    <div class="flex  relative flex-col w-screen h-70 bg-neutral-100 max-w-screen-lg">
+    <div class="flex  relative flex-col w-screen h-72 bg-neutral-100 max-w-screen-lg">
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
-          <button data-id="btnDelete" 
-                  class="text-neutral-400 hover:text-neutral-500">Delete</button>
+          <div><button data-id="btnDelete" 
+                  class="text-neutral-400 hidden hover:text-neutral-500">Delete</button></div>
           <button data-id="btnClose" 
                   class="text-neutral-400 hover:text-neutral-500">Close</button>
         </div>
@@ -68,10 +69,14 @@ class ItemPopup {
                 </div>
                 <span class="flex flex-col justify-between">
                   <div></div>
-                  <span></span>
+                  <span
+                       data-id="itemTotal"
+                       type="number"
+                       value="${this.#itemTotal}"
+                  >444</span>
               </div>
               <button data-id=btnConfirm
-                      class="flex h-full w-18 bg-black/30 rounded-md items-center
+                      class="flex h-full w-24 bg-black/30 rounded-md items-center
                justify-center text-neutral-100 hover:bg-black/40">Create</button>
             </div>
           </div>
@@ -116,6 +121,7 @@ class ItemPopup {
     const domInpDescription = popup.querySelector('[data-id="inpDescription"]');
     const domInpQty = popup.querySelector('[data-id="inpQty"]');
     const domInpCost = popup.querySelector('[data-id="inpCost"]');
+    const domItemTotal = popup.querySelector(`[data-id="itemTotal"]`);
 
     domBtnClose.onclick = () => {
       domBtnClose.onclick = null;
@@ -128,7 +134,9 @@ class ItemPopup {
       const itemCost = domInpCost.value;
       const itemTitle = domInpTitle.value;
       const itemDescription = domInpDescription.value;
-      this.#confirmCallback(itemQty, itemCost, itemTitle, itemDescription);
+
+      const itemTotal = itemQty * itemCost;
+      this.#confirmCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
     };
 
     return div.children[0];

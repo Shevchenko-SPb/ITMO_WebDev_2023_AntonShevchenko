@@ -1,19 +1,18 @@
-import 'uno.css';
-import '@unocss/reset/tailwind.css';
 import Dom from "./src/constants/dom.js";
 
 const KEY_LOCAL_ITEMS = 'items'
 
 class InvoiceItem {
   static fromJSON(json) {
-    return new InvoiceItem(json.id, json.qty,  json.cost, json.nameItem, json.descriptionItem)
+    return new InvoiceItem(json.id, json.qty,  json.cost, json.nameItem, json.descriptionItem, json.total)
   }
-  constructor(id, qty, cost, name, description) {
+  constructor(id, qty, cost, name, description, total) {
     this.id = id;
     this.nameItem = name;
     this.descriptionItem = description;
     this.cost = cost;
     this.qty = qty;
+    this.total = total;
   }
 }
 const getDOM = (id) => document.getElementById(id);
@@ -37,7 +36,8 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
-  renderItemPopup(invoiceItem,'Update', (itemQty, itemCost, itemTitle, itemDescription) => {
+
+  renderItemPopup(invoiceItem,'Update', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
     invoiceItem.title = taskTitle;
     const domItem = renderItem(invoiceItem)
@@ -49,10 +49,10 @@ domItemColumn.onclick = (e) => {
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
-  renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription) => {
+  renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
     const itemId = `item_${Date.now()}`;
-    const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription);
+    const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
 
 
@@ -73,6 +73,8 @@ function renderItem(invoiceItem) {
   QUERY(domItemClone, Dom.Template.Item.ITEM_DESCRIPTION).innerText = invoiceItem.descriptionItem;
   QUERY(domItemClone, Dom.Template.Item.ITEM_COST).innerText = invoiceItem.cost;
   QUERY(domItemClone, Dom.Template.Item.ITEM_QTY).innerText = invoiceItem.qty;
+  QUERY(domItemClone, Dom.Template.Item.ITEM_TOTAL).innerText = invoiceItem.total;
+
   domItemColumn.prepend(domItemClone);
   return domItemClone;
 }
@@ -91,9 +93,9 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
   const ItemPopup = (await import('./src/view/popup/ItemPopup')).default;
   const itemPopupInstance = new ItemPopup(
     popupTitle,
-    (itemQty, itemCost, itemTitle, itemDescription) => {
+    (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
-      processDataCallback(itemQty, itemCost, itemTitle, itemDescription);
+      processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
       onClosePopup();
     },

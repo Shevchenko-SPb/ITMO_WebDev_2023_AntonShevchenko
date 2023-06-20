@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
     <style>
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
       .spinner {
         display: inline-block;
         width: 50px;
@@ -113,8 +116,8 @@
         <div class="flex w-full flex-row">
           <div class="flex w-1/2 flex-col">
             <button id="btnAddItem"
-              class="i-system-uicons:button-add h-10 w-10 text-neutral-700/80 hover:bg-neutral-700"
-            ></button>
+              class=" h-10 w-10 text-neutral-700/80 hover:text-neutral-700"
+            ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 256 256"><g id="galaAdd0" fill="none" stroke="currentColor" stroke-dasharray="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="4" stroke-opacity="1" stroke-width="16"><circle id="galaAdd1" cx="128" cy="128" r="112"/><path id="galaAdd2" d="M 79.999992,128 H 176.0001"/><path id="galaAdd3" d="m 128.00004,79.99995 v 96.0001"/></g></svg></button>
           </div>
           <div class="flex w-1/2">
             <div class="mt-10 flex w-full flex-col text-xs">
