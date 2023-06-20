@@ -24,7 +24,8 @@ class ItemPopup {
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
           <div><button data-id="btnDelete" 
-                  class="text-neutral-400 hover:text-neutral-500">Delete</button></div>
+                  class="text-neutral-400 hover:text-neutral-500"
+                  value="1">Delete</button></div>
           <button data-id="btnClose" 
                   class="text-neutral-400 hover:text-neutral-500">Close</button>
         </div>
@@ -147,7 +148,9 @@ class ItemPopup {
 
     domBtnDelete.onclick = () => {
 
+
     }
+
 
     domBtnConfirm.onclick = () => {
       const itemQty = domInpQty.value;

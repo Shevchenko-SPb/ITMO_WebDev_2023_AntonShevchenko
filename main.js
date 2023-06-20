@@ -22,31 +22,32 @@ const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 const domItem = getDOM(Dom.Template.ITEM);
 const domResult = getDOM(Dom.Template.RESULT);
 const subTotal = QUERY(domResult, Dom.Template.Result.RESULT_SUBTOTAL);
+subTotal.value = 0;
 const discountTotal = QUERY(domResult, Dom.Template.Result.RESULT_DISCOUNT);
 const totalResult = QUERY(domResult, Dom.Template.Result.RESULT_TOTAL);
 const inpTotalDiscount = QUERY(domResult, Dom.Template.Result.INPUT_DISCOUNT);
-
 inpTotalDiscount.value = 0;
+
 
 inpTotalDiscount.addEventListener ('keyup', function (event) {
   calculationDiscount ();
 })
 
 
-
-subTotal.value = 0;
-
 const domItemColumn = domItem.parentNode;
 domItem.removeAttribute('id');
 domItem.remove();
-const rawItems = localStorage.getItem(KEY_LOCAL_ITEMS);
 
+
+
+const rawItems = localStorage.getItem(KEY_LOCAL_ITEMS);
 const items = rawItems
   ? JSON.parse(rawItems).map((json) => InvoiceItem.fromJSON(json))
   : [];
 
-items.forEach((invoiceItem) => renderItem(invoiceItem));
 
+
+items.forEach((invoiceItem) => renderItem(invoiceItem));
 items.forEach((invoiceItem) => calculationSubTotal(invoiceItem))
 
 function calculationSubTotal (invoiceItem) {
@@ -54,13 +55,13 @@ function calculationSubTotal (invoiceItem) {
   subTotal.innerText =  subTotal.value;
   totalResult.innerHTML = subTotal.value;
 }
-
-
 function calculationDiscount () {
   const discontSumm = subTotal.value / 100 * inpTotalDiscount.value;
   discountTotal.innerHTML = discontSumm;
   totalResult.innerHTML =  subTotal.value - discontSumm;
 }
+
+
 
 domItemColumn.onclick = (e) => {
   e.stopPropagation();
@@ -78,6 +79,7 @@ domItemColumn.onclick = (e) => {
 };
 
 
+
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
   renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
@@ -93,6 +95,8 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
   });
 }
 
+
+
 function renderItem(invoiceItem) {
 
   const domItemClone = domItem.cloneNode(true);
@@ -107,6 +111,7 @@ function renderItem(invoiceItem) {
   domItemColumn.prepend(domItemClone);
   return domItemClone;
 }
+
 
 async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
   const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
