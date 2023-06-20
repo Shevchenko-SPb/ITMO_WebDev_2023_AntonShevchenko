@@ -59,7 +59,10 @@ class ItemPopup {
                          style="outline:none"
                          data-id="inpCost"
                          type="number"
-                         value="${this.#itemCost}">
+                         value="${this.#itemCost}"
+                        
+                         >
+                         
                 </div>
               </div>
               <div class="flex flex-row">
@@ -122,6 +125,10 @@ class ItemPopup {
     const domInpQty = popup.querySelector('[data-id="inpQty"]');
     const domInpCost = popup.querySelector('[data-id="inpCost"]');
     const domItemTotal = popup.querySelector(`[data-id="itemTotal"]`);
+
+    domInpQty.addEventListener (  'change' {
+      console.log("eventListener")
+    })
 
     domBtnClose.onclick = () => {
       domBtnClose.onclick = null;
