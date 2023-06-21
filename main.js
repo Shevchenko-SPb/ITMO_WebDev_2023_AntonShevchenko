@@ -1,5 +1,6 @@
 import Dom from "./src/constants/dom.js";
 import ItemPopup from "./src/view/popup/ItemPopup.js";
+import DOM from "./src/constants/dom.js";
 
 const KEY_LOCAL_ITEMS = 'items'
 
@@ -147,12 +148,21 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     domPopupContainer.classList.add('hidden');
   };
 
-  const onDeletePopup = () => {
-    console.log("Кнопка работает!")
-    items.splice(items.indexOf(invoiceItem), 1);
-    domItemColumn.removeChild(domItem);
-    saveItem();
-  }
+  const onDeletePopup = (invoiceItem, domItem) => {
+    console.log('onDeletePopup', invoiceItem, domItem)
+      renderItemPopup(
+        invoiceItem,
+        'Confirm delete item?',
+        'Delete',
+        (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+
+          items.splice(items.indexOf(invoiceItem), 1);
+          domItemColumn.removeChild(domItem);
+          saveItem();
+        }
+      );
+    }
+
 
   const ItemPopup = (await import('./src/view/popup/ItemPopup')).default;
   const itemPopupInstance = new ItemPopup(
