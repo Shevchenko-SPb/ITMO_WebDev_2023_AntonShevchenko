@@ -17,9 +17,25 @@ class ItemPopup {
   }
 
   #itemDescription = '';
+  set itemDescription(value) {
+    console.log('itemTitle', value);
+    this.#itemDescription = value;
+  }
   #itemQty = '';
+  set itemQty(value) {
+    console.log('itemTitle', value);
+    this.#itemQty = value;
+  }
   #itemCost = '';
+  set itemCost(value) {
+    console.log('itemTitle', value);
+    this.#itemCost = value;
+  }
   #itemTotal = '';
+  set itemTotal(value) {
+    console.log('itemTitle', value);
+    this.#itemTotal = value;
+  }
 
 
   render() {
