@@ -101,7 +101,11 @@ domItemColumn.onclick = (e) => {
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
-  renderItemPopup(null,'Add', 'Create', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+  renderItemPopup(
+    null,
+    'Add',
+    'Create',
+    (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
     const itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription, itemTotal);
