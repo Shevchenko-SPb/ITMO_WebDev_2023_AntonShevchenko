@@ -1,13 +1,13 @@
-import Dom from "../../constants/dom.js";
-
 class ItemPopup {
   #title;
   #confirmCallback;
   #closeCallback;
-  constructor(title, confirmCallback, closeCallback) {
+  #deleteCallback
+  constructor(title, confirmCallback, closeCallback, deleteCallback) {
     this.#title = title;
     this.#confirmCallback = confirmCallback;
     this.#closeCallback = closeCallback;
+    this.#deleteCallback = deleteCallback;
   }
 
   #itemTitle = '';
@@ -127,12 +127,15 @@ class ItemPopup {
     const domInpCost = popup.querySelector('[data-id="inpCost"]');
     const domItemTotal = popup.querySelector(`[data-id="itemTotal"]`);
 
+
     domInpQty.addEventListener ('keyup', function (event) {
       renderTotalPopup ()
     })
+
     domInpCost.addEventListener ('keyup', function (event) {
       renderTotalPopup ()
     })
+
 
     function renderTotalPopup () {
       domItemTotal.value = domInpQty.value * domInpCost.value;
@@ -143,13 +146,17 @@ class ItemPopup {
     domBtnClose.onclick = () => {
       domBtnClose.onclick = null;
       domBtnConfirm.onclick = null;
+      domBtnDelete.onclick = null;
       this.#closeCallback();
     };
 
 
-
-
-
+    domBtnDelete.onclick = () => {
+      domBtnClose.onclick = null;
+      domBtnConfirm.onclick = null;
+      domBtnDelete.onclick = null;
+      this.#deleteCallback();
+    }
 
 
     domBtnConfirm.onclick = () => {
@@ -157,7 +164,6 @@ class ItemPopup {
       const itemCost = domInpCost.value;
       const itemTitle = domInpTitle.value;
       const itemDescription = domInpDescription.value;
-
       const itemTotal = itemQty * itemCost;
       this.#confirmCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
     };
@@ -165,7 +171,6 @@ class ItemPopup {
     return div.children[0];
   }
 }
-
 export default ItemPopup
 
 

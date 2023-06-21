@@ -1,11 +1,6 @@
 import Dom from "./src/constants/dom.js";
 import ItemPopup from "./src/view/popup/ItemPopup.js";
 
-console.log(ItemPopup)
-ItemPopup.onclick = () => {
-  console.log("Тык")
-}
-
 const KEY_LOCAL_ITEMS = 'items'
 
 class InvoiceItem {
@@ -39,18 +34,15 @@ inpTotalDiscount.addEventListener ('keyup', function (event) {
   calculationDiscount ();
 })
 
-
 const domItemColumn = domItem.parentNode;
 domItem.removeAttribute('id');
 domItem.remove();
-
 
 
 const rawItems = localStorage.getItem(KEY_LOCAL_ITEMS);
 const items = rawItems
   ? JSON.parse(rawItems).map((json) => InvoiceItem.fromJSON(json))
   : [];
-
 
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
@@ -61,12 +53,12 @@ function calculationSubTotal (invoiceItem) {
   subTotal.innerText =  subTotal.value;
   totalResult.innerHTML = subTotal.value;
 }
+
 function calculationDiscount () {
   const discontSumm = subTotal.value / 100 * inpTotalDiscount.value;
   discountTotal.innerHTML = discontSumm;
   totalResult.innerHTML =  subTotal.value - discontSumm;
 }
-
 
 
 domItemColumn.onclick = (e) => {
@@ -75,15 +67,26 @@ domItemColumn.onclick = (e) => {
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
 
-  renderItemPopup(invoiceItem,'Update', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+  renderItemPopup(
+    invoiceItem,
+    'Update',
+    (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+      console.log('> Update task -> On Confirm', {
+        itemQty,
+        itemCost,
+        itemTitle,
+        itemDescription,
+        itemTotal
+      });
 
     invoiceItem.title = itemTitle;
+
+
     const domItem = renderItem(invoiceItem)
     e.target.parentNode.replaceChild(domItem, e.target)
     saveItem();
   });
 };
-
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
@@ -100,8 +103,6 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
     saveItem()
   });
 }
-
-
 
 function renderItem(invoiceItem) {
 
@@ -123,12 +124,20 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
   const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
   const domSpinner = domPopupContainer.querySelector('.spinner');
 
+
   domPopupContainer.classList.remove('hidden');
   const onClosePopup = () => {
     domPopupContainer.children[0].remove();
     domPopupContainer.append(domSpinner);
     domPopupContainer.classList.add('hidden');
   };
+
+  const onDeletePopup = () => {
+    console.log("Кнопка работает!")
+    // items.splice(items.indexOf(invoiceItem), 1);
+    // domItemColumn.removeChild(domItem);
+    // saveItem();
+  }
 
   const ItemPopup = (await import('./src/view/popup/ItemPopup')).default;
   const itemPopupInstance = new ItemPopup(
@@ -138,9 +147,11 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
       onClosePopup();
+      onDeletePopup();
     },
 
-    onClosePopup
+    onClosePopup,
+    onDeletePopup
   );
 
   if (invoiceItem) {
