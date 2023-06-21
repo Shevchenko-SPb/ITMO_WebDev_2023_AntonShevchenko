@@ -1,5 +1,4 @@
-import 'uno.css';
-import '@unocss/reset/tailwind.css';
+
 import DOM from './src/constants/dom';
 
 const KEY_LOCAL_TASKS = 'tasks';
@@ -44,7 +43,10 @@ domTaskColumn.onclick = (e) => {
 
   const taskVO = tasks.find((task) => task.id === taskId);
   console.log('> taskVO:', taskVO);
-  renderTaskPopup(taskVO,'Update task', 'Update', (taskTitle, taskDate, taskTag) => {
+  renderTaskPopup(taskVO,
+    'Update task',
+    'Update',
+    (taskTitle, taskDate, taskTag) => {
     console.log('> Update task -> On Confirm');
 
     taskVO.title = taskTitle;

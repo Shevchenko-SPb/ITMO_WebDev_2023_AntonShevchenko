@@ -153,6 +153,7 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
   const ItemPopup = (await import('./src/view/popup/ItemPopup')).default;
   const itemPopupInstance = new ItemPopup(
     popupTitle,
+    confirmText,
     (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
