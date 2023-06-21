@@ -153,10 +153,10 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     console.log(invoiceItem)
     console.log(domItem)
     console.log(items)
-    // items.splice(items.indexOf(invoiceItem), 1);
+    items.splice(items.indexOf(invoiceItem), 1);
     console.log(domItemColumn)
     console.log(items.splice(items.indexOf(invoiceItem), 1))
-    domItemColumn.removeChild(domItem);
+    domItemColumn.parentNode.removeChild(domItem);
     saveItem();
 
     }
