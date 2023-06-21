@@ -143,6 +143,7 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
   const itemPopupInstance = new ItemPopup(
     popupTitle,
     (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+      console.log('main -> processDataCallBack',{itemQty, itemCost, itemTitle, itemDescription, itemTotal})
 
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
