@@ -149,9 +149,9 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
 
   const onDeletePopup = () => {
     console.log("Кнопка работает!")
-    // items.splice(items.indexOf(invoiceItem), 1);
-    // domItemColumn.removeChild(domItem);
-    // saveItem();
+    items.splice(items.indexOf(invoiceItem), 1);
+    domItemColumn.removeChild(domItem);
+    saveItem();
   }
 
   const ItemPopup = (await import('./src/view/popup/ItemPopup')).default;
@@ -171,7 +171,11 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
   );
 
   if (invoiceItem) {
-    itemPopupInstance.taskTitle = invoiceItem.title
+    itemPopupInstance.itemTitle = invoiceItem.nameItem
+    itemPopupInstance.itemDescription = invoiceItem.descriptionItem
+    itemPopupInstance.itemQty = invoiceItem.qty
+    itemPopupInstance.itemCost = invoiceItem.cost
+    itemPopupInstance.itemTotal = invoiceItem.total
   }
 
 
