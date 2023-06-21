@@ -66,6 +66,7 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
+  console.log('> invoiceItem:', invoiceItem);
 
   renderItemPopup(
     invoiceItem,
