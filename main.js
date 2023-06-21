@@ -102,6 +102,7 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
     renderItem(invoiceItem);
     items.push(invoiceItem);
 
+    console.log('confirm', invoiceItem)
     saveItem()
   });
 }
