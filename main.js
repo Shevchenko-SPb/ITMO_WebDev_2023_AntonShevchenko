@@ -64,6 +64,7 @@ function calculationDiscount () {
 
 domItemColumn.onclick = (e) => {
   e.stopPropagation();
+  console.log('domTaskColumn', e.target)
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
