@@ -11,6 +11,11 @@ class ItemPopup {
   }
 
   #itemTitle = '';
+  set itemTitle(value) {
+    console.log('itemTitle', value);
+    this.#itemTitle = value;
+  }
+
   #itemDescription = '';
   #itemQty = '';
   #itemCost = '';
