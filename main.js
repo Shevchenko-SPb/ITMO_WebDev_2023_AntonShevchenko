@@ -68,7 +68,7 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
-  console.log('> invoiceItem:', invoiceItem);
+  console.log('> invoiceItem:', invoiceItem); // - Сюда заходим
 
   renderItemPopup(
     invoiceItem,
@@ -82,7 +82,13 @@ domItemColumn.onclick = (e) => {
         itemTotal
       });
 
-    invoiceItem.title = itemTitle;
+    invoiceItem.nameItem = itemTitle;
+    invoiceItem.descriptionItem = itemDescription;
+    invoiceItem.cost = itemCost;
+    invoiceItem.qty = itemQty;
+    invoiceItem.total = itemTotal;
+
+      console.log('itemTitle', itemTitle)
 
 
     const domItem = renderItem(invoiceItem)
