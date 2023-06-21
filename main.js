@@ -46,6 +46,7 @@ const items = rawItems
 
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
+console.log('> items:', items);
 items.forEach((invoiceItem) => calculationSubTotal(invoiceItem))
 
 function calculationSubTotal (invoiceItem) {
