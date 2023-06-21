@@ -148,19 +148,17 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     domPopupContainer.classList.add('hidden');
   };
 
-  const onDeletePopup = (invoiceItem, domItem) => {
-    console.log('onDeletePopup', invoiceItem, domItem)
-      renderItemPopup(
-        invoiceItem,
-        'Confirm delete item?',
-        'Delete',
-        (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+  const onDeletePopup = () => {
+    console.log('onDeletePopup кнопка работает')
+    console.log(invoiceItem)
+    console.log(domItem)
+    console.log(items)
+    // items.splice(items.indexOf(invoiceItem), 1);
+    console.log(domItemColumn)
+    console.log(items.splice(items.indexOf(invoiceItem), 1))
+    domItemColumn.removeChild(domItem);
+    saveItem();
 
-          items.splice(items.indexOf(invoiceItem), 1);
-          domItemColumn.removeChild(domItem);
-          saveItem();
-        }
-      );
     }
 
 
@@ -173,7 +171,6 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
       onClosePopup();
-      onDeletePopup();
     },
 
     onClosePopup,
