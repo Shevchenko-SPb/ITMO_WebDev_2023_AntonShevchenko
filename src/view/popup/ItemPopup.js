@@ -1,10 +1,12 @@
 class ItemPopup {
   #title;
+  #confirmText
   #confirmCallback;
   #closeCallback;
   #deleteCallback
-  constructor(title, confirmCallback, closeCallback, deleteCallback) {
+  constructor(title, confirmText, confirmCallback, closeCallback, deleteCallback) {
     this.#title = title;
+    this.#confirmText = confirmText;
     this.#confirmCallback = confirmCallback;
     this.#closeCallback = closeCallback;
     this.#deleteCallback = deleteCallback;
@@ -102,7 +104,7 @@ class ItemPopup {
               </div>
               <button data-id=btnConfirm
                       class="flex h-full w-24 bg-black/30 rounded-md items-center
-               justify-center text-neutral-100 hover:bg-black/40">Create</button>
+               justify-center text-neutral-100 hover:bg-black/40">${this.#confirmText}</button>
             </div>
           </div>
           <div class="flex flex-col h-full gap-y-3 mt-3">
@@ -135,7 +137,7 @@ class ItemPopup {
       </div>
     </div>
     `;
-
+    console.log('div.firstChild', div.children);
 
     const popup = div.children[0];
 

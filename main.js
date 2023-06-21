@@ -73,6 +73,7 @@ domItemColumn.onclick = (e) => {
   renderItemPopup(
     invoiceItem,
     'Update',
+    'Update',
     (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
       console.log('> Update task -> On Confirm', {
         itemQty,
@@ -100,7 +101,7 @@ domItemColumn.onclick = (e) => {
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
-  renderItemPopup(null,'Add', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
+  renderItemPopup(null,'Add', 'Create', (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
 
     const itemId = `item_${Date.now()}`;
     const invoiceItem = new InvoiceItem(itemId, itemQty, itemCost, itemTitle, itemDescription, itemTotal);
@@ -130,7 +131,7 @@ function renderItem(invoiceItem) {
 }
 
 
-async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
+async function renderItemPopup(invoiceItem, popupTitle, confirmText, processDataCallback) {
   const domPopupContainer = getDOM(Dom.Popup.CONTAINER);
   const domSpinner = domPopupContainer.querySelector('.spinner');
 
@@ -153,7 +154,6 @@ async function renderItemPopup(invoiceItem, popupTitle, processDataCallback) {
   const itemPopupInstance = new ItemPopup(
     popupTitle,
     (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
-      console.log('main -> processDataCallBack',{itemQty, itemCost, itemTitle, itemDescription, itemTotal})
 
       processDataCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
 
