@@ -1,6 +1,4 @@
 import Dom from "./src/constants/dom.js";
-import ItemPopup from "./src/view/popup/ItemPopup.js";
-import DOM from "./src/constants/dom.js";
 
 const KEY_LOCAL_ITEMS = 'items'
 
@@ -149,16 +147,12 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
   };
 
   const onDeletePopup = () => {
-    console.log('onDeletePopup кнопка работает')
-    console.log(invoiceItem)
-    console.log(domItem)
-    console.log(items)
-    items.splice(items.indexOf(invoiceItem), 1);
-    console.log(domItemColumn)
+    const del = items.splice(items.indexOf(invoiceItem), 0);
     console.log(items.splice(items.indexOf(invoiceItem), 1))
-    domItemColumn.parentNode.removeChild(domItem);
+    delete del.property
     saveItem();
-
+    onClosePopup();
+    location.reload();
     }
 
 
