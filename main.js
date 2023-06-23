@@ -44,7 +44,7 @@ domInputIBAN.addEventListener ('keyup', function (event) {
   this.value = this.value.substr(0, 34);
   console.log(String(this.value).length)
   this.value = this.value.toString().toUpperCase();
-  
+
   let val = this.value.replace(/[^a-zA-Zа-яА-ЯёЁ0-9]/g, '');
   val = val !== '' ? val.match(/.{1,4}/g).join` ` : ``;
   this.value = val;
@@ -52,6 +52,8 @@ domInputIBAN.addEventListener ('keyup', function (event) {
 
 
 inpTotalDiscount.addEventListener ('keyup', function (event) {
+  this.value = this.value.substr(0, 2);
+  console.log(String(this.value).length)
   calculationDiscount ();
 })
 
