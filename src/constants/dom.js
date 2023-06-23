@@ -15,6 +15,10 @@ const Dom = {
       ITEM_QTY: 'templateItemQty',
       ITEM_TOTAL: 'templateItemTotalCost',
     },
+    Input: {
+      NUMBER_INVOICE: 'invoiceNumber',
+      IBAN: 'IBAN'
+    },
     RESULT: 'templateInvoiceResult',
     Result: {
       RESULT_SUBTOTAL: 'templateItemSubtotal',

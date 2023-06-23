@@ -20,6 +20,8 @@ const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 
 
 const domItem = getDOM(Dom.Template.ITEM);
+const domInputNumberInvoice = getDOM(Dom.Template.Input.NUMBER_INVOICE);
+const domInputIBAN = getDOM(Dom.Template.Input.IBAN);
 const domResult = getDOM(Dom.Template.RESULT);
 const subTotal = QUERY(domResult, Dom.Template.Result.RESULT_SUBTOTAL);
 subTotal.value = 0;
@@ -27,6 +29,27 @@ const discountTotal = QUERY(domResult, Dom.Template.Result.RESULT_DISCOUNT);
 const totalResult = QUERY(domResult, Dom.Template.Result.RESULT_TOTAL);
 const inpTotalDiscount = QUERY(domResult, Dom.Template.Result.INPUT_DISCOUNT);
 inpTotalDiscount.value = 0;
+
+
+domInputNumberInvoice.addEventListener ('keyup', function (event) {
+  console.log('Кнопка работает')
+  if (String(this.value).length > 4)
+    alert("Не больше 4-х цифр")
+  this.value = this.value.substr(0, 4);
+  console.log(String(this.value).length)
+})
+
+domInputIBAN.addEventListener ('keyup', function (event) {
+  console.log('Кнопка работает')
+  this.value = this.value.substr(0, 30);
+  console.log(String(this.value).length)
+  const iban = this.value.toString();
+  console.log(iban)
+  this.value = iban.split(this.value, 4, ' ');
+
+
+
+})
 
 
 inpTotalDiscount.addEventListener ('keyup', function (event) {
@@ -67,29 +90,18 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
-  console.log('> invoiceItem:', invoiceItem); // - Сюда заходим
 
   renderItemPopup(
     invoiceItem,
     'Update',
     'Update',
     (itemQty, itemCost, itemTitle, itemDescription, itemTotal) => {
-      console.log('> Update task -> On Confirm', {
-        itemQty,
-        itemCost,
-        itemTitle,
-        itemDescription,
-        itemTotal
-      });
 
     invoiceItem.nameItem = itemTitle;
     invoiceItem.descriptionItem = itemDescription;
     invoiceItem.cost = itemCost;
     invoiceItem.qty = itemQty;
     invoiceItem.total = itemTotal;
-
-      console.log('itemTitle', itemTitle)
-
 
     const domItem = renderItem(invoiceItem)
     e.target.parentNode.replaceChild(domItem, e.target)
@@ -113,7 +125,6 @@ getDOM(Dom.Button.ADD_ITEM).onclick = () => {
     renderItem(invoiceItem);
     items.push(invoiceItem);
 
-    console.log('confirm', invoiceItem)
     saveItem()
   });
 }
