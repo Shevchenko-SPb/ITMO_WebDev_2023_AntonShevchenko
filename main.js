@@ -192,7 +192,7 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     itemPopupInstance.itemTotal = invoiceItem.total
   }
 
-  
+
   domSpinner.remove();
   document.onkeyup = (e) => {
     if (e.key === 'Escape') {

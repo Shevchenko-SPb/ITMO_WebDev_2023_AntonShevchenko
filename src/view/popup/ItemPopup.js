@@ -1,9 +1,9 @@
 class ItemPopup {
   #title;
-  #confirmText
+  #confirmText;
   #confirmCallback;
   #closeCallback;
-  #deleteCallback
+  #deleteCallback;
   constructor(title, confirmText, confirmCallback, closeCallback, deleteCallback) {
     this.#title = title;
     this.#confirmText = confirmText;
@@ -33,7 +33,6 @@ class ItemPopup {
   set itemTotal(value) {
     this.#itemTotal = value;
   }
-
 
   render() {
     const div = document.createElement('div');
@@ -192,5 +191,3 @@ class ItemPopup {
   }
 }
 export default ItemPopup
-
-
