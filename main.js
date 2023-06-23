@@ -41,14 +41,13 @@ domInputNumberInvoice.addEventListener ('keyup', function (event) {
 
 domInputIBAN.addEventListener ('keyup', function (event) {
   console.log('Кнопка работает')
-  this.value = this.value.substr(0, 30);
+  this.value = this.value.substr(0, 34);
   console.log(String(this.value).length)
-  const iban = this.value.toString();
-  console.log(iban)
-  this.value = iban.split(this.value, 4, ' ');
-
-
-
+  this.value = this.value.toString().toUpperCase();
+  
+  let val = this.value.replace(/[^a-zA-Zа-яА-ЯёЁ0-9]/g, '');
+  val = val !== '' ? val.match(/.{1,4}/g).join` ` : ``;
+  this.value = val;
 })
 
 
