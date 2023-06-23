@@ -192,8 +192,7 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     itemPopupInstance.itemTotal = invoiceItem.total
   }
 
-
-  // setTimeout(() => {
+  
   domSpinner.remove();
   document.onkeyup = (e) => {
     if (e.key === 'Escape') {
@@ -201,7 +200,6 @@ async function renderItemPopup(invoiceItem, popupTitle, confirmText, processData
     }
   }
   domPopupContainer.append(itemPopupInstance.render());
-  // }, 1000);
 }
 
 
