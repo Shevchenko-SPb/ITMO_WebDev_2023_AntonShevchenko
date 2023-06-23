@@ -41,7 +41,7 @@ domInputNumberInvoice.addEventListener ('keyup', function (event) {
 
 domInputIBAN.addEventListener ('keyup', function (event) {
   console.log('Кнопка работает')
-  this.value = this.value.substr(0, 34);
+  this.value = this.value.substring(0, 34);
   console.log(String(this.value).length)
   this.value = this.value.toString().toUpperCase();
 
@@ -52,7 +52,7 @@ domInputIBAN.addEventListener ('keyup', function (event) {
 
 
 inpTotalDiscount.addEventListener ('keyup', function (event) {
-  this.value = this.value.substr(0, 2);
+  this.value = this.value.substring(0, 2);
   console.log(String(this.value).length)
   calculationDiscount ();
 })
@@ -107,6 +107,7 @@ domItemColumn.onclick = (e) => {
     const domItem = renderItem(invoiceItem)
     e.target.parentNode.replaceChild(domItem, e.target)
     saveItem();
+      location.reload();
   });
 };
 

@@ -186,6 +186,7 @@ class ItemPopup {
       const itemTotal = itemQty * itemCost;
       this.#confirmCallback(itemQty, itemCost, itemTitle, itemDescription, itemTotal);
     };
+    renderTotalPopup ();
 
     return div.children[0];
   }
