@@ -13,6 +13,8 @@ import { createApp } from 'vue'
 // Plugins
 import { registerPlugins } from '@/plugins'
 
+import { mdiAccount } from '@mdi/js'
+
 const app = createApp(App)
 
 registerPlugins(app)
