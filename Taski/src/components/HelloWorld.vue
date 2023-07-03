@@ -1,8 +1,8 @@
 <template>
-  <v-main class="pt-10 pb-4 px-16 h-screen"
-          style="background-color: #e5fcf7">
-    <v-row class="d-flex flex-row mb-6 rounded-xl"
-           style="height: 100%; background-color: #e5e9ec">
+<!--    <v-col class="h-screen position-fixed bg-amber-accent-2"></v-col>-->
+  <v-col class="h-screen" style="background-color: #e5fcf7">
+    <v-row class="d-flex flex-row mt-7 mb-7 mx-7 rounded-xl"
+           style="background-color: #e5e9ec">
       <v-col class="rounded-xl w-25"
              style="background-color: #e5e9ec">
         <div class="ml-6 mt-4">
@@ -54,10 +54,11 @@
           <v-row class="align-center text-grey-darken-2" style="height: 35px">
             <v-icon icon="message" size="large"></v-icon>
             <v-col>Messages</v-col>
-          </v-row><v-row class="align-center text-grey-darken-2">
-          <v-icon icon="calendar_month" size="large"></v-icon>
-          <v-col>Calendar</v-col>
-        </v-row>
+          </v-row>
+          <v-row class="align-center text-grey-darken-2">
+            <v-icon icon="calendar_month" size="large"></v-icon>
+            <v-col>Calendar</v-col>
+          </v-row>
           <v-row class="w-100% me-4 pt-5" style="border-bottom: 1px solid #BDBDBD"></v-row>
           <v-spacer style="height: 300px"></v-spacer>
           <v-row class="align-center text-grey-darken-2">
@@ -87,7 +88,7 @@
                      style="background-color: #e5e9ec">
                 <v-col class="font-weight-bold text-h6">To Do</v-col>
                 <v-card class="rounded-lg mb-3"
-                        style="background-color: #f9fafb">
+                        style="background-color: #f9fafb;">
                   <v-card-item>
                     <div>
                       <div class="text-h6 mb-1">
@@ -96,8 +97,8 @@
                       <div class="text-caption overflow-auto">Текст задачи</div>
                     </div>
                     <v-row class=" w-100% py-4 ps-4 align-center">
-                        <v-chip size="small">Tag</v-chip>
-                        <v-spacer></v-spacer>
+                      <v-chip size="small">Tag</v-chip>
+                      <v-spacer></v-spacer>
                       <v-row class="align-center">
                         <v-spacer></v-spacer>
                         <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
@@ -106,8 +107,8 @@
                     </v-row>
                   </v-card-item>
                   <v-card-actions class="justify-end">
-                    <v-btn icon="edit" class="text-grey-darken-1"></v-btn>
-                    <v-btn icon="delete" class="text-grey-darken-1"></v-btn>
+                    <v-btn icon="edit" height="20px" width="20px" class="text-grey-darken-1"></v-btn>
+                    <v-btn icon="delete" height="20px" width="20px" class="text-grey-darken-1"></v-btn>
                   </v-card-actions>
                 </v-card>
                 <v-btn color="#f9fafb" class="w-100">Add task</v-btn>
@@ -125,13 +126,13 @@
         </v-row>
         <v-row class="w-100 rounded-b-xl mt-4 align-center"
                style="height: 40px; background-color: #f9fafb"
-               >
+        >
           <span class="pl-5">10</span>
           <span class="pl-1">Tasks</span>
         </v-row>
       </v-col>
     </v-row>
-  </v-main>
+  </v-col>
 </template>
 
 <script setup>
