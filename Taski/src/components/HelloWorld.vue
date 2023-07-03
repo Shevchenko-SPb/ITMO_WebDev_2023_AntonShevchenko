@@ -1,5 +1,37 @@
 <template>
-<!--    <v-col class="h-screen position-fixed bg-amber-accent-2"></v-col>-->
+  <div
+    id="popupContainer"
+  >
+    <div class="spinner"></div>
+  </div>
+    <v-col class="h-screen" style="position: absolute; background:rgba(66,66,66,0.7);; z-index:99999999">
+      <v-spacer class="h-25"></v-spacer>
+      <v-container class=" rounded-xl align-self-center" style="width: 400px; height: 420px; background: rgba(229,233,236)">
+        <v-row class="mr-2 my-2">
+          <v-col class="text-h5 font-weight-bold">Create task</v-col>
+          <v-spacer></v-spacer>
+          <v-btn icon="close" style="background: rgba(229,233,236)"></v-btn>
+        </v-row>
+        <div class="mt-4">
+          <v-text-field
+            label="Title"
+            :rules="rules"
+            hide-details="auto"
+          ></v-text-field>
+          <v-text-field label="Task"></v-text-field>
+        </div>
+        <v-row class="mb-2 ml-0 text-h7">End date:</v-row>
+        <input type="date" style="width: 368px; border: 1px solid #BDBDBD">
+        <v-row class="my-2 ml-0 text-h7">Select tag:</v-row>
+        <select style="width: 368px; border: 1px solid #BDBDBD">
+          <option>Web</option>
+          <option>Update</option>
+          <option>Design</option>
+          <option>Content</option>
+        </select>
+        <v-btn color=teal-darken-3 class="mt-4" style="width: 368px">Create</v-btn>
+      </v-container>
+    </v-col>
   <v-col class="h-screen" style="background-color: #e5fcf7">
     <v-row class="d-flex flex-row mt-7 mb-7 mx-7 rounded-xl"
            style="background-color: #e5e9ec">
@@ -135,6 +167,13 @@
   </v-col>
 </template>
 
-<script setup>
-
+<script>
+export default {
+  data: () => ({
+    rules: [
+      value => !!value || 'Required.',
+      value => (value && value.length >= 3) || 'Min 3 characters',
+    ],
+  }),
+}
 </script>

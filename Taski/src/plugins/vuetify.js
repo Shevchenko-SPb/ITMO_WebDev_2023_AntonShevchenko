@@ -14,6 +14,10 @@ import { createVuetify } from 'vuetify'
 import { aliases, md } from 'vuetify/iconsets/md'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+
+export const vuetify = createVuetify({
+  theme: { defaultTheme: 'light' },
+})
 export default createVuetify({
   theme: {
     themes: {
