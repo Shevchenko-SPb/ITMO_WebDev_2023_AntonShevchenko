@@ -19,22 +19,11 @@ registerPlugins(app)
 
 app.mount('#app')
 
-
-async function f() {
-
-  let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve( madness ()), 500)
-  });
-
-  // let result = await promise; // будет ждать, пока промис не выполнится (*)
-
-  alert(result); // "готово!"
-}
-f();
-
 import DOM from './dom.js';
 
-function madness () {
+setTimeout(startTaskiScript, 500)
+
+function startTaskiScript () {
   const KEY_LOCAL_TASKS = 'tasks';
 
   const Tags = ['Web', 'Update', 'Design', 'Content'];
@@ -244,7 +233,7 @@ function madness () {
     }
 
     // setTimeout(() => {
-    domSpinner.remove();
+    // domSpinner.remove();
     document.onkeyup = (e) => {
       if (e.key === 'Escape') {
         onClosePopup();
