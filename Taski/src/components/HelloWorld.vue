@@ -4,34 +4,7 @@
   >
     <div class="spinner"></div>
   </div>
-    <v-col class="h-screen" style="position: absolute; background:rgba(66,66,66,0.7);; z-index:99999999">
-      <v-spacer class="h-25"></v-spacer>
-      <v-container class=" rounded-xl align-self-center" style="width: 400px; height: 420px; background: rgba(229,233,236)">
-        <v-row class="mr-2 my-2">
-          <v-col class="text-h5 font-weight-bold">Create task</v-col>
-          <v-spacer></v-spacer>
-          <v-btn icon="close" style="background: rgba(229,233,236)"></v-btn>
-        </v-row>
-        <div class="mt-4">
-          <v-text-field
-            label="Title"
-            :rules="rules"
-            hide-details="auto"
-          ></v-text-field>
-          <v-text-field label="Task"></v-text-field>
-        </div>
-        <v-row class="mb-2 ml-0 text-h7">End date:</v-row>
-        <input type="date" style="width: 368px; border: 1px solid #BDBDBD">
-        <v-row class="my-2 ml-0 text-h7">Select tag:</v-row>
-        <select style="width: 368px; border: 1px solid #BDBDBD">
-          <option>Web</option>
-          <option>Update</option>
-          <option>Design</option>
-          <option>Content</option>
-        </select>
-        <v-btn color=teal-darken-3 class="mt-4" style="width: 368px">Create</v-btn>
-      </v-container>
-    </v-col>
+
   <v-col class="h-screen" style="background-color: #e5fcf7">
     <v-row class="d-flex flex-row mt-7 mb-7 mx-7 rounded-xl"
            style="background-color: #e5e9ec">
@@ -49,8 +22,7 @@
             </v-avatar>
             <v-col class="ml-3">
               <v-row class="font-weight-bold text-h5">
-                <span>Name</span>
-                <span class="ml-2">Surname</span>
+                <div>Name Surname</div>
               </v-row>
               <v-row class="text-h7">
                 Premium account
@@ -107,7 +79,10 @@
           <v-col>
             <v-row class="w-100 align-center">
               <v-col class="font-weight-bold text-h6">Team tasks</v-col>
-              <v-btn color=teal-darken-3>+ Create task</v-btn>
+              <v-btn color=teal-darken-3
+                     id="btnCreateTask">
+                     + Create task
+              </v-btn>
             </v-row>
             <v-row>
               <v-col>Filters</v-col>
@@ -117,32 +92,39 @@
             <v-row class="w-100% mx-0 my-3" style="border-bottom: 1px solid #E0E0E0"></v-row>
             <v-row class="justify-space-between v-row-auto">
               <v-col class="rounded-lg ms-3"
+                     data-test-id="tasks-column"
                      style="background-color: #e5e9ec">
                 <v-col class="font-weight-bold text-h6">To Do</v-col>
-                <v-card class="rounded-lg mb-3"
-                        style="background-color: #f9fafb;">
-                  <v-card-item>
-                    <div>
-                      <div class="text-h6 mb-1">
-                        Название задачи
+                <div id="templateTask">
+                  <v-card class="rounded-lg mb-3"
+
+                          style="background-color: #f9fafb;">
+                    <v-card-item>
+                      <div>
+                        <div class="text-h6 mb-1"
+                             data-id="templateTaskTitle">
+                          $name
+                        </div>
+                        <div class="text-caption overflow-auto">Текст задачи</div>
                       </div>
-                      <div class="text-caption overflow-auto">Текст задачи</div>
-                    </div>
-                    <v-row class=" w-100% py-4 ps-4 align-center">
-                      <v-chip size="small">Tag</v-chip>
-                      <v-spacer></v-spacer>
-                      <v-row class="align-center">
+                      <v-row class=" w-100% py-4 ps-4 align-center">
+                        <v-chip size="small">Tag</v-chip>
                         <v-spacer></v-spacer>
-                        <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
-                        <v-col class="text-caption">12 days left</v-col>
+                        <v-row class="align-center">
+                          <v-spacer></v-spacer>
+                          <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
+                          <v-col class="text-caption">12 days left</v-col>
+                        </v-row>
                       </v-row>
-                    </v-row>
-                  </v-card-item>
-                  <v-card-actions class="justify-end">
-                    <v-btn icon="edit" height="20px" width="20px" class="text-grey-darken-1"></v-btn>
-                    <v-btn icon="delete" height="20px" width="20px" class="text-grey-darken-1"></v-btn>
-                  </v-card-actions>
-                </v-card>
+                    </v-card-item>
+                    <v-card-actions class="justify-end">
+                      <v-btn icon="edit" data-btn="btnEdit" height="20px" width="20px"
+                             class="text-grey-darken-1"></v-btn>
+                      <v-btn icon="delete" data-btn="btnDelete" height="20px" width="20px"
+                             class="text-grey-darken-1"></v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </div>
                 <v-btn color="#f9fafb" class="w-100">Add task</v-btn>
               </v-col>
               <v-col class="rounded-lg mx-3 "
@@ -168,6 +150,7 @@
 </template>
 
 <script>
+
 export default {
   data: () => ({
     rules: [
