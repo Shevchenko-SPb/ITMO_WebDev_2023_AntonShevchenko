@@ -125,7 +125,7 @@
                     </v-card-actions>
                   </v-card>
                 </div>
-                <v-btn color="#f9fafb" class="w-100">Add task</v-btn>
+                <v-btn color="#f9fafb" id="btnAddTask" class="w-100">Add task</v-btn>
               </v-col>
               <v-col class="rounded-lg mx-3 "
                      style="background-color: #e5e9ec">
