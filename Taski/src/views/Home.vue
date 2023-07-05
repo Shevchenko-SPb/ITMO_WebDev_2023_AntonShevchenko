@@ -1,7 +1,7 @@
 <template>
-  <HelloWorld />
+  <Taski />
 </template>
 
 <script setup>
-  import HelloWorld from '@/components/HelloWorld.vue'
+  import Taski from '@/components/Taski.vue'
 </script>
