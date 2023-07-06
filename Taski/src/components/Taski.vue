@@ -1,7 +1,6 @@
 <template>
   <div
-    id="popupContainer"
-  >
+    id="popupContainer">
     <div class="spinner"></div>
   </div>
 
@@ -64,14 +63,13 @@
             <v-col>Calendar</v-col>
           </v-row>
           <v-row class="w-100% me-4 pt-5" style="border-bottom: 1px solid #BDBDBD"></v-row>
-          <v-spacer style="height: 300px"></v-spacer>
+          <v-spacer style="height: 40px"></v-spacer>
           <v-row class="align-center text-grey-darken-2">
             <v-icon icon="logout" size="large"></v-icon>
             <v-col>Log out</v-col>
           </v-row>
         </div>
       </v-col>
-
       <v-col cols="auto" class="w-75 rounded-t-xl py-10 mb-4"
              style="background-color: #e5e9ec">
         <v-row class="w-100 rounded-t-xl "
@@ -151,12 +149,5 @@
 
 <script>
 
-export default {
-  data: () => ({
-    rules: [
-      value => !!value || 'Required.',
-      value => (value && value.length >= 3) || 'Min 3 characters',
-    ],
-  }),
-}
+
 </script>

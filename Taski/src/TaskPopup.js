@@ -21,8 +21,8 @@ class TaskPopup {
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-     <v-col class="h-screen" data-test-id="task-popup" style="position: absolute; background:rgba(66,66,66,0.7); z-index:99999999">
-      <v-spacer class="h-25"></v-spacer>
+     <div  data-test-id="task-popup" style="position: absolute; background:rgba(66,66,66,0.7); z-index:99999999">
+
       <v-container class=" rounded-xl align-self-center " style="width: 400px; height: 420px; background: rgba(229,233,236)">
 
         <v-row class="mr-2 my-2">
@@ -52,7 +52,7 @@ class TaskPopup {
         </select>
         <v-btn color=teal-darken-3 data-id="btnConfirm" class="mt-4" style="width: 368px">${this.#confirmText}</v-btn>
       </v-container>
-    </v-col>
+    </div>
     `;
     console.log('div.firstChild', div.children);
 
