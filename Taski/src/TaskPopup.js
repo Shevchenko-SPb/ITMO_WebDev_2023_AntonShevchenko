@@ -21,14 +21,25 @@ class TaskPopup {
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-     <div  data-test-id="task-popup" style="position: absolute; background:rgba(66,66,66,0.7); z-index:99999999">
+     <v-row  data-test-id="task-popup" style="position: absolute; background:rgba(66,66,66,0.7); z-index:99999999"
+     class="h-screen w-100">
 
-      <v-container class=" rounded-xl align-self-center " style="width: 400px; height: 420px; background: rgba(229,233,236)">
+      <v-container class="rounded-xl"
+      style="position: absolute;
+      width: 400px;
+      height: 420px;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background: rgba(229,233,236)">
 
-        <v-row class="mr-2 my-2">
+        <v-row class="mr-2 my-2"
+       >
           <v-col class="text-h5 font-weight-bold" for="inpDate">${this.#title}</v-col>
           <v-spacer></v-spacer>
-          <v-btn icon="close" data-id="btnClose" style="background: rgba(229,233,236)"></v-btn>
+          <button data-id="btnClose" style="background: rgba(229,233,236)"> Закрыть </button>
         </v-row>
         <div class="mt-4">
           <v-text-field
@@ -52,7 +63,7 @@ class TaskPopup {
         </select>
         <v-btn color=teal-darken-3 data-id="btnConfirm" class="mt-4" style="width: 368px">${this.#confirmText}</v-btn>
       </v-container>
-    </div>
+    </v-row>
     `;
     console.log('div.firstChild', div.children);
 
@@ -63,6 +74,7 @@ class TaskPopup {
     const domInpTitle = popup.querySelector('[data-id="inpTitle"]');
 
     domBtnClose.onclick = () => {
+      console.log("Кнопка закрыть")
       domBtnClose.onclick = null;
       domBtnConfirm.onclick = null;
       this.#closeCallback();

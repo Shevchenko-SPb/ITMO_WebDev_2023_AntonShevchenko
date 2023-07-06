@@ -100,6 +100,7 @@ function startTaskiScript () {
 
   const taskOperations = {
     [DOM.Template.Task.BTN_DELETE]: (taskVO, domTask) => {
+      console.log("Удалялка")
       renderTaskPopup(
         taskVO,
         'Confirm delete task?',
@@ -117,6 +118,7 @@ function startTaskiScript () {
       );
     },
     [DOM.Template.Task.BTN_EDIT]: (taskVO, domTask) => {
+      console.log("Button Edit -> click")
       renderTaskPopup(
         taskVO,
         'Update task',
@@ -138,12 +140,16 @@ function startTaskiScript () {
 
   domTaskColumn.onclick = (e) => {
     e.stopPropagation();
-    console.log('domTaskColumn', e.target);
+    console.log('domTaskColumn ->', e.target);
     const domTaskElement = e.target;
+    console.log("domTaskElement -> ", domTaskElement)
     const taskBtn = domTaskElement.dataset.btn;
+    console.log("Кнопка ? Что это такое", taskBtn )
 
     const isNotTaskBtn = !taskBtn;
+    console.log('domTaskColumnBTN 1->', e.target);
     if (isNotTaskBtn) return;
+    console.log('domTaskColumnBTN 2->', e.target);
 
     const allowedButtons = [
       DOM.Template.Task.BTN_EDIT,

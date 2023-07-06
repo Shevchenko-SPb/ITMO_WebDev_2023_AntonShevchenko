@@ -1,8 +1,11 @@
 <template>
-  <div
-    id="popupContainer">
+  <v-col
+    id="popupContainer"
+    class="h-screen"
+    style="padding:0; margin:0; position: absolute"
+    >
     <div class="spinner"></div>
-  </div>
+  </v-col>
 
   <v-col class="h-screen" style="background-color: #e5fcf7">
     <v-row class="d-flex flex-row mt-7 mb-7 mx-7 rounded-xl"
@@ -116,10 +119,12 @@
                       </v-row>
                     </v-card-item>
                     <v-card-actions class="justify-end">
-                      <v-btn icon="edit" data-btn="btnEdit" height="20px" width="20px"
-                             class="text-grey-darken-1"></v-btn>
-                      <v-btn icon="delete" data-btn="btnDelete" height="20px" width="20px"
-                             class="text-grey-darken-1"></v-btn>
+                      <btn data-btn="btnEdit" height="20px" width="20px"
+                             class="text-grey-darken-1">
+                        Редактировать
+                      </btn>
+                      <btn data-btn="btnDelete" height="20px" width="20px"
+                             class="text-grey-darken-1">Удалить</btn>
                     </v-card-actions>
                   </v-card>
                 </div>
