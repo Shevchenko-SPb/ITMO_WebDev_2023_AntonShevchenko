@@ -212,6 +212,8 @@ function startTaskiScript () {
     domPopupContainer.classList.remove('hidden');
 
     const onClosePopup = () => {
+      console.log("onClosePopup -> function run")
+      domPopupContainer.children[0].remove();
       domPopupContainer.children[0].remove();
       domPopupContainer.append(domSpinner);
       domPopupContainer.classList.add('hidden');
