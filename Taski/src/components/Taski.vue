@@ -4,7 +4,6 @@
     class="h-screen"
     style="padding:0; margin:0; position: absolute"
     >
-
     <div class="spinner"></div>
   </v-col>
 
@@ -137,39 +136,44 @@
                      style="background-color: #e5e9ec">
                 <v-col class="font-weight-bold text-h7">To Do <span class="text-grey-lighten-1">0</span></v-col>
                 <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
-                <div id="templateTask">
-                  <v-card class="rounded-lg mb-3"
+                <div>
+                  <div id="templateTask">
+                    <v-card class="rounded-lg mb-3"
 
-                          style="background-color: #f9fafb;">
-                    <v-card-item>
-                      <div>
-                        <div class="text-h6 mb-1"
-                             data-id="templateTaskTitle">
-                          $name
+                            style="background-color: #f9fafb;">
+                      <v-card-item>
+                        <div>
+                          <div class="text-h6 mb-1"
+                               data-id="templateTaskTitle">
+                            $name
+                          </div>
+                          <div class="text-caption overflow-auto">Текст задачи</div>
                         </div>
-                        <div class="text-caption overflow-auto">Текст задачи</div>
-                      </div>
-                      <v-row class=" w-100% py-4 ps-4 align-center">
-                        <v-chip size="small">Tag</v-chip>
-                        <v-spacer></v-spacer>
-                        <v-row class="align-center">
+                        <v-row class=" w-100% py-4 ps-4 align-center">
+                          <v-chip size="small">Tag</v-chip>
                           <v-spacer></v-spacer>
-                          <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
-                          <v-col class="text-caption">12 days left</v-col>
+                          <v-row class="align-center">
+                            <v-spacer></v-spacer>
+                            <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
+                            <v-col class="text-caption">12 days left</v-col>
+                          </v-row>
                         </v-row>
-                      </v-row>
-                    </v-card-item>
-                    <v-card-actions class="justify-end">
-                      <btn data-btn="btnEdit" height="20px" width="20px"
+                      </v-card-item>
+                      <v-card-actions class="justify-end">
+                        <btn
+                             class="text-grey-darken-1 me-2"
+                        >
+                          <svg data-btn="btnEdit" style="pointer-events: fill" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16"><path fill="currentColor" d="M13.44 2.56a1.914 1.914 0 0 0-2.707 0L3.338 9.956a1.65 1.65 0 0 0-.398.644l-.914 2.743a.5.5 0 0 0 .632.633l2.743-.915c.243-.08.463-.217.644-.398l7.395-7.394a1.914 1.914 0 0 0 0-2.707Zm-2 .708a.914.914 0 1 1 1.293 1.293L12 5.294l-1.293-1.293l.734-.733ZM10 4.708l1.292 1.293l-5.954 5.954a.648.648 0 0 1-.253.157l-1.794.598l.598-1.794a.649.649 0 0 1 .156-.254L10 4.709Z"/></svg>
+                        </btn>
+                        <btn
                              class="text-grey-darken-1">
-                        Редактировать
-                      </btn>
-                      <btn data-btn="btnDelete" height="20px" width="20px"
-                             class="text-grey-darken-1">Удалить</btn>
-                    </v-card-actions>
-                  </v-card>
+                          <svg data-btn="btnDelete" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 32 32"><path fill="currentColor" d="M12 12h2v12h-2zm6 0h2v12h-2z"/><path fill="currentColor" d="M4 6v2h2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8h2V6zm4 22V8h16v20zm4-26h8v2h-8z"/></svg>
+                        </btn>
+                      </v-card-actions>
+                    </v-card>
+                  </div>
+                  <v-btn color="#f9fafb" id="btnAddTask" class="w-100">Add task</v-btn>
                 </div>
-                <v-btn color="#f9fafb" id="btnAddTask" class="w-100">Add task</v-btn>
               </v-col>
               <v-col class="rounded-lg mx-3 "
                      style="background-color: #e5e9ec">
@@ -196,6 +200,4 @@
 </template>
 
 <script>
-
-
 </script>
