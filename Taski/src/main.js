@@ -172,9 +172,8 @@ function startTaskiScript () {
       taskOperation(taskVO, domTask);
     }
   };
-
-  getDOM(DOM.Button.CREATE_TASK).onclick = () => {
-    console.log('> domPopupCreateTask.classList');
+  function templatePopupCreateTask () {
+    console.log("Кнопка addTask")
     renderTaskPopup(
       null,
       'Create task',
@@ -190,6 +189,14 @@ function startTaskiScript () {
         saveTask();
       }
     );
+  }
+
+  getDOM(DOM.Button.ADD_TASK).onclick = () => {
+    templatePopupCreateTask ()
+  }
+
+  getDOM(DOM.Button.CREATE_TASK).onclick = () => {
+    templatePopupCreateTask ()
   };
 
   function renderTask(taskVO) {

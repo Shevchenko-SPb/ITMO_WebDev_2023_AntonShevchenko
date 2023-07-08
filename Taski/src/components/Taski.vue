@@ -8,7 +8,7 @@
     <div class="spinner"></div>
   </v-col>
 
-  <v-col class="h-screen" style="background-color: #e5fcf7">
+  <v-col style="background-color: #e5fcf7; background-size: 100%">
     <v-row class="d-flex flex-row mt-7 mb-7 mx-7 rounded-xl"
            style="background-color: #e5e9ec">
       <v-col class="rounded-xl w-25"
@@ -67,8 +67,35 @@
             <v-col>Calendar</v-col>
           </v-row>
           <v-row class="w-100% me-4 pt-5" style="border-bottom: 1px solid #BDBDBD"></v-row>
-          <v-spacer style="height: 40px"></v-spacer>
-          <v-row class="align-center text-grey-darken-2">
+          <v-row class="font-weight-bold text-h6 pt-4">
+            Labels
+          </v-row>
+          <v-row class="align-center text-grey-darken-2" style="height: 35px">
+            <v-icon icon="label" size="default" class="text-red-lighten-1"></v-icon>
+            <v-col style="white-space: nowrap">High Priority</v-col>
+            <v-spacer></v-spacer>
+            <v-chip size="small" class="mr-5 bg-teal-darken-3">0</v-chip>
+          </v-row>
+          <v-row class="align-center text-grey-darken-2" style="height: 35px">
+            <v-icon icon="label" size="default" class="text-orange-lighten-1"></v-icon>
+            <v-col style="white-space: nowrap">Medium Priority</v-col>
+            <v-spacer></v-spacer>
+            <v-chip size="small" class="mr-5 bg-teal-darken-3">0</v-chip>
+          </v-row>
+          <v-row class="align-center text-grey-darken-2" style="height: 35px">
+            <v-icon icon="label" size="default" class="text-yellow-lighten-1"></v-icon>
+            <v-col style="white-space: nowrap">Low Priority</v-col>
+            <v-spacer></v-spacer>
+            <v-chip size="small" class="mr-5 bg-teal-darken-3">0</v-chip>
+          </v-row>
+          <v-row class="align-center text-grey-darken-2" style="height: 35px">
+            <v-icon icon="label" size="default" class="text-green-lighten-1"></v-icon>
+            <v-col style="white-space: nowrap">On Standby</v-col>
+            <v-spacer></v-spacer>
+            <v-chip size="small" class="mr-5 bg-teal-darken-3">0</v-chip>
+          </v-row>
+          <v-row class="w-100% me-4 pt-5" style="border-bottom: 1px solid #BDBDBD"></v-row>
+          <v-row class="align-center text-grey-darken-2" style="height: 50px">
             <v-icon icon="logout" size="large"></v-icon>
             <v-col>Log out</v-col>
           </v-row>
@@ -86,17 +113,30 @@
                      + Create task
               </v-btn>
             </v-row>
-            <v-row>
-              <v-col>Filters</v-col>
-              <v-col>Sort by</v-col>
-              <v-col>Group: by status</v-col>
+            <v-row class="text-grey-darken-1">
+              <v-col class="align-center">
+                <v-icon icon="filter_alt" size="small"></v-icon>
+                <span class="mx-1">Filters</span>
+                <v-icon icon="expand_more" size="default"></v-icon>
+              </v-col>
+              <v-spacer class="w-auto"></v-spacer>
+              <v-col>
+                <div class="float-right"><span class="ms-3">Group by: Status</span>
+                  <v-icon icon="expand_more" size="default"></v-icon>
+                </div>
+                <div class="float-right"><span>Sort by</span>
+                  <v-icon icon="expand_more" size="default"></v-icon>
+                </div>
+
+              </v-col>
             </v-row>
             <v-row class="w-100% mx-0 my-3" style="border-bottom: 1px solid #E0E0E0"></v-row>
             <v-row class="justify-space-between v-row-auto">
               <v-col class="rounded-lg ms-3"
                      data-test-id="tasks-column"
                      style="background-color: #e5e9ec">
-                <v-col class="font-weight-bold text-h6">To Do</v-col>
+                <v-col class="font-weight-bold text-h7">To Do <span class="text-grey-lighten-1">0</span></v-col>
+                <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
                 <div id="templateTask">
                   <v-card class="rounded-lg mb-3"
 
@@ -133,11 +173,13 @@
               </v-col>
               <v-col class="rounded-lg mx-3 "
                      style="background-color: #e5e9ec">
-                <v-col class="font-weight-bold text-h6">In Progress</v-col>
+                <v-col class="font-weight-bold text-h7">In Progress <span class="text-grey-lighten-1">0</span></v-col>
+                <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
               </v-col>
               <v-col class="rounded-lg me-3"
                      style="background-color: #e5e9ec">
-                <v-col class="font-weight-bold text-h6">In Review</v-col>
+                <v-col class="font-weight-bold text-h7">In Review <span class="text-grey-lighten-1">0</span></v-col>
+                <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
               </v-col>
             </v-row>
           </v-col>

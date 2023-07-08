@@ -21,8 +21,9 @@ class TaskPopup {
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-     <v-row  data-test-id="task-popup" style="position: absolute; background:rgba(66,66,66,0.7); z-index:99999999"
-     class="h-screen w-100">
+     <v-row  data-test-id="task-popup"
+             style="position: absolute; background:rgba(66,66,66,0.7); background-size: 100%; z-index:99999999;"
+             class="h-screen w-100">
 
       <v-container class="rounded-xl"
       style="position: absolute;
@@ -35,8 +36,7 @@ class TaskPopup {
       margin: auto;
       background: rgba(229,233,236)">
 
-        <v-row class="mr-2 my-2"
-       >
+        <v-row class="mr-2 my-2" >
           <v-col class="text-h5 font-weight-bold" for="inpDate">${this.#title}</v-col>
           <v-spacer></v-spacer>
           <button data-id="btnClose" style="background: rgba(229,233,236)"> Закрыть </button>
