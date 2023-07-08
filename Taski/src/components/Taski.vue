@@ -2,7 +2,7 @@
   <v-col
     id="popupContainer"
     class="h-screen"
-    style="padding:0; margin:0; position: absolute"
+    style="padding:0; margin:0; position: absolute; height: 100%"
     >
     <div class="spinner"></div>
   </v-col>

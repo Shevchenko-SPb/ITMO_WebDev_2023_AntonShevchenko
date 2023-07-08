@@ -26,11 +26,9 @@ class TaskPopup {
     const div = document.createElement('div');
     div.innerHTML = `
     <div  data-test-id="task-popup"
-          style="position: absolute; background:rgba(66,66,66,0.7); background-size: 100%; z-index:99999999;"
-          class="h-screen w-100">
-
+          style="position: fixed; height: 100%; background:rgba(66,66,66,0.7); background-size: 100%; z-index:99999999;"
       <div class="rounded-xl"
-           style="position: absolute;
+           style="position: fixed;
       width: 400px;
       height: fit-content;
       top: 0;
