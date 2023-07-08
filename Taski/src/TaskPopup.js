@@ -58,9 +58,10 @@ class TaskPopup {
                    value="${this.#taskTitle}"
                    style="width: 100%; border-color: #888888; border-style: solid; border-width: 1px;">
             <br>
-            <input style="margin-top: 10px; width: 100%; border-color: #888888; border-style: solid" placeholder="Task"
-                   data-id="inpBody"
-                   value="${this.#taskBody}"></input>
+            <textarea style="margin-top: 10px; width: 100%; border-color: #888888; border-style: solid;min-height: 100px; max-height: 150px"
+                     placeholder="Task"
+                     data-id="inpBody"
+                     >${this.#taskBody}</textarea>
           </div>
           <div style="margin-top: 10px">End date:</div>
           <input type="date" for="inpDate" id="inpDate" name="trip-start"
@@ -76,10 +77,10 @@ class TaskPopup {
           <div style="margin-top: 10px">Select label:</div>
           <select style="width: 100%;  border: 1px solid #BDBDBD">
             <option selected>Choose a label</option>
-            <option value="web">High Priority</option>
-            <option value="update">Medium Priority</option>
-            <option value="design">Low Priority</option>
-            <option value="content">On Standby</option>
+            <option value="High Priority">High Priority</option>
+            <option value="Medium Priority">Medium Priority</option>
+            <option value="Low Priority">Low Priority</option>
+            <option value="On Standby">On Standby</option>
           </select>
         <button color=teal-darken-3 data-id="btnConfirm" style="width: 100%;
         background: #00695C;

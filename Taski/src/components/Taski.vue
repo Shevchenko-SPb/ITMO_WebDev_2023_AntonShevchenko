@@ -148,17 +148,16 @@
                                $title
                           </div>
                           <div class="text-caption overflow-auto"
-                               data-id="templateTaskBody">
-                            $body
+                               data-id="templateTaskBody"
+                               style="overflow: scroll; max-height: 100px">
+                               $body
                           </div>
                         </div>
                         <v-row class=" w-100% py-4 ps-4 align-center">
                           <v-chip size="small">Tag</v-chip>
-                          <v-spacer></v-spacer>
-                          <v-row class="align-center">
-                            <v-spacer></v-spacer>
+                          <v-row class="align-center ms-7 justify-end mr-3">
                             <v-icon icon="schedule" color=teal-darken-2 size="small"></v-icon>
-                            <v-col class="text-caption">12 days left</v-col>
+                            <div class="text-caption ms-2" style="float: right">12 days left</div>
                           </v-row>
                         </v-row>
                       </v-card-item>

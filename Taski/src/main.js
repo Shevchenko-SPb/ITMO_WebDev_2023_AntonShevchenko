@@ -31,7 +31,7 @@ function startTaskiScript () {
   class TaskVO {
     static fromJSON(json) {
       console.log(json)
-      return new TaskVO(json.id, json.title,json.body, json.date, json.tag);
+      return new TaskVO(json.id, json.title, json.body, json.date, json.tag);
     }
 
     constructor(id, title, body, date, tag) {
@@ -120,6 +120,7 @@ const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
     },
     [DOM.Template.Task.BTN_EDIT]: (taskVO, domTask) => {
       console.log("Button Edit -> click")
+      console.log("taskTitle Edit ->",taskVO.body)
       renderTaskPopup(
         taskVO,
         'Update task',
@@ -133,6 +134,7 @@ const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
           });
           taskVO.title = taskTitle;
           taskVO.body = taskBody;
+
           const domTaskUpdated = renderTask(taskVO);
           domTaskColumn.replaceChild(domTaskUpdated, domTask);
           saveTask();
@@ -206,6 +208,7 @@ const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
     const domTaskClone = domTemplateTask.cloneNode(true);
     domTaskClone.dataset.id = taskVO.id;
     QUERY(domTaskClone, DOM.Template.Task.TITLE).innerText = taskVO.title;
+    QUERY(domTaskClone, DOM.Template.Task.BODY).innerText = taskVO.body;
     domTaskColumn.prepend(domTaskClone);
     return domTaskClone;
   }
