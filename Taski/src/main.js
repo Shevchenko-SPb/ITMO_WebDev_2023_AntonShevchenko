@@ -21,7 +21,7 @@ app.mount('#app')
 
 import DOM from './dom.js';
 
-setTimeout(startTaskiScript, 500)
+setTimeout(startTaskiScript, 1000)
 
 function startTaskiScript () {
   const KEY_LOCAL_TASKS = 'tasks';
@@ -142,7 +142,7 @@ const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
       );
     },
   };
-
+  
   domTaskColumn.onclick = (e) => {
     e.stopPropagation();
     console.log('domTaskColumn ->', e.target);
