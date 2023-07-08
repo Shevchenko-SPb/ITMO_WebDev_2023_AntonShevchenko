@@ -9,6 +9,7 @@ const Dom = {
     TASK: 'templateTask',
     Task: {
       TITLE: 'templateTaskTitle',
+      BODY: 'templateTaskBody',
       BTN_EDIT: 'btnEdit',
       BTN_DELETE: 'btnDelete',
     },

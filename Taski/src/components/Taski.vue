@@ -145,9 +145,12 @@
                         <div>
                           <div class="text-h6 mb-1"
                                data-id="templateTaskTitle">
-                            $name
+                               $title
                           </div>
-                          <div class="text-caption overflow-auto">Текст задачи</div>
+                          <div class="text-caption overflow-auto"
+                               data-id="templateTaskBody">
+                            $body
+                          </div>
                         </div>
                         <v-row class=" w-100% py-4 ps-4 align-center">
                           <v-chip size="small">Tag</v-chip>

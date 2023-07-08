@@ -31,12 +31,13 @@ function startTaskiScript () {
   class TaskVO {
     static fromJSON(json) {
       console.log(json)
-      return new TaskVO(json.id, json.title, json.date, json.tag);
+      return new TaskVO(json.id, json.title,json.body, json.date, json.tag);
     }
 
-    constructor(id, title, date, tag) {
+    constructor(id, title, body, date, tag) {
       this.id = id;
       this.title = title;
+      this.body = body;
       this.date = date;
       this.tag = tag;
     }
@@ -53,8 +54,8 @@ function startTaskiScript () {
   domTemplateTask.removeAttribute('id');
   domTemplateTask.remove();
 
-//const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
-  var rawTasks = undefined;
+const rawTasks = localStorage.getItem(KEY_LOCAL_TASKS);
+  // var rawTasks = undefined;
 //document.addEventListener("DOMContentLoaded", function(event) {
   const headers = {
     'Content-Type': 'application/json'
@@ -100,14 +101,14 @@ function startTaskiScript () {
 
   const taskOperations = {
     [DOM.Template.Task.BTN_DELETE]: (taskVO, domTask) => {
-      console.log("Удалялка")
       renderTaskPopup(
         taskVO,
         'Confirm delete task?',
         'Delete',
-        (taskTitle, taskDate, taskTag) => {
+        (taskTitle, taskBody, taskDate, taskTag) => {
           console.log('> Delete task -> On Confirm', {
             taskTitle,
+            taskBody,
             taskDate,
             taskTag,
           });
@@ -123,13 +124,15 @@ function startTaskiScript () {
         taskVO,
         'Update task',
         'Update',
-        (taskTitle, taskDate, taskTag) => {
+        (taskTitle, taskBody, taskDate, taskTag) => {
           console.log('> Update task -> On Confirm', {
             taskTitle,
+            taskBody,
             taskDate,
             taskTag,
           });
           taskVO.title = taskTitle;
+          taskVO.body = taskBody;
           const domTaskUpdated = renderTask(taskVO);
           domTaskColumn.replaceChild(domTaskUpdated, domTask);
           saveTask();
@@ -178,10 +181,10 @@ function startTaskiScript () {
       null,
       'Create task',
       'Create',
-      (taskTitle, taskDate, taskTag) => {
+      (taskTitle, taskBody, taskDate, taskTag) => {
         console.log('> Create task -> On Confirm');
         const taskId = `task_${Date.now()}`;
-        const taskVO = new TaskVO(taskId, taskTitle, taskDate, taskTag);
+        const taskVO = new TaskVO(taskId, taskTitle, taskBody, taskDate, taskTag);
 
         renderTask(taskVO);
         tasks.push(taskVO);
@@ -231,13 +234,14 @@ function startTaskiScript () {
       popupTitle,
       Tags,
       confirmText,
-      (taskTitle, taskDate, taskTags) => {
+      (taskTitle, taskBody, taskDate, taskTags) => {
         console.log('Main -> renderTaskPopup: confirmCallback', {
           taskTitle,
+          taskBody,
           taskDate,
           taskTags,
         });
-        processDataCallback(taskTitle, taskDate, taskTags);
+        processDataCallback(taskTitle, taskBody, taskDate, taskTags);
         onClosePopup();
       },
       onClosePopup
@@ -245,6 +249,7 @@ function startTaskiScript () {
 
     if (taskVO) {
       taskPopupInstance.taskTitle = taskVO.title;
+      taskPopupInstance.taskBody = taskVO.body;
     }
 
     // setTimeout(() => {

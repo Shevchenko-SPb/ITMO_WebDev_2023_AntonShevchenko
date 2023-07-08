@@ -13,9 +13,13 @@ class TaskPopup {
   }
 
   #taskTitle = '';
+  #taskBody = '';
 
   set taskTitle(value) {
     this.#taskTitle = value;
+  }
+  set taskBody(value) {
+    this.#taskBody = value;
   }
 
   render() {
@@ -28,7 +32,7 @@ class TaskPopup {
       <div class="rounded-xl"
            style="position: absolute;
       width: 400px;
-      height: 420px;
+      height: fit-content;
       top: 0;
       right: 0;
       bottom: 0;
@@ -38,7 +42,7 @@ class TaskPopup {
 
         <div style="margin: 25px;">
           <div>
-            <div for="inpDate" style="font-size: xx-large">${this.#title}
+            <div for="inpDate" style="font-size: xx-large; font-weight: bold;">${this.#title}
               <button data-id="btnClose" style="background: rgba(229,233,236); float: right">
                 <svg data-id="btnClose" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24">
                   <path fill="currentColor"
@@ -52,9 +56,11 @@ class TaskPopup {
                    data-id="inpTitle"
                    type="text"
                    value="${this.#taskTitle}"
-                   style="width: 100%">
+                   style="width: 100%; border-color: #888888; border-style: solid; border-width: 1px;">
             <br>
-            <input style="margin-top: 10px; width: 100%" placeholder="Task">
+            <input style="margin-top: 10px; width: 100%; border-color: #888888; border-style: solid" placeholder="Task"
+                   data-id="inpBody"
+                   value="${this.#taskBody}"></input>
           </div>
           <div style="margin-top: 10px">End date:</div>
           <input type="date" for="inpDate" id="inpDate" name="trip-start"
@@ -93,6 +99,7 @@ class TaskPopup {
     const domBtnClose = popup.querySelector('[data-id="btnClose"]');
     const domBtnConfirm = popup.querySelector('[data-id="btnConfirm"]');
     const domInpTitle = popup.querySelector('[data-id="inpTitle"]');
+    const domInpBody = popup.querySelector('[data-id="inpBody"]');
 
     domBtnClose.onclick = () => {
       console.log("Кнопка закрыть")
@@ -103,9 +110,10 @@ class TaskPopup {
 
     domBtnConfirm.onclick = () => {
       const taskTitle = domInpTitle.value;
+      const taskBody = domInpBody.value;
       const taskDate = Date.now();
       const taskTags = this.#tags[0];
-      this.#confirmCallback(taskTitle, taskDate, taskTags);
+      this.#confirmCallback(taskTitle, taskBody, taskDate, taskTags);
     };
 
     return div.children[0];
