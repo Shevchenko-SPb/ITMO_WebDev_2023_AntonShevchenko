@@ -163,7 +163,9 @@ class ItemPopup {
       console.log(domBtnConfirm)
       if (domInpQty.value && domInpTitle.value && domInpCost.value  != '') {
         domBtnConfirm.classList.remove('bg-black/30')
+        domBtnConfirm.classList.remove('hover:bg-black/40')
         domBtnConfirm.classList.add('bg-black/70')
+        domBtnConfirm.classList.add('hover:bg-black/90')
         domBtnConfirm.disabled = false;
       }
     }
@@ -181,6 +183,10 @@ class ItemPopup {
       domBtnClose.onclick = null;
       domBtnConfirm.onclick = null;
       domBtnDelete.onclick = null;
+
+      var isAdmin = confirm('Вы действительно хотите удалить?');
+      alert( isAdmin );
+
       this.#deleteCallback();
     }
 

@@ -86,12 +86,17 @@ function btnDeleteAction () {
 }
 function btnConfirnAction () {
 
+
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
   const domBtnConfirn = QUERY(domPopupInvoice, Dom.Button.CREATE_ITEM)
   const domInpTitle = QUERY(domPopupInvoice, Dom.Popup.POPUP_TITLE)
   const domInpDescription = QUERY(domPopupInvoice, Dom.Popup.POPUP_DESCRIPTION)
   const domInpQty = QUERY(domPopupInvoice, Dom.Popup.POPUP_QTY)
   const domInpCost = QUERY(domPopupInvoice, Dom.Popup.POPUP_COST)
+  domBtnConfirn.classList.remove('hover:bg-black/90')
+  domBtnConfirn.classList.remove('bg-black/70')
+  domBtnConfirn.classList.add('bg-black/30')
+  domBtnConfirn.classList.add('hover:bg-black/40')
   domBtnConfirn.disabled = true;
 
   domInpTitle.onchange = () => {
@@ -131,6 +136,7 @@ domItemColumn.onclick = (e) => {
   const invoiceItem = items.find((item) => item.id === itemId);
 
   setTimeout(() => btnConfirnAction (), 10);
+
 
   renderItemPopup(
     invoiceItem,
