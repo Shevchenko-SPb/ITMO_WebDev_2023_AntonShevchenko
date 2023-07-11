@@ -1,9 +1,9 @@
 const Dom = {
   Button: {
     ADD_ITEM: 'btnAddItem',
-    CLOSE_POPUP: 'btnClosePopup',
-    DELETE_ITEM: 'btnDeleteItem',
-    CREATE_ITEM: 'btnCreateItem',
+    CLOSE_POPUP: 'btnClose',
+    DELETE_ITEM: 'btnDelete',
+    CREATE_ITEM: 'btnCreate',
   },
   Template: {
     ITEM: 'templateInvoiceItem',
@@ -30,6 +30,7 @@ const Dom = {
   },
   Popup: {
     CONTAINER: 'popupContainer',
+    POPUP_INVOICE: 'popupInvoice',
   },
 };
 

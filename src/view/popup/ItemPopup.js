@@ -37,7 +37,8 @@ class ItemPopup {
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-    <div class="flex  relative flex-col w-screen h-72 bg-neutral-100 max-w-screen-lg">
+    <div class="flex  relative flex-col w-screen h-72 bg-neutral-100 max-w-screen-lg"
+         id="popupInvoice">
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
           <div><button data-id="btnDelete" 

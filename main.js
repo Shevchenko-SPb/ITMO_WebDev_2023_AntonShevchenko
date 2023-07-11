@@ -114,6 +114,7 @@ domItemColumn.onclick = (e) => {
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
+
   renderItemPopup(
     null,
     'Add',
