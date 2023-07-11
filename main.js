@@ -83,6 +83,33 @@ function btnDeleteAction () {
   const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
   domBtnDelete.disabled = true;
 }
+function btnConfirnAction () {
+
+  const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
+  const domBtnConfirn = QUERY(domPopupInvoice, Dom.Button.CREATE_ITEM)
+  const domInpTitle = QUERY(domPopupInvoice, Dom.Popup.POPUP_TITLE)
+  const domInpDescription = QUERY(domPopupInvoice, Dom.Popup.POPUP_DESCRIPTION)
+  const domInpQty = QUERY(domPopupInvoice, Dom.Popup.POPUP_QTY)
+  const domInpCost = QUERY(domPopupInvoice, Dom.Popup.POPUP_COST)
+  domBtnConfirn.disabled = true;
+
+  domInpTitle.onchange = () => {
+    btnConfirmActive ()
+  }
+  domInpDescription.onchange = () => {
+    btnConfirmActive ()
+  }
+  domInpQty.onchange = () => {
+    btnConfirmActive ()
+  }
+  domInpCost.onchange = () => {
+    btnConfirmActive ()
+  }
+  function btnConfirmActive () {
+    domBtnConfirn.disabled = false;
+  }
+
+}
 
 function calculationDiscount () {
   const discontSumm = subTotal.value / 100 * inpTotalDiscount.value;
@@ -97,6 +124,8 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
+
+  setTimeout(() => btnConfirnAction (), 10);
 
   renderItemPopup(
     invoiceItem,

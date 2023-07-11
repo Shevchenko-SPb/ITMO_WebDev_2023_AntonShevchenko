@@ -31,6 +31,10 @@ const Dom = {
   Popup: {
     CONTAINER: 'popupContainer',
     POPUP_INVOICE: 'popupInvoice',
+    POPUP_TITLE: 'inpTitle',
+    POPUP_DESCRIPTION: 'inpDescription',
+    POPUP_QTY: 'inpQty',
+    POPUP_COST: 'inpCost',
   },
 };
 
