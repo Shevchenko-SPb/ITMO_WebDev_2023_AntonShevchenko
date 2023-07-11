@@ -3,7 +3,7 @@ const Dom = {
     ADD_ITEM: 'btnAddItem',
     CLOSE_POPUP: 'btnClose',
     DELETE_ITEM: 'btnDelete',
-    CREATE_ITEM: 'btnCreate',
+    CREATE_ITEM: 'btnConfirm',
   },
   Template: {
     ITEM: 'templateInvoiceItem',

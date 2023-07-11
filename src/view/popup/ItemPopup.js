@@ -99,6 +99,7 @@ class ItemPopup {
                   ></span>
               </div>
               <button data-id=btnConfirm
+                      disabled
                       class="flex h-full w-24 bg-black/30 rounded-md items-center
                justify-center text-neutral-100 hover:bg-black/40">${this.#confirmText}</button>
             </div>
@@ -159,6 +160,10 @@ class ItemPopup {
     function renderTotalPopup () {
       domItemTotal.value = domInpQty.value * domInpCost.value;
       domItemTotal.innerHTML = domItemTotal.value;
+      console.log(domBtnConfirm)
+      if (domInpQty.value && domInpTitle.value && domInpCost.value  != '') {
+        domBtnConfirm.disabled = false;
+      }
     }
 
 

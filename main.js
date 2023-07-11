@@ -78,6 +78,12 @@ function calculationSubTotal (invoiceItem) {
   totalResult.innerHTML = subTotal.value;
 }
 
+function btnDeleteAction () {
+  const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
+  const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
+  domBtnDelete.disabled = true;
+}
+
 function calculationDiscount () {
   const discontSumm = subTotal.value / 100 * inpTotalDiscount.value;
   discountTotal.innerHTML = discontSumm;
@@ -113,6 +119,9 @@ domItemColumn.onclick = (e) => {
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
+
+  setTimeout(() => btnDeleteAction (), 10);
+
 
 
   renderItemPopup(
