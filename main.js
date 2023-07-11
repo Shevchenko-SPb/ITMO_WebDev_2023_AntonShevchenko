@@ -81,6 +81,7 @@ function calculationSubTotal (invoiceItem) {
 function btnDeleteAction () {
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
   const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
+  domBtnDelete.classList.remove('hover:text-black/90');
   domBtnDelete.disabled = true;
 }
 function btnConfirnAction () {
@@ -107,6 +108,10 @@ function btnConfirnAction () {
   }
   function btnConfirmActive () {
     domBtnConfirn.disabled = false;
+    domBtnConfirn.classList.remove('bg-black/30');
+    domBtnConfirn.classList.remove('hover:bg-black/40');
+    domBtnConfirn.classList.add('hover:bg-black/90');
+    domBtnConfirn.classList.add('bg-black/70');
   }
 
 }

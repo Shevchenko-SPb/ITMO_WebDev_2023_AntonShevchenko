@@ -42,11 +42,11 @@ class ItemPopup {
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
           <div><button data-id="btnDelete" 
-                  class="text-neutral-400  hover:text-neutral-500"
+                  class="text-neutral-400  hover:text-black/90"
                   value="1"
                   >Delete</button></div>
           <button data-id="btnClose" 
-                  class="text-neutral-400 hover:text-neutral-500">Close</button>
+                  class="text-neutral-400 hover:text-black/90">Close</button>
         </div>
         <div class="flex flex-col mx-7 h-full my-3">
           <div class="flex flex-row font-bold">
@@ -162,6 +162,8 @@ class ItemPopup {
       domItemTotal.innerHTML = domItemTotal.value;
       console.log(domBtnConfirm)
       if (domInpQty.value && domInpTitle.value && domInpCost.value  != '') {
+        domBtnConfirm.classList.remove('bg-black/30')
+        domBtnConfirm.classList.add('bg-black/70')
         domBtnConfirm.disabled = false;
       }
     }
