@@ -135,8 +135,6 @@ domItemColumn.onclick = (e) => {
   const invoiceItem = items.find((item) => item.id === itemId);
   console.log("Срабатывает функция")
 
-  setTimeout(() => btnDeleteAction(), 100);
-  setTimeout(() => btnConfirnAction (), 100);
 
   renderItemPopup(
     invoiceItem,
@@ -156,6 +154,8 @@ domItemColumn.onclick = (e) => {
     saveItem();
       location.reload();
   });
+  setTimeout(() => btnDeleteAction(), 300);
+  setTimeout(() => btnConfirnAction (), 300);
 
 
 };
