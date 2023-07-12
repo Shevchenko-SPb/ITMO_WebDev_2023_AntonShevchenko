@@ -1,6 +1,7 @@
 import Dom from "./src/constants/dom.js";
 
 const KEY_LOCAL_ITEMS = 'items'
+const NUMBER_INVOICE = 'number'
 
 class InvoiceItem {
   static fromJSON(json) {
@@ -37,7 +38,13 @@ domInputNumberInvoice.addEventListener ('keyup', function (event) {
     alert("Не больше 4-х цифр")
   this.value = this.value.substr(0, 4);
   console.log(String(this.value).length)
+  localStorage.setItem(NUMBER_INVOICE, JSON.stringify(this.value));
+
 })
+
+domInputNumberInvoice.value = localStorage.getItem(NUMBER_INVOICE).replace(/['"]+/g, '');
+
+
 
 domInputIBAN.addEventListener ('keyup', function (event) {
   console.log('Кнопка работает')
@@ -66,6 +73,9 @@ const rawItems = localStorage.getItem(KEY_LOCAL_ITEMS);
 const items = rawItems
   ? JSON.parse(rawItems).map((json) => InvoiceItem.fromJSON(json))
   : [];
+
+
+
 
 
 items.forEach((invoiceItem) => renderItem(invoiceItem));
