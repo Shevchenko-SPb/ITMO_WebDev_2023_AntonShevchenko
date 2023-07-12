@@ -41,9 +41,9 @@ domInputNumberInvoice.addEventListener ('keyup', function (event) {
   localStorage.setItem(NUMBER_INVOICE, JSON.stringify(this.value));
 
 })
-
-domInputNumberInvoice.value = localStorage.getItem(NUMBER_INVOICE).replace(/['"]+/g, '');
-
+if (localStorage.getItem(NUMBER_INVOICE)) {
+  domInputNumberInvoice.value = localStorage.getItem(NUMBER_INVOICE).replace(/['"]+/g, '');
+}
 
 
 domInputIBAN.addEventListener ('keyup', function (event) {
