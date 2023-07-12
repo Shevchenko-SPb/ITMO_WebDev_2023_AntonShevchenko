@@ -183,8 +183,8 @@ class ItemPopup {
       domBtnConfirm.onclick = null;
       domBtnDelete.onclick = null;
 
-      var isAdmin = confirm('Вы действительно хотите удалить?');
-      alert( isAdmin );
+      confirm('Вы действительно хотите удалить запись?');
+
 
       this.#deleteCallback();
     }
