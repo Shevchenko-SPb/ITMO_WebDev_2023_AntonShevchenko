@@ -78,14 +78,14 @@ function calculationSubTotal (invoiceItem) {
   totalResult.innerHTML = subTotal.value;
 }
 
-function btnDeleteAction () {
+async function btnDeleteAction () {
   console.log("Срабатывает функция батон делете")
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
   const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
   domBtnDelete.classList.add('hover:text-black/90');
   domBtnDelete.disabled = false;
 }
-function btnConfirnAction () {
+async function btnConfirnAction () {
 
 
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
@@ -138,7 +138,6 @@ domItemColumn.onclick = (e) => {
   setTimeout(() => btnDeleteAction(), 100);
   setTimeout(() => btnConfirnAction (), 100);
 
-
   renderItemPopup(
     invoiceItem,
     'Update',
@@ -151,11 +150,14 @@ domItemColumn.onclick = (e) => {
     invoiceItem.qty = itemQty;
     invoiceItem.total = itemTotal;
 
+
     const domItem = renderItem(invoiceItem)
     e.target.parentNode.replaceChild(domItem, e.target)
     saveItem();
       location.reload();
   });
+
+
 };
 
 
