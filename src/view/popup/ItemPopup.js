@@ -101,7 +101,7 @@ class ItemPopup {
               <button data-id=btnConfirm
                       disabled
                       class="flex h-full w-24 bg-black/30 rounded-md items-center
-               justify-center text-neutral-100 hover:bg-black/40">${this.#confirmText}</button>
+               justify-center text-neutral-100">${this.#confirmText}</button>
             </div>
           </div>
           <div class="flex flex-col h-full gap-y-3 mt-3">
@@ -163,7 +163,6 @@ class ItemPopup {
       console.log(domBtnConfirm)
       if (domInpQty.value && domInpTitle.value && domInpCost.value  != '') {
         domBtnConfirm.classList.remove('bg-black/30')
-        domBtnConfirm.classList.remove('hover:bg-black/40')
         domBtnConfirm.classList.add('bg-black/70')
         domBtnConfirm.classList.add('hover:bg-black/90')
         domBtnConfirm.disabled = false;

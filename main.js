@@ -96,7 +96,6 @@ function btnConfirnAction () {
   domBtnConfirn.classList.remove('hover:bg-black/90')
   domBtnConfirn.classList.remove('bg-black/70')
   domBtnConfirn.classList.add('bg-black/30')
-  domBtnConfirn.classList.add('hover:bg-black/40')
   domBtnConfirn.disabled = true;
 
   domInpTitle.onchange = () => {
