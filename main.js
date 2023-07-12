@@ -81,8 +81,8 @@ function calculationSubTotal (invoiceItem) {
 function btnDeleteAction () {
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
   const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
-  domBtnDelete.classList.remove('hover:text-black/90');
-  domBtnDelete.disabled = true;
+  domBtnDelete.classList.add('hover:text-black/90');
+  domBtnDelete.disabled = false;
 }
 function btnConfirnAction () {
 
@@ -134,7 +134,8 @@ domItemColumn.onclick = (e) => {
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
 
-  setTimeout(() => btnConfirnAction (), 50);
+  setTimeout(() => btnConfirnAction (), 15);
+  setTimeout(() => btnDeleteAction(), 15);
 
 
   renderItemPopup(
@@ -158,11 +159,7 @@ domItemColumn.onclick = (e) => {
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
-
-  setTimeout(() => btnDeleteAction (), 50);
-
-
-
+  
   renderItemPopup(
     null,
     'Add',

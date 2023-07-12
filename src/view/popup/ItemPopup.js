@@ -42,7 +42,8 @@ class ItemPopup {
       <div class="flex mt-3 flex-col h-full">
         <div class="flex flex-row mx-7 justify-between h-12">
           <div><button data-id="btnDelete" 
-                  class="text-neutral-400  hover:text-black/90"
+                  disabled
+                  class="text-neutral-400"
                   value="1"
                   >Delete</button></div>
           <button data-id="btnClose" 
