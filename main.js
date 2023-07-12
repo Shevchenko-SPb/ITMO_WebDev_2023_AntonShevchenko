@@ -134,7 +134,7 @@ domItemColumn.onclick = (e) => {
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
 
-  setTimeout(() => btnConfirnAction (), 15);
+  setTimeout(() => btnConfirnAction (), 50);
 
 
   renderItemPopup(
@@ -159,7 +159,7 @@ domItemColumn.onclick = (e) => {
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
 
-  setTimeout(() => btnDeleteAction (), 15);
+  setTimeout(() => btnDeleteAction (), 50);
 
 
 
