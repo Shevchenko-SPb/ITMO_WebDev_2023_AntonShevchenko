@@ -113,7 +113,6 @@ function btnConfirnAction () {
   function btnConfirmActive () {
     domBtnConfirn.disabled = false;
     domBtnConfirn.classList.remove('bg-black/30');
-    domBtnConfirn.classList.remove('hover:bg-black/40');
     domBtnConfirn.classList.add('hover:bg-black/90');
     domBtnConfirn.classList.add('bg-black/70');
   }
@@ -134,8 +133,8 @@ domItemColumn.onclick = (e) => {
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
 
-  setTimeout(() => btnConfirnAction (), 15);
-  setTimeout(() => btnDeleteAction(), 15);
+  setTimeout(() => btnDeleteAction(), 100);
+  setTimeout(() => btnConfirnAction (), 100);
 
 
   renderItemPopup(
@@ -159,7 +158,7 @@ domItemColumn.onclick = (e) => {
 
 
 getDOM(Dom.Button.ADD_ITEM).onclick = () => {
-  
+
   renderItemPopup(
     null,
     'Add',
