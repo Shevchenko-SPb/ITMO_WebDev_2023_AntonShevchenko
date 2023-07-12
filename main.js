@@ -79,6 +79,7 @@ function calculationSubTotal (invoiceItem) {
 }
 
 function btnDeleteAction () {
+  console.log("Срабатывает функция батон делете")
   const domPopupInvoice = getDOM(Dom.Popup.POPUP_INVOICE)
   const domBtnDelete = QUERY(domPopupInvoice,Dom.Button.DELETE_ITEM)
   domBtnDelete.classList.add('hover:text-black/90');
@@ -132,6 +133,7 @@ domItemColumn.onclick = (e) => {
   const itemId = e.target.dataset.id;
   if (!itemId) return;
   const invoiceItem = items.find((item) => item.id === itemId);
+  console.log("Срабатывает функция")
 
   setTimeout(() => btnDeleteAction(), 100);
   setTimeout(() => btnConfirnAction (), 100);
